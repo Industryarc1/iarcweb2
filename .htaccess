@@ -1,0 +1,29 @@
+<IfModule mod_rewrite.c>
+  Options -Indexes
+  RewriteEngine On
+  #RewriteCond %{HTTPS} !=on
+  #RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+  #RewriteCond %{HTTP_HOST} !^www\. [NC]
+  #RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+  
+  #RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP_HOST} ^industryarc\.com [NC]
+  RewriteRule (.*) https://www.industryarc.com/$1 [L,R=301,NC]
+  
+  RewriteCond %{REQUEST_URI} !^public
+  RewriteRule ^adminpanel(/(.*))?$ adminpanel/$2 [L]
+  RewriteRule ^mpdf(/(.*))?$ mpdf/$2 [L]
+  RewriteRule ^mpdfnew(/(.*))?$ mpdfnew/$2 [L]
+  RewriteRule ^api(/(.*))?$ api/$2 [L]
+  RewriteRule ^(.*)$ frontend/web/$1 [L]
+  
+</IfModule>
+
+# Deny accessing below extensions
+<Files ~ "(.json|.lock|.git)">
+Order allow,deny
+Deny from all
+</Files>
+
+# Deny accessing dot files
+RewriteRule (^\.|/\.) - [F]
