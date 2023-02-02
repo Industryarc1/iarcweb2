@@ -159,13 +159,13 @@ class HomeController extends IarcfbaseController {
 								  </table><br><br>Thanks,<br>IndustryARC";
                     $emailSub = "Subscription Entry";
                     /* mail to Subscriber */
-                    Yii::$app->mailer->compose(['html' => '@common/mail/layouts/html'], ['content' => $subscriberMsg])
-                            ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
+                    Yii::$app->mailer2->compose(['html' => '@common/mail/layouts/html'], ['content' => $subscriberMsg])
+                            ->setFrom([\Yii::$app->params['newsletterEmail'] => 'IndustryARC'])
                             ->setTo($email)
                             ->setSubject($subscriberSub)->send();
                     /* mail to Internal sales team */
-                    Yii::$app->mailer->compose(['html' => '@common/mail/layouts/html'], ['content' => $emailMsg])
-                            ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
+                    Yii::$app->mailer2->compose(['html' => '@common/mail/layouts/html'], ['content' => $emailMsg])
+                            ->setFrom([\Yii::$app->params['newsletterEmail'] => 'IndustryARC'])
                             ->setTo(\Yii::$app->params['communicationEmail'])
                             ->setBcc(\Yii::$app->params['testEmail'])
                             ->setSubject($emailSub)->send();

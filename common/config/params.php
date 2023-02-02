@@ -8,4 +8,5 @@ return [
 	'salesEmail'=>'sales@industryarc.com',
 	'testEmail'=>'sf@industryarc.com',
 	'communicationEmail'=>'communication-received@industryarc.com',
+	'newsletterEmail' => 'salesiarc123@gmail.com'
 ];
