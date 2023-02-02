@@ -9,7 +9,7 @@ $this->title="IndustryARC™ - Market Research Reports, Business Consulting Serv
 <meta name="description" content="IndustryARC™ a market research firm provides analytics, research and consulting (ARC) services across 10 industry verticals at a global level"/>
 <meta name="keywords" content="Market Research, market research reports, business research, custom market research, strategic analytics, business analytics, snapshot research, business consulting"/>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-<meta name="Robots" content="index, follow" />
+<meta name="robots" content="noindex">
 <meta name="author" content="IndustryARC, https://www.industryarc.com/" />
 <meta name="copyright" content="IndustryARC, https://www.industryarc.com/, All right reserved." />
 <meta name="classification" content="Custom Market Research" />
@@ -19,7 +19,7 @@ $this->title="IndustryARC™ - Market Research Reports, Business Consulting Serv
 <meta name="document-type" content="Public" />
 <meta name="Page-Topic" content=" Market Research" />
 <meta name="Audience" content="All, Business, Research" />
-<meta name="google-site-verification" content="GbvFU7FWbnDV3zAh5nLxH6u0tuf8ua68xkTLjPq4x_I" />
+
 <style>
 .header-main {
     position: absolute;
