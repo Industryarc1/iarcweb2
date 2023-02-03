@@ -363,9 +363,10 @@ function windowprint(reportrd){
          <div class="container">
 
 <?php
-echo "<pre>";
+/*echo "<pre>";
 print_r($relatedReport);
 echo "</pre>";
+*/
 ?>
 
             <header class="reports-header">
@@ -379,69 +380,14 @@ echo "</pre>";
                   <div class="box">
                      <p class="description"><?= $rr["title"]?></p>
                      <div>
-                        <p class="align">May 2020</p>
-                        <a href="/<?= $rr['curl']?>" target="_blank" class="btn btn-primary btn-sm btn-style">View</a>
+                        <p class="align"><?= $relatedReport["pub_date_new"]?></p>
+                        <a href="/<?= $rr['curl']?>" target="_blank" class="btn btn-primary btn-sm btn-style">View Report</a>
                      </div>
                   </div>
                </div>
                <?php
                }
                ?>                 
-
-               <div class="col-md-6 col-lg-6">
-                  <div class="box">
-                     <p class="description">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
-                     <div>
-                        <p class="align">May 2020</p>
-                        <button type="button" class="btn btn-primary btn-sm btn-style">Get Sample</button>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-6 col-lg-6">
-                  <div class="box">
-                     <p class="description">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
-                     <div>
-                        <p class="align">May 2020</p>
-                        <button type="button" class="btn btn-primary btn-sm btn-style">Get Sample</button>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-6 col-lg-6">
-                  <div class="box">
-                     <p class="description">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
-                     <div>
-                        <p class="align">May 2020</p>
-                        <button type="button" class="btn btn-primary btn-sm btn-style">Get Sample</button>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-6 col-lg-6">
-                  <div class="box">
-                     <p class="description">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
-                     <div>
-                        <p class="align">May 2020</p>
-                        <button type="button" class="btn btn-primary btn-sm btn-style">Get Sample</button>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-6 col-lg-6">
-                  <div class="box">
-                     <p class="description">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
-                     <div>
-                        <p class="align">May 2020</p>
-                        <button type="button" class="btn btn-primary btn-sm btn-style">Get Sample</button>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-6 col-lg-6">
-                  <div class="box">
-                     <p class="description">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
-                     <div>
-                        <p class="align">May 2020</p>
-                        <button type="button" class="btn btn-primary btn-sm btn-style">Get Sample</button>
-                     </div>
-                  </div>
-               </div>
             </div>
          </div>
       </section>
