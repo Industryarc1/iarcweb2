@@ -380,7 +380,7 @@ echo "</pre>";
                   <div class="box">
                      <p class="description"><?= $rr["title"]?></p>
                      <div>
-                        <p class="align"><?= $relatedReport["pub_date_new"]?></p>
+                        <p class="align"><?= $rr["pub_date_new"]?></p>
                         <a href="/<?= $rr['curl']?>" target="_blank" class="btn btn-primary btn-sm btn-style">View Report</a>
                      </div>
                   </div>
