@@ -188,7 +188,7 @@ function windowprint(reportrd){
                           </ul>
 						  <?php if($utmParam!=''){ ?>
 							<!--<a href="<?= Url::to(['purchase/buy-report','id'=>$reportDet['dup_inc_id'].$utmParam])?>"><button>Buy Now</button></a>-->
-							<a href="https://www.industryarc.com/purchasereport.php?id=<?php echo $reportDet['dup_inc_id'].$utmParam; ?>"><button>Buy Now</button></a>
+							<a href="/purchasereport.php?id=<?php echo $reportDet['dup_inc_id'].$utmParam; ?>"><button>Buy Now</button></a>
 						  <?php }else{ ?>
 							<a href="<?= Url::to(['purchase/buy-report','id'=>$reportDet['dup_inc_id']])?>"><button>Buy Now</button></a>
 						  <?php } ?>
@@ -228,11 +228,11 @@ function windowprint(reportrd){
             <ul>
               <!--<li><a href="<?= Url::to(['reports/request-quote','id'=>$reportDet['dup_inc_id']]);?>" target="_blank" class="quote">Inquiry Before Buying</a></li>-->
 			  <?php if($utmParam!=''){ ?>
-			  <li><a href="https://www.industryarc.com/reports/request-quote?id=<?= $reportDet['dup_inc_id'].$utmParam; ?>" target="_blank" class="quote">Inquiry Before Buying</a></li>
-			  <li><a href="https://www.industryarc.com/pdfdownload.php?id=<?= $reportDet['dup_inc_id'].$utmParam;?>" target="_blank" class="data">Request Sample </a></li>
+			  <li><a href="/reports/request-quote?id=<?= $reportDet['dup_inc_id'].$utmParam; ?>" target="_blank" class="quote">Inquiry Before Buying</a></li>
+			  <li><a href="/pdfdownload.php?id=<?= $reportDet['dup_inc_id'].$utmParam;?>" target="_blank" class="data">Request Sample </a></li>
 			  <?php }else{ ?>
-			  <li><a href="https://www.industryarc.com/reports/request-quote?id=<?= $reportDet['dup_inc_id']; ?>" target="_blank" class="quote">Inquiry Before Buying</a></li>
-			  <li><a href="https://www.industryarc.com/pdfdownload.php?id=<?= $reportDet['dup_inc_id'];?>" target="_blank" class="data">Request Sample </a></li>
+			  <li><a href="/reports/request-quote?id=<?= $reportDet['dup_inc_id']; ?>" target="_blank" class="quote">Inquiry Before Buying</a></li>
+			  <li><a href="/pdfdownload.php?id=<?= $reportDet['dup_inc_id'];?>" target="_blank" class="data">Request Sample </a></li>
 			  <?php } ?>
               <!--<li><a href="<?= Url::to(['reports/sample-request','id'=>$reportDet['dup_inc_id']]);?>" target="_blank" class="data">Request Sample </a></li>-->
               <li><a href="https://connect.industryarc.com/lite/schedule-a-call-with-our-sales-expert" target="_blank" class="call">Schedule a Call</a>
