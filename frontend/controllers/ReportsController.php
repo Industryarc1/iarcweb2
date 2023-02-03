@@ -126,6 +126,7 @@ class ReportsController extends IarcfbaseController {
                 $arrRelated = ZspPosts::find()
                                 ->where(['IN', 'code', explode(',', $reportDetail['related'])])
                                 ->andWhere(['status' => 1])
+								->limit(2)
                                 //->createCommand()->rawSql;echo $arrRelated;exit;
                                 ->asArray()->All();
                 foreach ($arrRelated as $related) {
