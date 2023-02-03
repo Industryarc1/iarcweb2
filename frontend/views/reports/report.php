@@ -353,11 +353,78 @@ function windowprint(reportrd){
                     </div>
                 </section>-->
 
-                <section id="report3" data-anchor="report3">
+                <!--<section id="report3" data-anchor="report3">
                     <div  class="report-data-tf" >
 <h3>Related Reports</h3>
 </div>
-</section>
+</section>-->
+
+<section class="reports reports-bg" id="reports">
+         <div class="container">
+            <header class="reports-header">
+               <h3>Related Reports</h3>
+            </header>
+            <div class="row">
+               <div class="col-md-6 col-lg-6">
+                  <div class="box">
+                     <p class="description">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+                     <div>
+                        <p class="align">May 2020</p>
+                        <button type="button" class="btn btn-primary btn-sm btn-style">Get Sample</button>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 col-lg-6">
+                  <div class="box">
+                     <p class="description">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+                     <div>
+                        <p class="align">May 2020</p>
+                        <button type="button" class="btn btn-primary btn-sm btn-style">Get Sample</button>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 col-lg-6">
+                  <div class="box">
+                     <p class="description">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+                     <div>
+                        <p class="align">May 2020</p>
+                        <button type="button" class="btn btn-primary btn-sm btn-style">Get Sample</button>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 col-lg-6">
+                  <div class="box">
+                     <p class="description">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+                     <div>
+                        <p class="align">May 2020</p>
+                        <button type="button" class="btn btn-primary btn-sm btn-style">Get Sample</button>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 col-lg-6">
+                  <div class="box">
+                     <p class="description">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+                     <div>
+                        <p class="align">May 2020</p>
+                        <button type="button" class="btn btn-primary btn-sm btn-style">Get Sample</button>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 col-lg-6">
+                  <div class="box">
+                     <p class="description">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+                     <div>
+                        <p class="align">May 2020</p>
+                        <button type="button" class="btn btn-primary btn-sm btn-style">Get Sample</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+
+
 				
 				
             </div>
