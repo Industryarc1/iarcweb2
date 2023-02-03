@@ -361,6 +361,13 @@ function windowprint(reportrd){
 
 <section class="reports reports-bg" id="reports">
          <div class="container">
+
+<?php
+echo "<pre>";
+print_r($relatedReport);
+echo "</pre>";
+?>
+
             <header class="reports-header">
                <h3>Related Reports</h3>
             </header>
