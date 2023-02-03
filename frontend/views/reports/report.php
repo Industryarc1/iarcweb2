@@ -372,6 +372,22 @@ echo "</pre>";
                <h3>Related Reports</h3>
             </header>
             <div class="row">
+               <?php
+               foreach ($relatedReport as $key => $rr) {
+               ?>
+                <div class="col-md-6 col-lg-6">
+                  <div class="box">
+                     <p class="description"><?= $rr["title"]?></p>
+                     <div>
+                        <p class="align">May 2020</p>
+                        <a href="/<?= $rr['curl']?>" target="_blank" class="btn btn-primary btn-sm btn-style">View</a>
+                     </div>
+                  </div>
+               </div>
+               <?php
+               }
+               ?>                 
+
                <div class="col-md-6 col-lg-6">
                   <div class="box">
                      <p class="description">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>

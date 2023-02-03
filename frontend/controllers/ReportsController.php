@@ -126,7 +126,7 @@ class ReportsController extends IarcfbaseController {
                 $arrRelated = ZspPosts::find()
                                 ->where(['IN', 'code', explode(',', $reportDetail['related'])])
                                 ->andWhere(['status' => 1])
-								->limit(2)
+								->limit(6)
                                 //->createCommand()->rawSql;echo $arrRelated;exit;
                                 ->asArray()->All();
                 foreach ($arrRelated as $related) {
@@ -173,6 +173,7 @@ class ReportsController extends IarcfbaseController {
                 $arrRelated = ZspPosts::find()
                                 ->where(['IN', 'code', explode(',', $reportDetail['related'])])
                                 ->andWhere(['status' => 1])
+								->limit(6)
                                 // ->createCommand()->rawSql;echo $arrRelated;exit;
                                 ->asArray()->All();
                 foreach ($arrRelated as $related) {
