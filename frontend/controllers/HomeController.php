@@ -167,7 +167,7 @@ class HomeController extends IarcfbaseController {
                     Yii::$app->mailer2->compose(['html' => '@common/mail/layouts/html'], ['content' => $emailMsg])
                             ->setFrom([\Yii::$app->params['newsletterEmail'] => 'IndustryARC'])
                             ->setTo(\Yii::$app->params['communicationEmail'])
-                            ->setBcc(\Yii::$app->params['testEmail'])
+                            //->setBcc(\Yii::$app->params['testEmail'])
                             ->setSubject($emailSub)->send();
                     /* Email Template preparation for internal sales team and subscriber End */
                     return 'Thank you for subscription';
