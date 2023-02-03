@@ -138,7 +138,7 @@ class ReportsController extends IarcfbaseController {
                         'curl' => ($related['dup_inc_id'] < 500000) ? 'Report/' . $related['dup_inc_id'] . '/' . $related['curl'] : 'Research/' . $related['curl'] . '-' . $related['dup_inc_id'],
                         'meta_title' => $related['meta_title'],
                         'dup_inc_id' => $related['dup_inc_id'],
-						'pub_date_new' => date("F Y", strtotime($originalDate));
+						'pub_date_new' => date("F Y", strtotime($pub_date)),
                     ];
                 }
             }
