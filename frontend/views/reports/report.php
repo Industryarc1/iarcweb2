@@ -352,6 +352,12 @@ function windowprint(reportrd){
                             <?php //} ?>
                     </div>
                 </section>-->
+
+                <section id="report3" data-anchor="report3">
+                    <div  class="report-data-tf" >
+<h3>Related Reports</h3>
+</div>
+</section>
 				
 				
             </div>
