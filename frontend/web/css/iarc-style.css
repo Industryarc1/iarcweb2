@@ -806,11 +806,12 @@ border-radius:10px 0 0 10px;
 }
 
 .reports-bg {
-  background: #f5f8fd;
+    margin-top: 20px;
+    background: #f5f8fd;
 }
 
 .reports-header h3 {
-  font-size: 36px;
+  font-size: 26px;
   color: #413e66;
   text-align: center;
   font-weight: 700;

@@ -359,39 +359,46 @@ function windowprint(reportrd){
 </div>
 </section>-->
 
-<section class="reports reports-bg" id="reports">
-         <div class="container">
 
 <?php
 /*echo "<pre>";
 print_r($relatedReport);
 echo "</pre>";
 */
+if(count($relatedReport) > 0){
 ?>
-
+<section class="reports reports-bg" id="reports">
+         <div class="container">
             <header class="reports-header">
                <h3>Related Reports</h3>
             </header>
             <div class="row">
                <?php
+               $vrr = count($relatedReport);
+               $vrr = $vrr%2!=0 && $vrr!=1 ? $vrr-1 : $vrr;
+
                foreach ($relatedReport as $key => $rr) {
+                if($vrr>$key){
                ?>
                 <div class="col-md-6 col-lg-6">
                   <div class="box">
                      <p class="description"><?= $rr["title"]?></p>
                      <div>
                         <p class="align"><?= $rr["pub_date_new"]?></p>
-                        <a href="/<?= $rr['curl']?>" target="_blank" class="btn btn-primary btn-sm btn-style">View Report</a>
+                        <a href="/" target="_blank" class="btn btn-primary btn-sm btn-style">Get Sample</a>
                      </div>
                   </div>
                </div>
                <?php
+                }
                }
                ?>                 
             </div>
          </div>
       </section>
-
+<?php
+}
+?>
 
 
 				
