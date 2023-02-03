@@ -385,7 +385,7 @@ if(count($relatedReport) > 0){
                      <p class="description"><?= $rr["title"]?></p>
                      <div>
                         <p class="align"><?= $rr["pub_date_new"]?></p>
-                        <a href="/pdfdownload.php?id=<?= $reportDet['dup_inc_id'];?>" target="_blank" class="btn btn-primary btn-sm btn-style">Get Sample</a>
+                        <a href="/pdfdownload.php?id=<?= $rr['dup_inc_id'];?>" target="_blank" class="btn btn-primary btn-sm btn-style">Get Sample</a>
                      </div>
                   </div>
                </div>
