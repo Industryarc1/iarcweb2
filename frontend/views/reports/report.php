@@ -34,6 +34,102 @@ $utmParam = !empty($utmsrc)?'&utm_source='.$utmsrc.'&utm_medium='.$utmmed.'&utm_
     bottom: 27%;
 
 }
+
+.reports-bg {
+    margin-top: 20px;
+    background: #f5f8fd;
+}
+
+.reports-header h3 {
+  font-size: 26px;
+  color: #413e66;
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 30px;
+}
+
+.reports-header p {
+  text-align: center;
+  margin: auto;
+  font-size: 15px;
+  padding-bottom: 60px;
+  color: #535074;
+  width: 50%;
+}
+
+@media (max-width: 767px) {
+  .reports-header p {
+    width: 100%;
+  }
+}
+
+#reports {
+  padding: 40px 0 40px 0;
+}
+
+#reports .box {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 0 10px 20px 10px;
+  background: #fff;
+  box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  display: flex;
+}
+ 
+#reports .icon {
+  margin: 0 auto 15px auto;
+  padding-top: 12px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+#reports .icon .service-icon {
+  font-size: 36px;
+  line-height: 1;
+}
+
+#reports .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+#reports .title a {
+  color: #111;
+}
+
+#reports .box:hover .title a {
+  color: #c59c35;
+}
+#reports .box:hover .title a:hover {
+  text-decoration: none;
+}
+#reports .description {
+  font-size: 14px;
+    width: 70%;
+    border-right: 1px solid #ccc;
+    margin-right: 20px;
+    text-align: left;
+   
+}
+.align{
+   margin-bottom: 0.5rem !important;
+}
+
+.btn-style {
+    color: #fff;
+    background-color: #337ab7 !important;
+    border-color: #337ab7 !important;
+}
 </style>
 
 <?php
@@ -369,12 +465,6 @@ if(count($relatedReport) > 0){
 ?>
 <section class="reports reports-bg" id="reports">
          <div class="container">
-
-<?php
-echo "<pre>";
-print_r($relatedReport);
-echo "</pre>";
-?>
 
             <header class="reports-header">
                <h3>Related Reports</h3>
