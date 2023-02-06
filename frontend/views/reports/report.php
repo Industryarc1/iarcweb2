@@ -480,7 +480,7 @@ if(count($relatedReport) > 0){
                ?>
                 <div class="col-md-6 col-lg-6">
                   <div class="box">
-                     <p class="description"><?= $rr["title"]?></p>
+                     <p class="description"><a href="<?= $rr['curl']?>" target="_blank"><?= $rr["title"]?></a></p>
                      <div>
                         <p class="align"><?= $rr["pub_date_new"]?></p>
                         <a href="/pdfdownload.php?id=<?= $rr['dup_inc_id'];?>" target="_blank" class="btn btn-primary btn-sm btn-style">Get Sample</a>
