@@ -117,7 +117,8 @@ $utmParam = !empty($utmsrc)?'&utm_source='.$utmsrc.'&utm_medium='.$utmmed.'&utm_
   font-size: 14px;
     width: 70%;
     border-right: 1px solid #ccc;
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
     text-align: left;
    
 }
