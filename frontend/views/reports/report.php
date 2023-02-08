@@ -65,11 +65,11 @@ $utmParam = !empty($utmsrc)?'&utm_source='.$utmsrc.'&utm_medium='.$utmmed.'&utm_
   }
 }
 
-#reports {
+#related-reports {
   padding: 40px 0 40px 0;
 }
 
-#reports .box {
+#related-reports .box {
   padding: 30px;
   position: relative;
   overflow: hidden;
@@ -82,7 +82,7 @@ $utmParam = !empty($utmsrc)?'&utm_source='.$utmsrc.'&utm_medium='.$utmmed.'&utm_
   display: flex;
 }
  
-#reports .icon {
+#related-reports .icon {
   margin: 0 auto 15px auto;
   padding-top: 12px;
   display: inline-block;
@@ -92,28 +92,28 @@ $utmParam = !empty($utmsrc)?'&utm_source='.$utmsrc.'&utm_medium='.$utmmed.'&utm_
   height: 60px;
 }
 
-#reports .icon .service-icon {
+#related-reports .icon .service-icon {
   font-size: 36px;
   line-height: 1;
 }
 
-#reports .title {
+#related-reports .title {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
 }
 
-#reports .title a {
+#related-reports .title a {
   color: #111;
 }
 
-#reports .box:hover .title a {
+#related-reports .box:hover .title a {
   color: #c59c35;
 }
-#reports .box:hover .title a:hover {
+#related-reports .box:hover .title a:hover {
   text-decoration: none;
 }
-#reports .description {
+#related-reports .description {
   font-size: 14px;
     width: 70%;
     border-right: 1px solid #ccc;
@@ -464,7 +464,7 @@ echo "</pre>";
 */
 if(count($relatedReport) > 0){
 ?>
-<section class="reports reports-bg" id="reports">
+<section class="reports reports-bg" id="related-reports">
          <div class="container">
             <header class="reports-header">
                <h3>Related Reports</h3>
