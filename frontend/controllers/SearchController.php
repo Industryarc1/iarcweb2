@@ -54,7 +54,7 @@ class SearchController extends IarcfbaseController
 				(SELECT `title`, `short_descr`, `curl`, `meta_title`, `dup_inc_id` FROM `zsp_posts` WHERE status=1 AND MATCH(`title`) AGAINST (".$keyTitle2." IN NATURAL LANGUAGE MODE)) LIMIT 10";*/
 
 
-	$sql = "(SELECT `title`, `short_descr`, `description`, `curl`, `meta_title`, `dup_inc_id` FROM `zsp_posts` WHERE STATUS =1 AND (FROM_BASE64(`description`) LIKE '%$reportTitle%' OR title LIKE '$reportTitle')) UNION (SELECT `title`, `short_descr`, `description`, `curl`, `meta_title`, `dup_inc_id` FROM `zsp_posts` WHERE STATUS=1 AND MATCH(`title`) AGAINST ($keyTitle2 IN NATURAL LANGUAGE MODE)) LIMIT 10";			
+	$sql = "(SELECT `title`, `short_descr`, `description`, `curl`, `meta_title`, `dup_inc_id` FROM `zsp_posts` WHERE STATUS =1 AND (FROM_BASE64(`description`) LIKE '%$reportTitle%' OR title LIKE '$reportTitle%')) UNION (SELECT `title`, `short_descr`, `description`, `curl`, `meta_title`, `dup_inc_id` FROM `zsp_posts` WHERE STATUS=1 AND MATCH(`title`) AGAINST (".$keyTitle2." IN NATURAL LANGUAGE MODE)) LIMIT 10";			
 
 		/*$sql = "(SELECT title, short_descr, description, curl, meta_title, dup_inc_id FROM zsp_posts WHERE STATUS =1 AND (FROM_BASE64('description') LIKE '%".$keyTitle2."%' OR title LIKE '".$keyTitle1."'))UNION (SELECT title, short_descr, description, curl, meta_title, dup_inc_id FROM zsp_posts WHERE STATUS=1 AND MATCH('title') AGAINST (".$keyTitle2." IN NATURAL LANGUAGE MODE)) LIMIT 10";*/		
 
