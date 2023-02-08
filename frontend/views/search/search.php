@@ -39,7 +39,7 @@ $this->title = 'IndustryARC™ - Search Results';
   <div class="press-release-list">
   <ul class="nav nav-tabs" id="filters" role="tablist">
     <li class="nav-item">
-    <a class="nav-link active" id="all" data-toggle="tab" href="#all_content" role="tab" aria-controls="all" aria-selected="true">All</a>
+    <a class="nav-link " id="all" data-toggle="tab" href="#all_content" role="tab" aria-controls="all" aria-selected="true">All</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" id="reports" data-toggle="tab" href="#reports_content" role="tab" aria-controls="reports" aria-selected="false">Reports</a>
@@ -48,14 +48,14 @@ $this->title = 'IndustryARC™ - Search Results';
     <a class="nav-link" id="press-releases" data-toggle="tab" href="#pr_content" role="tab" aria-controls="press-releases" aria-selected="false">Press Releases</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="articles" data-toggle="tab" href="#articles_content" role="tab" aria-controls="articles" aria-selected="false">Articles </a>
+    <a class="nav-link active" id="articles" data-toggle="tab" href="#articles_content" role="tab" aria-controls="articles" aria-selected="false">Articles </a>
   </li>
   <li class="nav-item">
     <a class="nav-link" id="whitepapers" data-toggle="tab" href="#wp_content" role="tab" aria-controls="whitepapers" aria-selected="false">White Papers</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="all_content" role="tabpanel" aria-labelledby="all">
+  <div class="tab-pane fade " id="all_content" role="tabpanel" aria-labelledby="all">
   <ul class="row">
         <li>
         <?php if(!empty($data)){
@@ -109,7 +109,7 @@ $this->title = 'IndustryARC™ - Search Results';
                </li>
            </ul>
      </div>
-     <div class="tab-pane fade" id="articles_content" role="tabpanel" aria-labelledby="year-2017">
+     <div class="tab-pane fade show active" id="articles_content" role="tabpanel" aria-labelledby="year-2017">
            <ul class="row">
                   <li>
                    <?php if(!empty($articledata)){
