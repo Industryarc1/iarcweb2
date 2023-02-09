@@ -45,13 +45,13 @@ $this->title = 'IndustryARC™ - Search Results';
     <a class="nav-link <?= $searchTag=='reports' ? 'active' : ''?>" id="reports" data-toggle="tab" href="/search/search?searchKey=<?= $searchKey?>&tag=reports" role="tab" aria-controls="reports" aria-selected="false">Reports</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link <?= $searchTag=='pr' ? 'active' : ''?>" id="press-releases" data-toggle="tab" href="#pr_content" role="tab" aria-controls="press-releases" aria-selected="false">Press Releases</a>
+    <a class="nav-link <?= $searchTag=='pr' ? 'active' : ''?>" id="press-releases" data-toggle="tab" href="/search/search?searchKey=<?= $searchKey?>&tag=pr" role="tab" aria-controls="press-releases" aria-selected="false">Press Releases</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link <?= $searchTag=='news' ? 'active' : ''?>" id="articles" data-toggle="tab" href="#articles_content" role="tab" aria-controls="articles" aria-selected="false">Articles </a>
+    <a class="nav-link <?= $searchTag=='news' ? 'active' : ''?>" id="articles" data-toggle="tab" href="/search/search?searchKey=<?= $searchKey?>&tag=news" role="tab" aria-controls="articles" aria-selected="false">Articles </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link <?= $searchTag=='wp' ? 'active' : ''?>" id="whitepapers" data-toggle="tab" href="#wp_content" role="tab" aria-controls="whitepapers" aria-selected="false">White Papers</a>
+    <a class="nav-link <?= $searchTag=='wp' ? 'active' : ''?>" id="whitepapers" data-toggle="tab" href="/search/search?searchKey=<?= $searchKey?>&tag=wp" role="tab" aria-controls="whitepapers" aria-selected="false">White Papers</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
