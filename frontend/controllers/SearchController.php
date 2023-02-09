@@ -158,7 +158,8 @@ class SearchController extends IarcfbaseController
 	public function actionSearchPressRelease($title){
 		$keyTitle1= \Yii::$app->db->quoteValue($title.'%');
 		$keyTitle2= \Yii::$app->db->quoteValue($title);
-		$sql = "(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_prs` WHERE `title` LIKE ".$keyTitle1.") 
+		$newtitle = strtoupper($title);
+		$sql = "(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_prs` WHERE  (FROM_BASE64(`descr`) LIKE '%$title%' OR FROM_BASE64(`descr`) LIKE '%$newtitle%' OR `title` LIKE ".$keyTitle1.")) 
 				UNION 
 				(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_prs` WHERE MATCH(`title`) AGAINST (".$keyTitle2." IN NATURAL LANGUAGE MODE)) LIMIT 10";
 		$arrPrs = Yii::$app->db->createCommand($sql)->queryAll();
