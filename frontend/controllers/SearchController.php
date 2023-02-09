@@ -13,10 +13,16 @@ class SearchController extends IarcfbaseController
   public function actionSearch() {
 		$arrGet1 = Yii::$app->request->get();
 		$arrGet['searchKey'] = filter_var($arrGet1['searchKey'], FILTER_SANITIZE_STRING);
-		echo '<pre>';print_r($arrGet1);exit;
+		if(isset($arrGet1['tag'])){
+		$arrGet['tag'] = filter_var($arrGet1['tag'], FILTER_SANITIZE_STRING);	
+		}else{
+		$arrGet['tag']	= "All";
+		}
+		echo '<pre>';print_r($arrGet);exit;
     if(empty($arrGet['searchKey']) || !isset($arrGet['searchKey'])){
      return $this->goHome();
     }
+  $searchTag = $arrGet['tag'];		
   $searchKey = $_SESSION['searchKey'] =$arrGet['searchKey'];
 		$searchIn = !empty($arrGet['searchIn'])?$arrGet['searchIn']:NULL;
 
@@ -37,6 +43,7 @@ class SearchController extends IarcfbaseController
 		  return $this->render('search',[
 		 	'searchKey'=>$searchKey,
 		 	'searchIn'=>$searchIn,
+			'searchTag'=>$searchTag,
 			 'reportdata'=>!empty($arrReportData)?$arrReportData:[],
 			 'pressdata'=>!empty($arrPrsData)?$arrPrsData:[],
     'articledata'=>!empty($arrArticleData)?$arrArticleData:[],
