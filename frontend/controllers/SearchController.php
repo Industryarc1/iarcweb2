@@ -18,7 +18,7 @@ class SearchController extends IarcfbaseController
 		}else{
 		$arrGet['tag']	= "All";
 		}
-		echo '<pre>';print_r($arrGet);exit;
+		//echo '<pre>';print_r($arrGet);exit;
     if(empty($arrGet['searchKey']) || !isset($arrGet['searchKey'])){
      return $this->goHome();
     }
