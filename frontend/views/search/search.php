@@ -39,7 +39,7 @@ $this->title = 'IndustryARC™ - Search Results';
   <div class="press-release-list">
   <ul class="nav nav-tabs" id="filters" role="tablist">
     <li class="nav-item">
-    <a class="nav-link <?= $searchTag=='All' ? 'active' : ''?>" id="all"  href="#all_content" aria-controls="all" aria-selected="true">All</a>
+    <a class="nav-link <?= $searchTag=='All' ? 'active' : ''?>" id="all"  data-toggle="tab" href="#all_content" aria-controls="all" aria-selected="true">All</a>
   </li>
   <li class="nav-item">
     <a class="nav-link <?= $searchTag=='reports' ? 'active' : ''?>" id="reports" href="/search/search?searchKey=<?= $searchKey?>&tag=reports" aria-controls="reports" aria-selected="false">Reports</a>
