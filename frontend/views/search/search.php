@@ -35,7 +35,7 @@ $this->title = 'IndustryARC™ - Search Results';
         </div>
 
 <div class="article-list bg-white">
-  <h1>Search Result </h1>
+  <h1>Search Result <?= $searchTag?></h1>
   <div class="press-release-list">
   <ul class="nav nav-tabs" id="filters" role="tablist">
     <li class="nav-item">
