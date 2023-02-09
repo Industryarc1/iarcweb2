@@ -55,7 +55,7 @@ $this->title = 'IndustryARC™ - Search Results';
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade " id="all_content" role="tabpanel" aria-labelledby="all">
+  <div class="tab-pane fade <?= $searchTag=='All' ? 'show active' : ''?>" id="all_content" role="tabpanel" aria-labelledby="all">
   <ul class="row">
         <li>
         <?php if(!empty($data)){
@@ -73,7 +73,7 @@ $this->title = 'IndustryARC™ - Search Results';
           </li>
       </ul>
    </div>
-    <div class="tab-pane fade" id="reports_content" role="tabpanel" aria-labelledby="reports">
+    <div class="tab-pane fade <?= $searchTag=='reports' ? 'show active' : ''?>" id="reports_content" role="tabpanel" aria-labelledby="reports">
      <ul class="row">
             <li>
          <?php if(!empty($reportdata)){
@@ -91,7 +91,7 @@ $this->title = 'IndustryARC™ - Search Results';
               </li>
           </ul>
     </div>
-     <div class="tab-pane fade" id="pr_content" role="tabpanel" aria-labelledby="year-2017">
+     <div class="tab-pane fade <?= $searchTag=='pr' ? 'show active' : ''?>" id="pr_content" role="tabpanel" aria-labelledby="year-2017">
       <ul class="row">
              <li>
               <?php if(!empty($pressdata)){
@@ -109,7 +109,7 @@ $this->title = 'IndustryARC™ - Search Results';
                </li>
            </ul>
      </div>
-     <div class="tab-pane fade show active" id="articles_content" role="tabpanel" aria-labelledby="year-2017">
+     <div class="tab-pane fade <?= $searchTag=='news' ? 'show active' : ''?>" id="articles_content" role="tabpanel" aria-labelledby="year-2017">
            <ul class="row">
                   <li>
                    <?php if(!empty($articledata)){
@@ -127,7 +127,7 @@ $this->title = 'IndustryARC™ - Search Results';
                     </li>
                 </ul>
           </div>
-     <div class="tab-pane fade" id="wp_content" role="tabpanel" aria-labelledby="year-2017">
+     <div class="tab-pane fade <?= $searchTag=='wp' ? 'show active' : ''?>" id="wp_content" role="tabpanel" aria-labelledby="year-2017">
            <ul class="row">
                   <li>
                    <?php if(!empty($paperdata)){
