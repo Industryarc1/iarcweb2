@@ -5,6 +5,7 @@ use frontend\helper\ReportHelper;
 use frontend\helper\CommonHelper;
 $this->title = 'IndustryARC™ - Search Results';
 //echo 'You Are in '.__FILE__;
+$searchKey = str_replace(' ', '+', $searchKey);
 ?>
 
 <div class="row child-nav">
