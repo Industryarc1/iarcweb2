@@ -161,7 +161,7 @@ class SearchController extends IarcfbaseController
 		$newtitle = strtoupper($title);
 		$sql = "(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_prs` WHERE  (FROM_BASE64(`descr`) LIKE '%$title%' OR FROM_BASE64(`descr`) LIKE '%$newtitle%' OR `title` LIKE ".$keyTitle1.")) 
 				UNION 
-				(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_prs` WHERE MATCH(`title`) AGAINST (".$keyTitle2." IN NATURAL LANGUAGE MODE)) LIMIT 10";
+				(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_prs` WHERE MATCH(`title`) AGAINST (".$keyTitle2." IN NATURAL LANGUAGE MODE)) LIMIT 50";
 		$arrPrs = Yii::$app->db->createCommand($sql)->queryAll();
 		return $arrPrs;
 	}
@@ -169,9 +169,10 @@ class SearchController extends IarcfbaseController
 	public function actionSearchWhitepapers($title){
 		$keyTitle1= \Yii::$app->db->quoteValue($title.'%');
 		$keyTitle2= \Yii::$app->db->quoteValue($title);
-		$sql = "(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_whitepapers` WHERE `title` LIKE ".$keyTitle1.") 
+		$newtitle = strtoupper($title);
+		$sql = "(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_whitepapers` WHERE (FROM_BASE64(`descr`) LIKE '%$title%' OR FROM_BASE64(`descr`) LIKE '%$newtitle%' OR `title` LIKE ".$keyTitle1.")) 
 				UNION 
-				(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_whitepapers` WHERE MATCH(`title`) AGAINST (".$keyTitle2." IN NATURAL LANGUAGE MODE)) LIMIT 10";
+				(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_whitepapers` WHERE MATCH(`title`) AGAINST (".$keyTitle2." IN NATURAL LANGUAGE MODE)) LIMIT 50";
 		$arrPapers = Yii::$app->db->createCommand($sql)->queryAll();
 		return $arrPapers;
 	}
@@ -179,9 +180,10 @@ class SearchController extends IarcfbaseController
 	public function actionSearchArticles($title){
 		$keyTitle1= \Yii::$app->db->quoteValue($title.'%');
 		$keyTitle2= \Yii::$app->db->quoteValue($title);
-		$sql = "(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `custid` FROM `zsp_news` WHERE `title` LIKE ".$keyTitle1.") 
+		$newtitle = strtoupper($title);
+		$sql = "(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `custid` FROM `zsp_news` WHERE (FROM_BASE64(`descr`) LIKE '%$title%' OR FROM_BASE64(`descr`) LIKE '%$newtitle%' OR `title` LIKE ".$keyTitle1.")) 
 				UNION 
-				(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `custid` FROM `zsp_news` WHERE MATCH(`title`) AGAINST (".$keyTitle2." IN NATURAL LANGUAGE MODE)) LIMIT 10";
+				(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `custid` FROM `zsp_news` WHERE MATCH(`title`) AGAINST (".$keyTitle2." IN NATURAL LANGUAGE MODE)) LIMIT 50";
 		$arrArticles = Yii::$app->db->createCommand($sql)->queryAll();
 		return $arrArticles;
 	}
