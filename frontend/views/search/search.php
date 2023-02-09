@@ -39,19 +39,19 @@ $this->title = 'IndustryARC™ - Search Results';
   <div class="press-release-list">
   <ul class="nav nav-tabs" id="filters" role="tablist">
     <li class="nav-item">
-    <a class="nav-link <?= $searchTag=='All' ? 'active' : ''?>" id="all" data-toggle="tab" href="#all_content" aria-controls="all" aria-selected="true">All</a>
+    <a class="nav-link <?= $searchTag=='All' ? 'active' : ''?>" id="all"  href="#all_content" aria-controls="all" aria-selected="true">All</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link <?= $searchTag=='reports' ? 'active' : ''?>" id="reports" data-toggle="tab" href="/search/search?searchKey=<?= $searchKey?>&tag=reports" aria-controls="reports" aria-selected="false">Reports</a>
+    <a class="nav-link <?= $searchTag=='reports' ? 'active' : ''?>" id="reports" href="/search/search?searchKey=<?= $searchKey?>&tag=reports" aria-controls="reports" aria-selected="false">Reports</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link <?= $searchTag=='pr' ? 'active' : ''?>" id="press-releases" data-toggle="tab" href="/search/search?searchKey=<?= $searchKey?>&tag=pr" aria-controls="press-releases" aria-selected="false">Press Releases</a>
+    <a class="nav-link <?= $searchTag=='pr' ? 'active' : ''?>" id="press-releases"  href="/search/search?searchKey=<?= $searchKey?>&tag=pr" aria-controls="press-releases" aria-selected="false">Press Releases</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link <?= $searchTag=='news' ? 'active' : ''?>" id="articles" data-toggle="tab" href="/search/search?searchKey=<?= $searchKey?>&tag=news" aria-controls="articles" aria-selected="false">Articles </a>
+    <a class="nav-link <?= $searchTag=='news' ? 'active' : ''?>" id="articles"  href="/search/search?searchKey=<?= $searchKey?>&tag=news" aria-controls="articles" aria-selected="false">Articles </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link <?= $searchTag=='wp' ? 'active' : ''?>" id="whitepapers" data-toggle="tab" href="/search/search?searchKey=<?= $searchKey?>&tag=wp" aria-controls="whitepapers" aria-selected="false">White Papers</a>
+    <a class="nav-link <?= $searchTag=='wp' ? 'active' : ''?>" id="whitepapers"  href="/search/search?searchKey=<?= $searchKey?>&tag=wp" aria-controls="whitepapers" aria-selected="false">White Papers</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
