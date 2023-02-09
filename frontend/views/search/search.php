@@ -35,23 +35,23 @@ $this->title = 'IndustryARC™ - Search Results';
         </div>
 
 <div class="article-list bg-white">
-  <h1>Search Result <?= $searchTag?></h1>
+  <h1>Search Result</h1>
   <div class="press-release-list">
   <ul class="nav nav-tabs" id="filters" role="tablist">
     <li class="nav-item">
-    <a class="nav-link " id="all" data-toggle="tab" href="#all_content" role="tab" aria-controls="all" aria-selected="true">All</a>
+    <a class="nav-link <?= $searchTag=='All' ? 'active' : ''?>" id="all" data-toggle="tab" href="#all_content" role="tab" aria-controls="all" aria-selected="true">All</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="reports" data-toggle="tab" href="#reports_content" role="tab" aria-controls="reports" aria-selected="false">Reports</a>
+    <a class="nav-link <?= $searchTag=='reports' ? 'active' : ''?>" id="reports" data-toggle="tab" href="/search/search?searchKey=<?= $searchKey?>&tag=reports" role="tab" aria-controls="reports" aria-selected="false">Reports</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="press-releases" data-toggle="tab" href="#pr_content" role="tab" aria-controls="press-releases" aria-selected="false">Press Releases</a>
+    <a class="nav-link <?= $searchTag=='pr' ? 'active' : ''?>" id="press-releases" data-toggle="tab" href="#pr_content" role="tab" aria-controls="press-releases" aria-selected="false">Press Releases</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" id="articles" data-toggle="tab" href="#articles_content" role="tab" aria-controls="articles" aria-selected="false">Articles </a>
+    <a class="nav-link <?= $searchTag=='news' ? 'active' : ''?>" id="articles" data-toggle="tab" href="#articles_content" role="tab" aria-controls="articles" aria-selected="false">Articles </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="whitepapers" data-toggle="tab" href="#wp_content" role="tab" aria-controls="whitepapers" aria-selected="false">White Papers</a>
+    <a class="nav-link <?= $searchTag=='wp' ? 'active' : ''?>" id="whitepapers" data-toggle="tab" href="#wp_content" role="tab" aria-controls="whitepapers" aria-selected="false">White Papers</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
