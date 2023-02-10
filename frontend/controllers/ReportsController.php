@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use Yii;
 use common\models\ZspCatlogCategories;
 use common\models\ZspPosts;
+use common\models\ZspFaqs;
 use common\models\ZspPostsQuery;
 use frontend\controllers\IarcfbaseController;
 use frontend\forms\SampleRequestForm;
@@ -150,6 +151,8 @@ class ReportsController extends IarcfbaseController {
             $reportDetail['brport'] = ZspCatlogCategories::find()->where(['inc_id' => $reportDetail['cat']])->asArray()->one();
         }
 
+		$reportFaqs = ZspFaqs::find()->where(['inc_id' => $reportDetail['inc_id']])->orderBy(['priority' => SORT_ASC])->asArray()->all();
+
         /* remember the page url in order to check the user is Loged in or not 
           if not redirect the user to login page and after login come back to this action again */
         \yii\helpers\Url::remember();
@@ -157,6 +160,7 @@ class ReportsController extends IarcfbaseController {
         return $this->render('report', [
                     'reportDet' => !empty($reportDetail) ? $reportDetail : [],
                     'relatedReport' => !empty($arrRelatedReport) ? $arrRelatedReport : [],
+                    'faqs' => $reportFaqs
         ]);
     }
 
@@ -197,6 +201,8 @@ class ReportsController extends IarcfbaseController {
             $reportDetail['brport'] = ZspCatlogCategories::find()->where(['inc_id' => $reportDetail['cat']])->asArray()->one();
         }
 
+		$reportFaqs = ZspFaqs::find()->where(['inc_id' => $reportDetail['inc_id']])->orderBy(['priority' => SORT_ASC])->asArray()->all();
+
         /* remember the page url in order to check the user is Loged in or not 
           if not redirect the user to login page and after login come back to this action again */
         \yii\helpers\Url::remember();
@@ -204,6 +210,7 @@ class ReportsController extends IarcfbaseController {
         return $this->render('report', [
                     'reportDet' => !empty($reportDetail) ? $reportDetail : [],
                     'relatedReport' => !empty($arrRelatedReport) ? $arrRelatedReport : [],
+					'faqs' => $reportFaqs
                         //	'catDet'=>!empty($arrCategoryDetail)?$arrCategoryDetail:[],
         ]);
     }

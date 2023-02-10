@@ -1,3 +1,5 @@
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <?php
 //use yii\helpers\Html;
 use frontend\helper\CommonHelper;
@@ -33,6 +35,48 @@ $utmParam = !empty($utmsrc)?'&utm_source='.$utmsrc.'&utm_medium='.$utmmed.'&utm_
     top: inherit;
     bottom: 27%;
 
+}
+
+.myaccordion {
+  /*max-width: 800px;*/
+  /*margin: 50px auto;*/
+  box-shadow: 0 0 1px rgba(0,0,0,0.1);
+}
+
+.myaccordion .card,
+.myaccordion .card:last-child .card-header {
+  border: none;
+}
+
+.myaccordion .card .card-body{
+    padding: 10px;
+    color: #000;
+}
+
+.myaccordion .card-header {
+  border-bottom-color: #dddddd;
+  background: #f5f5f5;
+  color: #0e5ca3;
+}
+
+.myaccordion .fa-stack {
+  font-size: 12px;
+}
+
+.myaccordion .btn {
+  width: 100%;
+  font-weight: bold;
+  color: #0e5ca3;
+  padding: 0;
+}
+
+.myaccordion .btn-link:hover,
+.myaccordion .btn-link:focus {
+  text-decoration: none;
+}
+
+.myaccordion li + li {
+  margin-top: 10px;
 }
 
 .reports-bg {
@@ -319,6 +363,7 @@ function windowprint(reportrd){
 	     <?php if(strlen($reportDet['taf'])>30 || strlen($reportDet['taf_new'])>30) { ?>
               <li class="tof"><a href="#"  data-scroll="report3">Tables and Figures</a></li>
 	     <?php } ?>
+              <li class="faqs"><a href="#"  data-scroll="report4">FAQ'S</a></li>
             </ul>
           </div>
           <div class="left-contact">
@@ -450,6 +495,45 @@ function windowprint(reportrd){
                     </div>
                 </section>-->
 
+                <section id="report4" data-anchor="report4" class="report-data-faqs">
+                    
+                    <div id="accordion" class="myaccordion">
+                    
+                      <?php
+                      if(isset($faqs)){
+                    
+                      
+                        foreach ($faqs as $key => $k) {
+                            $keyv = ++$key;
+                            $expand = $keyv == 1 ? "true" : "false";
+                            $shownow = $keyv == 1 ? "show" : "";
+                            $buttonview = $keyv == 1 ? "fa-minus" : "fa-plus";
+                      ?>
+                      <div class="card">
+                        <div class="card-header" id="heading<?= $key?>">
+                          <h2 class="mb-0">
+                            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapse<?= $key?>" aria-expanded="<?= $expand?>" aria-controls="collapse<?= $key?>"><?= $k["question"]?>
+                              <span class="fa-stack fa-sm">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas <?= $buttonview?> fa-stack-1x fa-inverse"></i>
+                              </span>
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapse<?= $key?>" class="collapse <?= $shownow?>" aria-labelledby="heading<?= $key?>" data-parent="#accordion">
+                          <div class="card-body">
+                            <p><?= $k["answer"]?></p>
+                          </div>
+                        </div>
+                      </div>
+                      <?php  
+                      }
+                      }      
+                      ?>  
+                    </div>
+                    
+                  </section>
+
                 <!--<section id="report3" data-anchor="report3">
                     <div  class="report-data-tf" >
 <h3>Related Reports</h3>
@@ -517,6 +601,7 @@ if(count($relatedReport) > 0){
 	<?php if(strlen($reportDet['taf'])>30 || strlen($reportDet['taf_new'])>30) { ?>
       <li class="tof"><a href="#" data-scroll="report3">Tables and Figures</a></li>
 	<?php } ?>
+       <li class="tof"><a href="#"  data-scroll="report4">FAQ'S</a></li> 
     </ul>
  </div>
     <div class="rsp-bottom-nav rsp-content">
@@ -527,3 +612,44 @@ if(count($relatedReport) > 0){
     </div>
   <div class="fadeeffect"></div>
   <a href="javasript:void();" class="rsp-content close-category ">x</a>
+
+<script type="text/javascript">
+$(document).ready(function() {
+$("#accordion").on("hide.bs.collapse show.bs.collapse", e => {
+  $(e.target).
+  prev().
+  find("i:last-child").
+  toggleClass("fa-minus fa-plus");
+});
+
+
+});
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [<?php
+if(isset($faqs)){
+$cval = count($faqs);
+foreach ($faqs as $key => $q) {
+++$key;
+?>
+{
+    "@type": "Question",
+    "name": "<?= $q['question']?>",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "<?= $q['answer']?>"
+    }
+}<?php if($key < $cval){?>,
+<?php
+}
+}
+}
+?>
+]
+}
+</script>
