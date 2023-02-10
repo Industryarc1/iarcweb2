@@ -678,9 +678,9 @@ foreach ($faqs as $key => $q) {
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <a class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+        </a>
       </div>
       <div class="modal-body">
         <div class="form-title text-center">
