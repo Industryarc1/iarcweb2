@@ -175,6 +175,26 @@ $utmParam = !empty($utmsrc)?'&utm_source='.$utmsrc.'&utm_medium='.$utmmed.'&utm_
     background-color: #337ab7 !important;
     border-color: #337ab7 !important;
 }
+
+@media (min-width: 576px) {
+.modal-dialog {
+max-width: 400px;
+}
+.modal-dialog .modal-content {
+padding: 1rem;
+}
+}
+.modal-header .close {
+margin-top: -1.5rem;
+}.form-title {
+margin: -2rem 0rem 2rem;
+}.btn-round {
+border-radius: 3rem;
+}.delimiter {
+padding: 1rem;
+}.signup-section {
+padding: 0.3rem 0rem;
+}
 </style>
 
 <?php
@@ -652,4 +672,43 @@ foreach ($faqs as $key => $q) {
 ?>
 ]
 }
+</script>
+
+<div class="modal fade" id="notiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-title text-center">
+          <h1>Didn't Find</h1>
+          <h5>What your looking For?</h5>
+        </div>
+        <div class="d-flex flex-column text-center">
+          <form class="d-flex flex-column ">
+          
+            <a href="https://connect.industryarc.com/lite/schedule-a-call-with-our-sales-expert" target="_blank" class="btn btn-info btn-block btn-round">Speak to Analyst</a>
+            <a href="/pdfdownload.php?id=<?= $reportDet['dup_inc_id'];?>" target="_blank" class="btn btn-info btn-block btn-round">Request a Sample PDF</a>
+          </form>
+          
+    
+          
+      </div>
+    </div>
+ 
+  </div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function() {             
+setTimeout( function(){ 
+$('#notiModal').modal('show');
+  }  , 10000 );
+});
+
 </script>
