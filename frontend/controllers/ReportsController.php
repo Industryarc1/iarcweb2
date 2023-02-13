@@ -132,7 +132,7 @@ class ReportsController extends IarcfbaseController {
                                 //->createCommand()->rawSql;echo $arrRelated;exit;
                                 ->asArray()->All();
                 foreach ($arrRelated as $related) {
-					$pub_date = $related["pub_date_new"];
+					$pub_date = $related["pub_date"];
 					$str = $related['title'];
 					$str = substr($str, strrpos($str, 'Forecast' ));
 					$str = str_replace( array( '\'', '"',',' , ';', '(', ')' ), ' ', $str);
