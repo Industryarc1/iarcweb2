@@ -133,8 +133,11 @@ class ReportsController extends IarcfbaseController {
                                 ->asArray()->All();
                 foreach ($arrRelated as $related) {
 					$pub_date = $related["pub_date_new"];
+					$str = $related['title'];
+					$str = substr($str, strrpos($str, 'Forecast' ));
+					$str = str_replace( array( '\'', '"',',' , ';', '(', ')' ), ' ', $str);
                     $arrRelatedReport[] = [
-                        'title' => substr($related['title'], 0, strpos(strtolower($related['title']), 'market') + 6), //strpos + 6 will give the position till market because characters in market =6
+                        'title' => substr($related['title'], 0, strpos(strtolower($related['title']), 'market') + 6)." ".$str, //strpos + 6 will give the position till market because characters in market =6
                         'code' => $related['code'],
                         'short_descr' => $related['short_descr'],
                         'curl' => ($related['dup_inc_id'] < 500000) ? 'Report/' . $related['dup_inc_id'] . '/' . $related['curl'] : 'Research/' . $related['curl'] . '-' . $related['dup_inc_id'],
