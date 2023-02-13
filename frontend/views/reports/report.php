@@ -147,10 +147,10 @@ $utmParam = !empty($utmsrc)?'&utm_source='.$utmsrc.'&utm_medium='.$utmmed.'&utm_
   font-size: 18px;
 }
 
-#related-reports a {
+#related-reports .description a {
  color:#000 !important;
 }
-#related-reports a:hover{
+#related-reports .description a:hover{
  text-decoration: underline;
  color: #1d559a !important;
 }
@@ -167,9 +167,9 @@ $utmParam = !empty($utmsrc)?'&utm_source='.$utmsrc.'&utm_medium='.$utmmed.'&utm_
   text-decoration: none;
 }*/
 #related-reports .description {
-    font-size: 16px;
+    font-size: 18px;
     width: 70%;
-    line-height: 50px;
+    /*line-height: 50px;*/
     border-right: 1px solid #ccc;
     margin-right: 18px;
     margin-left: 0px;
