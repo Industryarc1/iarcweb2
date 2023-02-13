@@ -192,7 +192,7 @@ top: 0%;
 }
 @media (min-width: 576px) {
 .modal-dialog {
-max-width: 400px;
+max-width: 450px;
 }
 .modal-dialog .modal-content {
 padding: 1rem;
@@ -692,7 +692,7 @@ foreach ($faqs as $key => $q) {
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" style="background:url('/images/popup_bg1.jpg');background-size:cover;color:#fff;border:none">
       <div class="modal-header border-bottom-0">
-        <a class="close" data-dismiss="modal" aria-label="Close">
+        <a href="javascript:void(0)" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </a>
       </div>
