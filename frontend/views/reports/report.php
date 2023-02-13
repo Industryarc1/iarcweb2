@@ -685,7 +685,7 @@ foreach ($faqs as $key => $q) {
 }
 </script>
 
-<div class="modal fade" id="notiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="notiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color:blue">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0">
@@ -695,8 +695,8 @@ foreach ($faqs as $key => $q) {
       </div>
       <div class="modal-body">
         <div class="form-title text-center">
-          <h1>Didn't Find</h1>
-          <h5>What your looking For?</h5>
+          <h1>Not finding what you need?</h1>
+          <h5>Let us help with our market insights.</h5>
         </div>
         <div class="d-flex flex-column text-center">
           <form class="d-flex flex-column ">
