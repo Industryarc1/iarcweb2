@@ -687,7 +687,7 @@ foreach ($faqs as $key => $q) {
 
 <div class="modal fade" id="notiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background:url('/images/popup_bg1.jpg')">
+    <div class="modal-content" style="background:url('/images/popup_bg1.jpg');background-size:cover;color:#fff;">
       <div class="modal-header border-bottom-0">
         <a class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -701,8 +701,8 @@ foreach ($faqs as $key => $q) {
         <div class="d-flex flex-column text-center">
           <form class="d-flex flex-column ">
           
-            <a href="https://connect.industryarc.com/lite/schedule-a-call-with-our-sales-expert" target="_blank" class="btn btn-info btn-block btn-round">Speak to Analyst</a>
-            <a href="/pdfdownload.php?id=<?= $reportDet['dup_inc_id'];?>" target="_blank" class="btn btn-info btn-block btn-round">Request a Sample PDF</a>
+            <a href="https://connect.industryarc.com/lite/schedule-a-call-with-our-sales-expert" target="_blank" class="btn btn-primary btn-block btn-round">Speak to Analyst</a>
+            <a href="/pdfdownload.php?id=<?= $reportDet['dup_inc_id'];?>" target="_blank" class="btn btn-primary btn-block btn-round">Request a Sample PDF</a>
           </form> 
         </div>
       </div>
