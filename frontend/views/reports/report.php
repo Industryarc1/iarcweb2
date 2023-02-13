@@ -186,7 +186,10 @@ $utmParam = !empty($utmsrc)?'&utm_source='.$utmsrc.'&utm_medium='.$utmmed.'&utm_
     background-color: #337ab7 !important;
     border-color: #337ab7 !important;
 }
-
+.modal-dialog {
+max-width: 100%;
+top: 0%;
+}
 @media (min-width: 576px) {
 .modal-dialog {
 max-width: 400px;
@@ -695,7 +698,7 @@ foreach ($faqs as $key => $q) {
       </div>
       <div class="modal-body">
         <div class="form-title text-center">
-          <h1>Not finding what you need?</h1>
+          <h4>Not finding what you need?</h4>
           <h5>Let us help with our market insights.</h5>
         </div>
         <div class="d-flex flex-column text-center">
