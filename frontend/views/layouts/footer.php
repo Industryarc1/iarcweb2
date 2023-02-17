@@ -94,7 +94,7 @@ function(e){ LiveAgent.createButton('26tepf98', e); });
   </div>
     <div class="row">
   <div class="copyright-section">
-    <p>Copyrights &copy; Furion analytics Research & Consulting LLP<sup>TM</sup> All Rights Reserved. <?= date("Y")?></p>
+    <p>Copyrights &copy; Furion analytics Research & Consulting LLP<sup>TM</sup> All Rights Reserved. test<?= date("Y")?></p>
   </div>
   <div class="social-footer">
       <ul>
