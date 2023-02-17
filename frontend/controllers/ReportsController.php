@@ -181,6 +181,7 @@ class ReportsController extends IarcfbaseController {
                                 // ->createCommand()->rawSql;echo $arrRelated;exit;
                                 ->asArray()->All();
                 foreach ($arrRelated as $related) {
+                    $pub_date = $related["pub_date_new"];
                     $arrRelatedReport[] = [
                         'title' => substr($related['title'], 0, strpos(strtolower($related['title']), 'market') + 6), //strpos + 6 will give the position till market because characters in market =6
                         'code' => $related['code'],
@@ -188,6 +189,7 @@ class ReportsController extends IarcfbaseController {
                         'curl' => ($related['dup_inc_id'] < 500000) ? 'Report/' . $related['dup_inc_id'] . '/' . $related['curl'] : 'Research/' . $related['curl'] . '-' . $related['dup_inc_id'],
                         'meta_title' => $related['meta_title'],
                         'dup_inc_id' => $related['dup_inc_id'],
+                        'pub_date_new' => date("F Y", strtotime($pub_date)),
                     ];
                 }
             }
