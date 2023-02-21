@@ -116,6 +116,8 @@ class ReportsController extends IarcfbaseController {
             return $this->redirect(['site/index']);
         }
 
+		$reportDetail = array();
+
         if (isset($arrRequest['inc_id']) && !empty($arrRequest['inc_id'])) {
             $reportDetail = ZspPosts::find()
                             ->where(['dup_inc_id' => $arrRequest['inc_id']])
