@@ -715,10 +715,19 @@ foreach ($faqs as $key => $q) {
 
 <script type="text/javascript">
 
+var cc = 1;
+$(document).on('mouseleave',function(){
+if(cc==1){
+$('#notiModal').modal('show');  
+cc++;
+}
+});
+
 $(document).ready(function() {             
-setTimeout( function(){ 
+  setTimeout( function(){
 $('#notiModal').modal('show');
   }  , 10000 );
 });
 
 </script>
+
