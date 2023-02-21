@@ -110,10 +110,6 @@ class ReportsController extends IarcfbaseController {
 
         $arrRequest = Yii::$app->request->get();
 
-		echo "<pre>";
-		print_r($arrRequest);
-		exit;
-
         /* inc_Id grater then 500000 indicates its new report
           and it need to be redirected to actionResearch */
         if ($arrRequest['inc_id'] >= 500000) {
