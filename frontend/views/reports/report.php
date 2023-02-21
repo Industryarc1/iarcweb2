@@ -192,7 +192,7 @@ top: 0%;
 }
 @media (min-width: 576px) {
 .modal-dialog {
-max-width: 450px;
+max-width: 530px;
 }
 .modal-dialog .modal-content {
 padding: 1rem;
@@ -699,9 +699,9 @@ foreach ($faqs as $key => $q) {
       <div class="modal-body">
         <div class="form-title">
           <h4>Not finding what you need?</h4>
-          <p style="font-size:12">Let us help with our market insights.</p>
+          <p style="font-size:12px">Let us help with our market insights.</p>
         </div>
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-row">
           <form class="d-flex flex-column ">
           
             <a href="https://connect.industryarc.com/lite/schedule-a-call-with-our-sales-expert" target="_blank" class="btn btn-primary btn-block btn-round">Speak to Analyst</a>
