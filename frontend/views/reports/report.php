@@ -690,18 +690,18 @@ foreach ($faqs as $key => $q) {
 
 <div class="modal fade" id="notiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background:url('/images/popup_bg2.jpg');background-size:cover;color:#fff;border:none">
+    <div class="modal-content" style="background:url('/images/popup_bg2.jpg');background-size:cover;border:none">
       <div class="modal-header border-bottom-0">
         <a href="javascript:void(0)" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </a>
       </div>
       <div class="modal-body">
-        <div class="form-title text-center">
+        <div class="form-title">
           <h4>Not finding what you need?</h4>
-          <h5>Let us help with our market insights.</h5>
+          <p style="font-size:12">Let us help with our market insights.</p>
         </div>
-        <div class="d-flex flex-column text-center">
+        <div class="d-flex flex-column">
           <form class="d-flex flex-column ">
           
             <a href="https://connect.industryarc.com/lite/schedule-a-call-with-our-sales-expert" target="_blank" class="btn btn-primary btn-block btn-round">Speak to Analyst</a>
