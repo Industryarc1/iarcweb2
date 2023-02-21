@@ -690,7 +690,7 @@ foreach ($faqs as $key => $q) {
 
 <div class="modal fade" id="notiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background:url('/images/popup_bg1.jpg');background-size:cover;color:#fff;border:none">
+    <div class="modal-content" style="background:url('/images/popup_bg2.jpg');background-size:cover;color:#fff;border:none">
       <div class="modal-header border-bottom-0">
         <a href="javascript:void(0)" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
