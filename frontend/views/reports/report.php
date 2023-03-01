@@ -372,61 +372,53 @@ function windowprint(reportrd){
               </div>
 
           </div>
-
-<div class="main-txt">
-         
-<!-- class="left-column rsp-hide" id="leftNav" -->
-            <div class="left-column rsp-hide" id="leftNav">
-          <?php
-                if(strlen($reportDet['description'])>20){
-                  $rdActive = "active";
-                  $rdinactive ="in active";
+    <div class="main-txt">
+      <div class="row">
+        <div class="left-column rsp-hide" id="leftNav">
+        	<?php
+        				if(strlen($reportDet['description'])>20){
+        					$rdActive = "active";
+        					$rdinactive ="in active";
              $tblActive = "";
              $tblinactive = "";
-                }else{
-                  $tblActive = "active";
-                  $tblinactive="in active";
-                  $rdActive = "";
+        				}else{
+        					$tblActive = "active";
+        					$tblinactive="in active";
+        					$rdActive = "";
               $rdinactive="";
-                }
-              ?>
+        				}
+        			?>
           <div class="report-content-nav report-scroll brdr-right">
             <ul>
             <?php if(strlen($reportDet['description'])>20) { ?>
               <li class="report-disc"><a href="#" class="<?php echo $rdActive; ?>"  data-scroll="report1">Report Description</a></li>
               <?php } ?>
               <li class="tbl-cnt"><a href="#" class="<?php echo $tblActive; ?>" data-scroll="report2">Table of Contents</a></li>
-       <?php if(strlen($reportDet['taf'])>30 || strlen($reportDet['taf_new'])>30) { ?>
+	     <?php if(strlen($reportDet['taf'])>30 || strlen($reportDet['taf_new'])>30) { ?>
               <li class="tof"><a href="#"  data-scroll="report3">Tables and Figures</a></li>
-       <?php } ?>
+	     <?php } ?>
               <li class="faqs"><a href="#"  data-scroll="report4">FAQ'S</a></li>
             </ul>
           </div>
           <div class="left-contact">
             <ul>
               <!--<li><a href="<?= Url::to(['reports/request-quote','id'=>$reportDet['dup_inc_id']]);?>" target="_blank" class="quote">Inquiry Before Buying</a></li>-->
-        <?php if($utmParam!=''){ ?>
-        <li><a href="/reports/request-quote?id=<?= $reportDet['dup_inc_id'].$utmParam; ?>" target="_blank" class="quote">Inquiry Before Buying</a></li>
-        <li><a href="/pdfdownload.php?id=<?= $reportDet['dup_inc_id'].$utmParam;?>" target="_blank" class="data">Request Sample </a></li>
-        <?php }else{ ?>
-        <li><a href="/reports/request-quote?id=<?= $reportDet['dup_inc_id']; ?>" target="_blank" class="quote">Inquiry Before Buying</a></li>
-        <li><a href="/pdfdownload.php?id=<?= $reportDet['dup_inc_id'];?>" target="_blank" class="data">Request Sample </a></li>
-        <?php } ?>
+			  <?php if($utmParam!=''){ ?>
+			  <li><a href="/reports/request-quote?id=<?= $reportDet['dup_inc_id'].$utmParam; ?>" target="_blank" class="quote">Inquiry Before Buying</a></li>
+			  <li><a href="/pdfdownload.php?id=<?= $reportDet['dup_inc_id'].$utmParam;?>" target="_blank" class="data">Request Sample </a></li>
+			  <?php }else{ ?>
+			  <li><a href="/reports/request-quote?id=<?= $reportDet['dup_inc_id']; ?>" target="_blank" class="quote">Inquiry Before Buying</a></li>
+			  <li><a href="/pdfdownload.php?id=<?= $reportDet['dup_inc_id'];?>" target="_blank" class="data">Request Sample </a></li>
+			  <?php } ?>
               <!--<li><a href="<?= Url::to(['reports/sample-request','id'=>$reportDet['dup_inc_id']]);?>" target="_blank" class="data">Request Sample </a></li>-->
               <li><a href="https://connect.industryarc.com/lite/schedule-a-call-with-our-sales-expert" target="_blank" class="call">Schedule a Call</a>
-          <!-- Zoom.ai inline embed script begin -->
+				  <!-- Zoom.ai inline embed script begin -->
 <!--<div class="zoomai-slideout-widget-url" data-url="https://meeting.zoom.ai/meeting/new/5fb78f7a1ad3c90020be5515/meeting"></div>
 <script type="text/javascript" src="https://app.zoom.ai/assets/widget.js"></script>-->
 <!-- Zoom.ai inline embed script end --></li>
             </ul>
           </div>
-        
-
-          </div>  
-
-    
-      <div class="row">
-        
+        </div>
         <div class="content-column">
             <div class="report-content" >
                   <?php if(strlen($reportDet['description'])>20) { ?>
