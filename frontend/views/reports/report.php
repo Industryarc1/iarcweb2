@@ -374,9 +374,9 @@ function windowprint(reportrd){
           </div>
 
 <div class="main-txt">
-          <div class="row">
+         
 <!-- class="left-column rsp-hide" id="leftNav" -->
-            <div >
+            <div class="left-column rsp-hide" id="leftNav">
           <?php
                 if(strlen($reportDet['description'])>20){
                   $rdActive = "active";
@@ -420,7 +420,7 @@ function windowprint(reportrd){
 <!-- Zoom.ai inline embed script end --></li>
             </ul>
           </div>
-        </div>
+        
 
           </div>  
 
