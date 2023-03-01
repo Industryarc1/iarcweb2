@@ -373,7 +373,7 @@ function windowprint(reportrd){
 
           </div>
 
-
+<div class="main-txt">
           <div class="row">
 <!-- class="left-column rsp-hide" id="leftNav" -->
             <div >
@@ -424,7 +424,7 @@ function windowprint(reportrd){
 
           </div>  
 
-    <div class="main-txt">
+    
       <div class="row">
         
         <div class="content-column">
