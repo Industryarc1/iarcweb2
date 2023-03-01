@@ -48,11 +48,11 @@ function(e){ LiveAgent.createButton('26tepf98', e); });
      </script>-->
  <!-- End of Hey Oliver  -->
  
-<script>var continuallySettings = { appID: "jenrj3qk5ym7" };</script>
-<script src="https://cdn-app.continual.ly/js/embed/continually-embed.latest.min.js"></script>
+<!--<script>var continuallySettings = { appID: "jenrj3qk5ym7" };</script>
+<script src="https://cdn-app.continual.ly/js/embed/continually-embed.latest.min.js"></script>-->
 
 <script>window._nQc="89143392";</script>
-<script async src="https://serve.albacross.com/track.js"></script>
+<!--<script async src="https://serve.albacross.com/track.js"></script>
 
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -60,7 +60,7 @@ function(e){ LiveAgent.createButton('26tepf98', e); });
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "3ymn0bpv3p");
-</script>
+</script>-->
 
 
 <!-- Zoom.ai inline embed script begin -->
