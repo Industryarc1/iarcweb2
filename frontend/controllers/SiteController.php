@@ -44,6 +44,17 @@ class SiteController extends IarcfbaseController
                     ],
                 ],
             ],
+            'httpCache' => [
+            'class' => \yii\filters\HttpCache::className(),
+            'only' => ['list'],
+            'lastModified' => function ($action, $params) {
+                $q = new Query();
+                return strtotime($q->from('users')->max('updated_timestamp'));
+            },
+            // 'etagSeed' => function ($action, $params) {
+                // return // generate etag seed here
+            //}
+        ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
