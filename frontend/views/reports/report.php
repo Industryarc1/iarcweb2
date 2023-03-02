@@ -494,9 +494,9 @@ function windowprint(reportrd){
 								<?php if (strlen($reportDet['taf']) > 30) { ?>
 								<section id="report3" data-anchor="report3">
 									<div  class="report-data-tf" >
-										<div>
+										
 								<?= CommonHelper::modifyContent(base64_decode($reportDet['taf'])); ?>
-										</div>
+										
 									</div>
 								</section>
 								<?php } ?>
