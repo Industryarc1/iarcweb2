@@ -161,7 +161,10 @@ class SearchController extends IarcfbaseController
 		$keyTitle1= \Yii::$app->db->quoteValue($title.'%');
 		$keyTitle2= \Yii::$app->db->quoteValue($title);
 		$newtitle = strtoupper($title);
-		$sql = "(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_prs` WHERE  (FROM_BASE64(`descr`) LIKE '%$title%' OR FROM_BASE64(`descr`) LIKE '%$newtitle%' OR `title` LIKE ".$keyTitle1.")) 
+		/*$sql = "(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_prs` WHERE  (FROM_BASE64(`descr`) LIKE '%$title%' OR FROM_BASE64(`descr`) LIKE '%$newtitle%' OR `title` LIKE ".$keyTitle1.")) 
+				UNION 
+				(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_prs` WHERE MATCH(`title`) AGAINST (".$keyTitle2." IN NATURAL LANGUAGE MODE)) LIMIT 20";*/
+		$sql = "(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_prs` WHERE  (`title` LIKE '%$title%' OR `title` LIKE '%$newtitle%' OR `title` LIKE ".$keyTitle1.")) 
 				UNION 
 				(SELECT `title`, `short_descr`, `seo_keyword`, `meta_title`, `prod_id` FROM `zsp_prs` WHERE MATCH(`title`) AGAINST (".$keyTitle2." IN NATURAL LANGUAGE MODE)) LIMIT 20";
 		$arrPrs = Yii::$app->db->createCommand($sql)->queryAll();
