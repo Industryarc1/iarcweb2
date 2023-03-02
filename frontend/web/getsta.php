@@ -13,7 +13,7 @@ $con=mysqli_connect("localhost","iarcdbmain","vpfjeVCuRqm4#5c9AhPeDdG6mGWX!jY6",
 		$reportData = mysqli_fetch_assoc($reportData);
 		echo "<pre>";
 		print_r($reportData);
-		ecjo "</pre>";
+		echo "</pre>";
 		echo "<br>".$reportData[0]["title"];
 		echo "connected!";
 	}
