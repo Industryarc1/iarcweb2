@@ -29,6 +29,10 @@ class SearchController extends IarcfbaseController
 				$arrReports = $this->actionSearchReport($searchKey);
 				$arrReportData = $this->actionModifyArr(['report'=>$arrReports]);
 
+				$arrPrsData = array();
+				$arrArticleData = array();
+				$arrPaperData = array(); 
+
 /*
 				$arrPrs = $this->actionSearchPressRelease($searchKey);
 				$arrPrsData = $this->actionModifyArr(['prs'=>$arrPrs]);
@@ -39,8 +43,8 @@ class SearchController extends IarcfbaseController
 				$arrPaper = $this->actionSearchWhitepapers($searchKey);
 				$arrPaperData = $this->actionModifyArr(['whitepaper'=>$arrPaper]);
 */
-				//$arrAllData = array_merge($arrReportData,$arrPrsData,$arrArticleData,$arrPaperData);
-				$arrAllData = array($arrReportData);
+				$arrAllData = array_merge($arrReportData,$arrPrsData,$arrArticleData,$arrPaperData);
+
 		  return $this->render('search',[
 		 	'searchKey'=>$searchKey,
 		 	'searchIn'=>$searchIn,
