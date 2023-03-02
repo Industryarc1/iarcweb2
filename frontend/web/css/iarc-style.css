@@ -346,6 +346,7 @@ float:right;
 
 .logo img{
 	width:140px;
+    height: 100%;
 }
 
 
@@ -654,6 +655,7 @@ padding: 0 65px 0 0;
 .page-actions img {
     width: 27px;
 	padding-right:5px;
+    height: 100%;
 }
 
 .page-actions li {
