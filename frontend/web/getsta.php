@@ -13,7 +13,8 @@ $con=mysqli_connect("localhost","iarcdbmain","vpfjeVCuRqm4#5c9AhPeDdG6mGWX!jY6",
 		//$reportData = mysqli_fetch_assoc($reportData);
 		
 		while($rows = mysqli_fetch_assoc($reportData)){
-			echo $rows["title"];			
+			echo $rows["title"]."<br>";
+			echo base64_decode($rows["taf"]);			
 		}	
 
 		/*echo "<pre>";
