@@ -98,7 +98,7 @@ function(e){ LiveAgent.createButton('26tepf98', e); });
   </div>
   <div class="social-footer">
       <ul>
-       <li><a href="https://www.linkedin.com/company/industryarc"><img src="<?= Yii::$app->request->baseUrl ?>/images/linkedin-footer.svg" alt="LinkedIn"></a></li>
+       <li><a href="https://www.linkedin.com/company/industryarc"><img width="" height="" src="<?= Yii::$app->request->baseUrl ?>/images/linkedin-footer.svg" alt="LinkedIn" /></a></li>
        <li><a href="https://www.instagram.com/industry_arc/"><img src="<?= Yii::$app->request->baseUrl ?>/images/instagram-footer.svg" alt="Instagram"></a></li>
        <li><a href="https://twitter.com/IndustryARC"><img src="<?= Yii::$app->request->baseUrl ?>/images/twitter-footer.svg" alt="Twitter"></a></li>
        <li><a href="https://www.youtube.com/watch?v=Ico4CGzBlO0"><img src="<?= Yii::$app->request->baseUrl ?>/images/youtube-footer.svg" alt="Youtube"></a></li>
