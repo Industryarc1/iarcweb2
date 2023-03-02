@@ -8,7 +8,7 @@ $con=mysqli_connect("localhost","iarcdbmain","vpfjeVCuRqm4#5c9AhPeDdG6mGWX!jY6",
 	else{
 
 
-		$query = "SELECT * FROM zsp_posts WHERE inc_id=2479";
+		$query = "SELECT * FROM zsp_posts WHERE inc_id=2478";
 		$reportData = mysqli_query($con,$query);
 		//$reportData = mysqli_fetch_assoc($reportData);
 		
@@ -17,10 +17,18 @@ $con=mysqli_connect("localhost","iarcdbmain","vpfjeVCuRqm4#5c9AhPeDdG6mGWX!jY6",
 			$regularString = base64_decode($rows["taf"]);			
 		}	
 
+		/*	
+		//2479	
 		$modifiedString = str_replace("<div>", "<p>", $regularString);
 		$modifiedString = str_replace("</div>", "</p>", $modifiedString);	
 
 		$modifiedBase64 = base64_encode("<div>".$modifiedString."</div>");
+		*/
+
+		$modifiedString = str_replace("<br>", "</p><p>", $regularString);
+		//$modifiedString = str_replace("</div>", "</p>", $modifiedString);	
+
+		$modifiedBase64 = base64_encode("<p>".$modifiedString."</p>");	
 
 		echo $modifiedBase64;
 
