@@ -29,6 +29,7 @@ class SearchController extends IarcfbaseController
 				$arrReports = $this->actionSearchReport($searchKey);
 				$arrReportData = $this->actionModifyArr(['report'=>$arrReports]);
 
+/*
 				$arrPrs = $this->actionSearchPressRelease($searchKey);
 				$arrPrsData = $this->actionModifyArr(['prs'=>$arrPrs]);
 
@@ -37,9 +38,9 @@ class SearchController extends IarcfbaseController
 
 				$arrPaper = $this->actionSearchWhitepapers($searchKey);
 				$arrPaperData = $this->actionModifyArr(['whitepaper'=>$arrPaper]);
-
-				$arrAllData = array_merge($arrReportData,$arrPrsData,$arrArticleData,$arrPaperData);
-
+*/
+				//$arrAllData = array_merge($arrReportData,$arrPrsData,$arrArticleData,$arrPaperData);
+				$arrAllData = array($arrReportData);
 		  return $this->render('search',[
 		 	'searchKey'=>$searchKey,
 		 	'searchIn'=>$searchIn,
@@ -67,7 +68,7 @@ class SearchController extends IarcfbaseController
 	
 	//main now  $sql = "(SELECT `title`, `short_descr`, `description`, `curl`, `meta_title`, `dup_inc_id` FROM `zsp_posts` WHERE STATUS =1 AND (FROM_BASE64(`description`) LIKE '%$reportTitle%' OR FROM_BASE64(`description`) LIKE '%$newtitle%' OR title LIKE ".$keyTitle1."))";
 
-	$sql = 	"(SELECT `title`, `short_descr`, `description`, `curl`, `meta_title`, `dup_inc_id` FROM `zsp_posts` WHERE STATUS =1 AND (REGEXP_REPLACE(FROM_BASE64(`description`), '<img[^>]*>', '') LIKE '%$newtitle3%' OR REGEXP_REPLACE(FROM_BASE64(`description`), '<img[^>]*>', '') LIKE '%$newtitle2%' OR REGEXP_REPLACE(FROM_BASE64(`description`), '<img[^>]*>', '') LIKE '%$reportTitle%' OR REGEXP_REPLACE(FROM_BASE64(`description`), '<img[^>]*>', '') LIKE '%$newtitle%' OR title LIKE ".$keyTitle1.") limit 50)";
+	$sql = 	"(SELECT `title`, `short_descr`, `description`, `curl`, `meta_title`, `dup_inc_id` FROM `zsp_posts` WHERE STATUS =1 AND (REGEXP_REPLACE(FROM_BASE64(`description`), '<img[^>]*>', '') LIKE '%$newtitle3%' OR REGEXP_REPLACE(FROM_BASE64(`description`), '<img[^>]*>', '') LIKE '%$newtitle2%' OR REGEXP_REPLACE(FROM_BASE64(`description`), '<img[^>]*>', '') LIKE '%$reportTitle%' OR REGEXP_REPLACE(FROM_BASE64(`description`), '<img[^>]*>', '') LIKE '%$newtitle%' OR title LIKE ".$keyTitle1.") limit 20)";
 		
 	//echo $sql;		
 
