@@ -20,7 +20,7 @@ $con=mysqli_connect("localhost","iarcdbmain","vpfjeVCuRqm4#5c9AhPeDdG6mGWX!jY6",
 		$modifiedString = str_replace("<div>", "<p>", $regularString);
 		$modifiedString = str_replace("</div>", "</p>", $modifiedString);	
 
-		$modifiedBase64 = base64_encode($modifiedString);
+		$modifiedBase64 = base64_encode("<div>".$modifiedString."</div>");
 
 		echo $modifiedBase64;
 
