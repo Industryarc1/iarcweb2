@@ -468,10 +468,10 @@ function windowprint(reportrd){
 				<?php if ($reportDet['dup_inc_id'] >= 500000 && $reportDet['dup_inc_id'] < 700000) { ?>
                                 <?php //if (strlen($reportDet['taf_new']) > 30) { ?>
 									<section id="report3" data-anchor="report3">
-										<div  class="report-data-tf" >
-											<div>
+										<ul  class="report-data-tf" >
+											
 											<?= CommonHelper::modifyContent(base64_decode($reportDet['taf_new'])); ?>
-											</div>
+											
 										</div>
 									</section>
 								<?php //} else { ?>
