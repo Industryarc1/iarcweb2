@@ -14,7 +14,12 @@ $con=mysqli_connect("localhost","iarcdbmain","vpfjeVCuRqm4#5c9AhPeDdG6mGWX!jY6",
 		echo "<pre>";
 		print_r($reportData);
 		echo "</pre>";
-		echo "<br>".$reportData["title"];
+		
+		foreach ($reportData as $key => $rd) {
+			echo "<br>".$rd["title"];
+		}
+
+		
 		echo "connected!";
 	}
 
