@@ -1,3 +1,5 @@
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <?php
 //use yii\helpers\Html;
 use frontend\helper\CommonHelper;
