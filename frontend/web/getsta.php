@@ -14,8 +14,16 @@ $con=mysqli_connect("localhost","iarcdbmain","vpfjeVCuRqm4#5c9AhPeDdG6mGWX!jY6",
 		
 		while($rows = mysqli_fetch_assoc($reportData)){
 			echo $rows["title"]."<br>";
-			echo base64_decode($rows["taf"]);			
+			$regularString = base64_decode($rows["taf"]);			
 		}	
+
+		$modifiedString = str_replace("<div>", "<p>", $regularString);
+		$modifiedString = str_replace("</div>", "</p>", $modifiedString);	
+
+		$modifiedBase64 = base64_encode($modifiedString);
+
+		echo $modifiedBase64;
+
 
 		/*echo "<pre>";
 		print_r($reportData);
