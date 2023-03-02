@@ -17,19 +17,19 @@ $con=mysqli_connect("localhost","iarcdbmain","vpfjeVCuRqm4#5c9AhPeDdG6mGWX!jY6",
 			$regularString = base64_decode($rows["taf"]);			
 		}	
 
-		/*	
+			
 		//2479	
-		$modifiedString = str_replace("<div>", "<p>", $regularString);
-		$modifiedString = str_replace("</div>", "</p>", $modifiedString);	
+		$modifiedString = str_replace("<div>", "<li>", $regularString);
+		$modifiedString = str_replace("</div>", "</li>", $modifiedString);	
 
-		$modifiedBase64 = base64_encode("<div>".$modifiedString."</div>");
-		*/
+		$modifiedBase64 = base64_encode("<ul>".$modifiedString."</ul>");
+		
 
-		$modifiedString = str_replace("<br>", "</p><p>", $regularString);
+		/*$modifiedString = str_replace("<br>", "</p><p>", $regularString);
 		//$modifiedString = str_replace("</div>", "</p>", $modifiedString);	
 
 		$modifiedBase64 = base64_encode("<p>".$modifiedString."</p>");	
-
+*/
 		echo $modifiedBase64;
 
 
