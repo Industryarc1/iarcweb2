@@ -105,6 +105,15 @@ $utmParam = !empty($utmsrc)?'&utm_source='.$utmsrc.'&utm_medium='.$utmmed.'&utm_
   font-size: 18px;
 }
 
+#related-reports .description a {
+ color:#000 !important;
+}
+#related-reports .description a:hover{
+ text-decoration: underline;
+ color: #1d559a !important;
+}
+
+/*
 #related-reports .title a {
   color: #111;
 }
@@ -114,13 +123,15 @@ $utmParam = !empty($utmsrc)?'&utm_source='.$utmsrc.'&utm_medium='.$utmmed.'&utm_
 }
 #related-reports .box:hover .title a:hover {
   text-decoration: none;
-}
+}*/
 #related-reports .description {
-  font-size: 14px;
+    font-size: 18px;
     width: 70%;
+    /*line-height: 50px;*/
     border-right: 1px solid #ccc;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 18px;
+    margin-left: 0px;
+    margin-bottom: 0px;
     text-align: left;
    
 }
