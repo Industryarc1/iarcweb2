@@ -3303,6 +3303,7 @@ p.largetext {
 .social-footer a img {
     width: 70%;
     vertical-align: middle;
+    height: 100%;
 }
  /* ----------------  August 9th changes for footer social icons css END------------------------- */
  /* ----------------  August 9th changes for order-review and success css START------------------------- */
