@@ -144,7 +144,7 @@ top: 0%;
 max-width: 530px;
 }
 .modal-dialog .modal-content {
-padding: 1rem;
+padding: 1rem 0rem 2rem 0rem;
 }
 }
 .modal-header .close {
