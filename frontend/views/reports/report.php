@@ -476,8 +476,8 @@ function windowprint(reportrd){
 									</section>
 								<?php //} else { ?>
 									<!--<section id="report3" data-anchor="report3">
-										<div  class="report-data-tf" >
-											<div>
+										<ul  class="report-data-tf" >
+											
 												<?php
 												$tafTitle = substr($reportDet['title'], 0, strpos(strtolower($reportDet['title']), 'market'));
 												$lotLofLink = Url::to(['reports/sample-request', 'id' => $reportDet['dup_inc_id']]);
@@ -486,8 +486,8 @@ function windowprint(reportrd){
 													'hyperLink' => $lotLofLink,
 												]);
 												?>
-											</div>
-										</div>
+											
+										</ul>
 									</section>-->
 								<?php //} ?>
                             <?php } else { ?>
