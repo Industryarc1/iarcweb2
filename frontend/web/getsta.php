@@ -7,6 +7,12 @@ $con=mysqli_connect("localhost","iarcdbmain","vpfjeVCuRqm4#5c9AhPeDdG6mGWX!jY6",
 	}
 	else{
 
+
+		$query = "SELECT * FROM zsp_posts WHERE inc_id=2479";
+		$reportData = mysqli_query($con,$query);
+		$reportData = mysqli_fetch_assoc($reportData);
+		echo "<pre>";
+		print_r($reportData);
 		echo "connected!";
 	}
 
