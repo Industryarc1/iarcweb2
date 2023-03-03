@@ -15,10 +15,6 @@ ul{
 	padding:0;
 }
 
-img {
-  width: 100%; /* or max-width: 100%; */
-  height: auto;
-}
 .report-description ul{
 	list-style:disc;
 	margin:0;
@@ -26,7 +22,7 @@ img {
 }
 
 a{
-	#color:#337ab7;
+	/* #color:#337ab7; */
 	color:#1d559a;
 }
 
@@ -3451,7 +3447,7 @@ p.largetext {
 /* ----------------  pagination button css end------------------------- */
 
 
-@charset "utf-8";
+/* @charset "utf-8"; */
 /* CSS Document */
 
 

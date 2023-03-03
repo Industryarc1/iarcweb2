@@ -86,16 +86,16 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
                                     <input type="radio" name="dbt" value="dbt" checked> Direct Bank Transfer
                                     </div>
                                     <p>
-                                        Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+                                    Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
                                     </p>
                                     <div>
-                                    <input type="radio" name="dbt" value="cd"> Paypal <span>
-                                    <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
+                                    <input type="radio" id="cc" name="payment_mode" value="paypal" checked> Paypal<span>
+                                    <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="Paypal Card" width="50">
                                     </span>
-                                    </div>
+                                    </div><br/>
                                     <div>
-                                    <input type="radio" name="dbt" value="cd"> Pay with cards <span>
-                                    <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
+                                    <input type="radio" id="ccr" name="payment_mode" value="razorpay"> Pay with Cards <span>
+                                    <img src="https://www.clipartmax.com/png/middle/255-2550378_credit-card-logo-credit-card-icons-png.png"  alt="Credit Card" width="50">
                                     </span>
                                     </div>
                             </div>
@@ -104,32 +104,23 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
                         </div>
                     </div>
                     <div class="billing-info">
-                        <p>Payment Option</p>
+                        <!-- <p>Payment Option</p>
                         <div class="payment-type ">
                             <div class="">
                                 <label for="cc">
                                     <span class="cc-icon"><img src="<?= Yii::$app->request->baseUrl ?>/images/credit-card.png" width="" height="" alt="Credit Card"></span>
-                                    <!--Pay with Credit Card -->
 									Paypal
 									<input type="radio" id="cc" name="payment_mode" value="paypal" checked>
-									<!--<input type="radio" id="cc" name="payment_mode" value="HDFC" checked>-->
-									<!--<input type="radio" id="cc" name="payment_mode" value="razorpay" checked>-->
 								</label>
                             </div>
 							<div class="">
                                 <label for="ccr">
                                     <span class="cc-icon"><img src="<?= Yii::$app->request->baseUrl ?>/images/credit-card.png" width="" height="" alt="Credit Card"></span>
                                     Pay with Cards 
-									<!--<input type="radio" id="cc" name="payment_mode" value="HDFC">-->
 									<input type="radio" id="ccr" name="payment_mode" value="razorpay">
 								</label>
                             </div>
-                            <!--<div class="margin-zero">
-                                <label for="wt">
-                                    <span class="cc-icon"><img src="<?= Yii::$app->request->baseUrl ?>/images/money-transfer.png" width="" height="" alt="Credit Card"></span>
-                                    Pay with Wire Transfer  <input type="radio" id="wt" name="payment_mode" value="Wire Transfer" disabled></label>
-                            </div>-->
-                        </div>
+                        </div> -->
                         <div class="billing-form">
                             <p>Billing Address</p>
                             <div class="row row-mar">
