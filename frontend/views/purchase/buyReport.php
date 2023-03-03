@@ -35,7 +35,7 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
         <div class="main-txt">
             <form action="<?= Url::to(['purchase/buy-report']); ?>" method="post">
                 <h1 class="text-center"><span>Checkout</span></h1>
-                <div class="clearfix">
+                <div class="clearfix" style="background: #f6f6f6;border-radius: 0 0 5px 5px;padding: 25px;">
                     <div class="checkout-coantainer">
                         <h3>Review Order</h3>
                         <div class="checkout-box">
@@ -81,6 +81,23 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
                                 <div class="row"><b class="f-left w-50-percent">Total</b>
                                     <b id="total_amount" class="f-right w-50-percent text-right">$ <?= !empty($report['slp'])?$report['slp']:0; ?></b>
                                 </div>
+
+                                <div>
+                                    <input type="radio" name="dbt" value="dbt" checked> Direct Bank Transfer
+                                    </div>
+                                    <p>
+                                        Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+                                    </p>
+                                    <div>
+                                    <input type="radio" name="dbt" value="cd"> Paypal <span>
+                                    <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
+                                    </span>
+                                    </div>
+                                    <div>
+                                    <input type="radio" name="dbt" value="cd"> Pay with cards <span>
+                                    <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
+                                    </span>
+                                    </div>
                             </div>
                             <div class="checkout-block-row">By clicking on <b>"proceed to payment"</b> you agree to our <a href="terms-conditions.html">terms & condition</a> and <a href="privacy-policy.html">privacy policy</a>.</div>
                             <div class=""><label><input type="checkbox" name="tearm" required> I have read and I agree to be bound by IndustryArc's terms &amp; conditions</label></div>
@@ -116,38 +133,36 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
                         <div class="billing-form">
                             <p>Billing Address</p>
                             <div class="row row-mar">
-                                <div class="col-md-6 mb-3 col-padding">
+                                <div class="col-md-12 mb-3 col-padding">
                                     <label for="firstName">First name</label>
                                     <input type="text" class="form-control" id="firstName" name="f_name" placeholder="" value="" onblur="essentialChecks(this)" required>
                                    <div class='error fname_err'></div>
                                 </div>
-                                <div class="col-md-6 mb-3 col-padding">
+                                <div class="col-md-12 mb-3 col-padding">
                                     <label for="lastName">Last name</label>
                                     <input type="text" class="form-control" id="lastName" name="l_name"  placeholder="" value="">
                                     <div class='error lname_err'></div>
                                 </div>
-                            </div>
-                            <div class="row row-mar">
-                                <div class="col-md-4 mb-3 col-padding">
+                                <div class="col-md-12 mb-3 col-padding">
                                     <label for="Email">Email</label>
                                     <input type="email" class="form-control" id="Email" name="email" placeholder="" onblur="essentialChecks(this)" required>
                                     <div class='error email_err'></div>
                                 </div>
-                                <div class="col-md-4 mb-3 col-padding">
+                                <div class="col-md-12 mb-3 col-padding">
                                     <label for="Company">Company Name</label>
                                     <input type="text" class="form-control" id="Company"  name="company_name" placeholder="" onblur="essentialChecks(this)" required>
                                      <div class='error company_err'></div>
                                 </div>
-                                <div class="col-md-4 mb-3 col-padding">
+                                <div class="col-md-12 mb-3 col-padding">
                                     <label for="Contact">Contact Number</label>
                                     <input type="number" class="form-control" id="Contact"  name="contact_number" placeholder="" onblur="essentialChecks(this)" required>
                                      <div class='error phone_err'></div>
                                 </div>
-                            </div>
-                            <div class="mb-3 ">
+                                <div class="col-md-12 mb-3 col-padding">
                                 <label for="address">Address</label>
-                                <textarea class="form-control" id="address" name="address" placeholder="Enter full address along with Country State Zipcode " rows="5" onblur="essentialChecks(this)" required></textarea>
+                                <textarea class="form-control" id="address" name="address" placeholder="Enter full address along with Country State Zipcode " rows="3" onblur="essentialChecks(this)" required></textarea>
                                 <div class='error address_err'></div>
+                                </div>
                             </div>
 							<div class="row row-mar">
                                 <div class="col-md-6 mb-3 col-padding">
