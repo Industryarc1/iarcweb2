@@ -15,10 +15,6 @@ ul{
 	padding:0;
 }
 
-img {
-  width: 100%; /* or max-width: 100%; */
-  height: auto;
-}
 .report-description ul{
 	list-style:disc;
 	margin:0;
