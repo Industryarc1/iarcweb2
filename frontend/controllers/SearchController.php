@@ -64,7 +64,7 @@ class SearchController extends IarcfbaseController
 		$newtitle2 = ucfirst($reportTitle);
 		$newtitle3 = ucwords($reportTitle);
 		
-		$sql = "(SELECT `title`, `short_descr`, `curl`, `meta_title`, `dup_inc_id` FROM `zsp_posts` WHERE status=1 AND `title` LIKE ".$keyTitle1.")";
+		$sql = "(SELECT `title`, `short_descr`, `curl`, `meta_title`, `dup_inc_id` FROM `zsp_posts` WHERE status=1 AND `title` LIKE ".$keyTitle1." (REGEXP_REPLACE(FROM_BASE64(`description`), '<img[^>]*>', '') LIKE '%$reportTitle%')) LIMIT 10";
 
 		/*$sql = "(SELECT `title`, `short_descr`, `curl`, `meta_title`, `dup_inc_id` FROM `zsp_posts` WHERE status=1 AND `title` LIKE ".$keyTitle1.") 
 				UNION 
