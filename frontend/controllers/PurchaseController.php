@@ -18,6 +18,10 @@ class PurchaseController extends IarcfbaseController {
         return parent::beforeAction($action);
     }
 
+    public function actionViewLicenses(){
+        return $this->render('viewLicenses');
+    }
+
     public function actionBuyReport() {
         $arrReportDetail = [];
         $arrPost = Yii::$app->request->post();
