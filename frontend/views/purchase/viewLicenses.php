@@ -243,7 +243,7 @@ use yii\helpers\Url;
 <div class='container my-5'>
   <div class='row pricing-intro'>
     <div class='col-12 col-md-10 col-lg-8 mx-auto text-center mb-4'>
-      <h3>Select a license type that suits your business needs</h3>
+      <h4>Select a license type that suits your business needs</h4>
     </div>
   </div>
   <div class='row d-block d-md-none pricing-plans d-flex justify-content-center mb-2'>
@@ -325,7 +325,7 @@ use yii\helpers\Url;
           <div class='cost-wrap text-center'>
             <h3 class='cost mb-1'>$4250</h3>
             <span class='d-block sub-title fw-bold mb-3'>2 Days / Report Devlivery Timeline</span>
-            <a class='btn btn-teal'>Buy Now</a>
+            <a class='btn btn-teal btn-sm'>Buy Now</a>
           </div>
         </div>
         <div class='compare-item-row d-flex justify-content-center align-items-center'>
@@ -403,7 +403,7 @@ use yii\helpers\Url;
           <div class='cost-wrap text-center'>
             <h3 class='cost mb-1'>$5900</h3>
             <span class='d-block sub-title fw-bold mb-3'>7 Days / Report Devlivery Timeline</span>
-            <a class='btn btn-teal'>Buy Now</a>
+            <a class='btn btn-teal btn-sm'>Buy Now</a>
           </div>
         </div>
         <div class='compare-item-row d-flex justify-content-center align-items-center'>
@@ -478,7 +478,7 @@ use yii\helpers\Url;
           <div class='cost-wrap text-center'>
             <h3 class='cost mb-1'>$9500</h3>
             <span class='d-block sub-title fw-bold mb-3'>12 - 15 Days / Report Devlivery Timeline</span>
-            <a class='btn btn-teal'>Buy Now</a>
+            <a class='btn btn-teal btn-sm'>Buy Now</a>
           </div>
         </div>
         <div class='compare-item-row d-flex justify-content-center align-items-center'>
