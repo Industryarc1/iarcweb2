@@ -325,7 +325,7 @@ use yii\helpers\Url;
           <div class='cost-wrap text-center'>
             <h3 class='cost mb-1'>$4250</h3>
             <span class='d-block sub-title fw-bold mb-3'>2 Days / Report Devlivery Timeline</span>
-            <a class='btn btn-teal btn-sm text-white'>Buy Now</a>
+            <a class='btn btn-teal btn-sm'>Buy Now</a>
           </div>
         </div>
         <div class='compare-item-row d-flex justify-content-center align-items-center'>
@@ -403,7 +403,7 @@ use yii\helpers\Url;
           <div class='cost-wrap text-center'>
             <h3 class='cost mb-1'>$5900</h3>
             <span class='d-block sub-title fw-bold mb-3'>7 Days / Report Devlivery Timeline</span>
-            <a class='btn btn-teal btn-sm text-white'>Buy Now</a>
+            <a class='btn btn-teal btn-sm'>Buy Now</a>
           </div>
         </div>
         <div class='compare-item-row d-flex justify-content-center align-items-center'>
@@ -478,7 +478,7 @@ use yii\helpers\Url;
           <div class='cost-wrap text-center'>
             <h3 class='cost mb-1'>$9500</h3>
             <span class='d-block sub-title fw-bold mb-3'>12 - 15 Days / Report Devlivery Timeline</span>
-            <a class='btn btn-teal btn-sm text-white'>Buy Now</a>
+            <a class='btn btn-teal btn-sm'>Buy Now</a>
           </div>
         </div>
         <div class='compare-item-row d-flex justify-content-center align-items-center'>
@@ -543,3 +543,18 @@ use yii\helpers\Url;
   </div>
 </div>
 <!-- partial -->
+
+<script>
+	var planBtn = $('.pricing-plan');
+var pricingCol = $('.col-pricing');
+
+planBtn.click(function() {
+  var planId = $(this).data('plan');
+  var activePlan = $('#' + planId);
+
+  planBtn.removeClass('active-btn');
+  $(this).addClass('active-btn');
+  pricingCol.removeClass('active-plan');
+  activePlan.addClass('active-plan');
+});
+</script>
