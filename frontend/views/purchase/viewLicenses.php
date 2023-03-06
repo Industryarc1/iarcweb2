@@ -4,7 +4,242 @@
 use yii\helpers\Url;
 ?>
 
-<!-- partial:index.partial.html -->
+<style>
+.rounded {
+  border-radius: 15px !important;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.bg-teal {
+/*  background: #34cb85;*/
+}
+
+.btn {
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-teal {
+  background: #0E5CA3;
+  color: #fff;
+}
+.btn-teal:hover {
+  background: #212529;
+  color: #fff;
+}
+
+.pricing-intro .sub-title {
+  font-size: 1.15em;
+}
+
+.pricing-plan {
+  background: #f7f7f7;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+.pricing-plan:hover {
+  background: #34cb85;
+  color: #fff;
+}
+.pricing-plan.active-btn {
+  background: #34cb85;
+  color: #fff;
+}
+.pricing-plan h4 {
+  font-size: 1em;
+}
+
+.pricing-table h2 {
+  font-size: 1.2em;
+}
+.pricing-table .sub-title {
+  font-size: 0.7em;
+  font-weight: initial;
+}
+.pricing-table .active-plan {
+  display: block !important;
+}
+
+.col-compare .title-row {
+  border-top-left-radius: 10px;
+}
+
+.col-enterprise .title-row {
+  border-top-right-radius: 10px;
+}
+
+.pricing-compare {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.pricing-enterprise {
+  border-bottom-right-radius: 10px;
+}
+
+.col-pricing:hover {
+  z-index: 1;
+}
+
+.pricing-single {
+  background: #f7f7f7;
+  min-height: 400px;
+  margin-left: 1px;
+  margin-right: 1px;
+  transition: all 0.25s ease-in-out;
+}
+.pricing-single:hover:not(.pricing-compare) {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+  transform: scale(1.005);
+}
+.pricing-single:last-of-type {
+  border-top-right-radius: 10px;
+}
+
+.title-row {
+  background: #0E5CA3;
+  color: #fff;
+  min-height: 60px;
+  padding: 0 10px;
+}
+
+.pricing-popular {
+  min-height: 40px;
+  border-radius: 5px;
+  z-index: 2;
+}
+.pricing-popular h4 {
+  font-size: 1em;
+}
+.pricing-popular.active {
+  background: #62bdde;
+  color: #fff;
+}
+
+.col-popular .pricing-single {
+  background: #62bdde;
+}
+.col-popular .bg-teal {
+/*  background: #fff;*/
+}
+.col-popular .btn-teal {
+  background: #fff;
+  color: #212529;
+}
+.col-popular .btn-teal:hover {
+  background: #212529;
+  color: #fff;
+}
+
+.cost-row {
+  border-bottom: 1px solid #fff;
+  min-height: 120px;
+}
+.cost-row .cost {
+  font-size: 1.5em;
+  font-weight: 800;
+  line-height: 1em;
+}
+
+.compare-item-row {
+  border-bottom: 1px solid #fff;
+  height: 35px;
+}
+.compare-item-row:last-of-type {
+  border-bottom: none;
+}
+.compare-item-row .circle {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+
+.compare-item-row .circle {
+    position: relative;
+    display: inline-block;
+}
+
+.compare-item-row .circle::before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 50%;
+    width: 3px;
+    background-color: #336699;
+    content: "";
+    transform: translateX(10px) rotate(-45deg);
+    transform-origin: left bottom;
+}
+
+.compare-item-row .circle::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #336699;
+    content: "";
+    transform: translateX(10px) rotate(-45deg);
+    transform-origin: left bottom;
+}
+
+
+.cross{
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+/*        border: 7px solid #fff;*/
+        background:
+            linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 43%,#000 45%,#000 55%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 100%),
+            linear-gradient(135deg, #fff 0%,#fff 43%,#000 45%,#000 55%,#fff 57%,#fff 100%);
+    }
+.compare-item-row .compare-title {
+ font-weight: 600;
+    font-size: 13px;
+}
+
+@media screen and (max-width: 1199px) {
+  .compare-item-row {
+    height: 70px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .pricing-table {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .pricing-single:not(.pricing-compare) {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .pricing-single:not(.pricing-compare) .title-row {
+    border-top-right-radius: 10px;
+  }
+
+  .pricing-single:hover {
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+@media screen and (max-width: 460px) {
+  .cost-row .cost {
+    font-size: 2.5em;
+  }
+
+  .compare-item-row {
+    height: 80px;
+  }
+}
+</style>
+
+
+<!-- partial-->
 <div class='container my-5'>
   <div class='row pricing-intro'>
     <div class='col-12 col-md-10 col-lg-8 mx-auto text-center mb-4'>
