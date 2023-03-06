@@ -35,7 +35,6 @@ return [
 	'login.php'=>'site/login',
 	//'registration.php'=>'site/registration',
 	'purchasereport.php'=>'purchase/buy-report',
-	'viewlicenses.php'=>'purchase/view-licenses'
 	'sitemap.html'=>'sitemap/sitemap-html',
 	//'quotation.php'=>'reports/request-quote',
 	'createsitemap'=>'sitemap/create-sitemap-xml',
