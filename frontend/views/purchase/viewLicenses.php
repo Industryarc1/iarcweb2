@@ -243,8 +243,7 @@ use yii\helpers\Url;
 <div class='container my-5'>
   <div class='row pricing-intro'>
     <div class='col-12 col-md-10 col-lg-8 mx-auto text-center mb-4'>
-      <h2>Select a license type that suits your business needs</h2>
-      <!-- <h3 class='sub-title'>Our service plans grow with your workforce! Compared to other MSPs, our solution offers more for less using a simple per-user monthly fee.</h3> -->
+      <h3>Select a license type that suits your business needs</h3>
     </div>
   </div>
   <div class='row d-block d-md-none pricing-plans d-flex justify-content-center mb-2'>
