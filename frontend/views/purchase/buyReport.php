@@ -55,17 +55,17 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
                                         <div>
                                             <label for="Single">
                                                 <input type="radio" id="Single" name="licence_price" value="<?= !empty($report['slp'])?$report['slp']:0; ?>" <?= $_GET['license_type']=="Basic" ? "checked": "" ?>>
-                                                Single User <span>$ <?= !empty($report['slp'])?$report['slp']:0; ?></span></label>
+                                                Basic User <span>$ <?= !empty($report['slp'])?$report['slp']:0; ?></span></label>
                                         </div>
                                         <div>
                                             <label for="Corporate">
                                                 <input type="radio" id="Corporate" name="licence_price" value="<?= !empty($report['clp'])?$report['clp']:0; ?>" <?= $_GET['license_type']=="Advanced" ? "checked": "" ?>>
-                                                Corporate User <span>$ <?= !empty($report['clp'])?$report['clp']:0; ?></span></label>
+                                                Advanced User <span>$ <?= !empty($report['clp'])?$report['clp']:0; ?></span></label>
                                         </div>
                                         <div>
                                             <label for="Expert">
                                                 <input type="radio" id="Expert" name="licence_price" value="9500" <?= $_GET['license_type']=="Expert" ? "checked": "" ?>>
-                                                Corporate User <span>$ 9500</span></label>
+                                                Expert User <span>$ 9500</span></label>
                                         </div>
                                     </div>
                                 </div>
