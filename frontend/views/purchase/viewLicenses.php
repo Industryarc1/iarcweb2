@@ -403,7 +403,7 @@ use yii\helpers\Url;
           <div class='cost-wrap text-center'>
             <h3 class='cost mb-1'>$5900</h3>
             <span class='d-block sub-title fw-bold mb-3'>7 Days / Report Devlivery Timeline</span>
-            <a class='btn btn-teal btn-sm'>Buy Now</a>
+            <button class='btn btn-teal btn-sm'>Buy Now</button>
           </div>
         </div>
         <div class='compare-item-row d-flex justify-content-center align-items-center'>
