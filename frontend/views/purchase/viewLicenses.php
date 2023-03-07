@@ -419,7 +419,7 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
         </div>
         <div class='cost-row d-flex justify-content-center align-items-center'>
           <div class='cost-wrap text-center'>
-            <h3 class='cost mb-1'>$5900</h3>
+            <h3 class='cost mb-1'>$<?= !empty($report['clp'])?$report['clp']:0; ?></h3>
             <span class='d-block sub-title fw-bold mb-3'>7 Days / Report Devlivery Timeline</span>
             <button class='btn btn-teal btn-sm'>Buy Now</button>
           </div>
