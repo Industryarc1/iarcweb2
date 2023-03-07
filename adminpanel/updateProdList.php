@@ -266,7 +266,7 @@ if(isset($_POST["eidtArticle"]) && $_POST["eidtArticle"]=="Save Post"){
 			
 			//var_dump($stmt);exit;
 			if($flag){
-				$sqlQuery  =  "DELETE FROM zsp_faqsqa WHERE id=?";
+				$sqlQuery  =  "DELETE FROM zsp_faqsqa WHERE inc_id=?";
 				$statement = $mysqli->prepare($sqlQuery);
 				$statement->bind_param("i", $_POST['hid_article_id']);
 				$statement->execute();
