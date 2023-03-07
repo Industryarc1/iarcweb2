@@ -342,7 +342,7 @@ function windowprint(reportrd){
                   <div class="buy-licence col-6">
                       <div class="licence-content">
                           <ul>
-                              <li>
+                              <!--<li>
                                   <label>
                                       <input type="radio" name="licence" class="filled-in" checked>
                                       $ <?= $reportDet['slp'] ?> <span title="Premium Section Included in Corporate License only">Single User License ?</span>
@@ -354,7 +354,7 @@ function windowprint(reportrd){
                                       $ <?= $reportDet['clp'] ?> <span title="Premium Section Included in Corporate License only">Corporate User License ?</span>
                                   </label>
                               </li>
-							  <!--<li>
+							  <li>
                                   <label>
                                       <input type="radio" name="licence" class="filled-in" >
                                       $ 7250 <span title="Premium Section Included in Corporate License only">Enterprise License ?</span>
@@ -363,9 +363,9 @@ function windowprint(reportrd){
                           </ul>
 						  <?php if($utmParam!=''){ ?>
 							<!--<a href="<?= Url::to(['purchase/buy-report','id'=>$reportDet['dup_inc_id'].$utmParam])?>"><button>Buy Now</button></a>-->
-							<a href="/purchasereport.php?id=<?php echo $reportDet['dup_inc_id'].$utmParam; ?>"><button>Buy Now</button></a>
+							<a href="/viewlicenses.php?id=<?php echo $reportDet['dup_inc_id'].$utmParam; ?>"><button>Buy Now</button></a>
 						  <?php }else{ ?>
-							<a href="<?= Url::to(['purchase/buy-report','id'=>$reportDet['dup_inc_id']])?>"><button>Buy Now</button></a>
+							<a href="<?= Url::to(['purchase/view-licenses','id'=>$reportDet['dup_inc_id']])?>"><button>Buy Now</button></a>
 						  <?php } ?>
                       </div>
                   </div>
