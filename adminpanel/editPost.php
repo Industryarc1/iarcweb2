@@ -121,7 +121,8 @@ include_once "includes/js.php";
 						<ul class='etabs'>
 						   <li class='tab'><a href="#ctab1">General</a></li>
                            <li class='tab'><a href="#ctab2">Other Info.</a></li>
-						   <li class='tab'><a href="#ctab3">SEO</a></li> 
+						   <li class='tab'><a href="#ctab3">SEO</a></li>
+						   <li class='tab'><a href="#ctab4">FAQ'S</a></li> 
 						</ul>
 						<div class='panel-container'>  
 						      <?php
@@ -371,6 +372,11 @@ include_once "includes/js.php";
 								</div>
 								<div class="height20px"></div>
 							  </div>
+
+							  <div id="ctab4">
+							  	jfdghdhgjfd
+							  </div>	
+
 					  	</div>
 					</div> 
                 </div>
