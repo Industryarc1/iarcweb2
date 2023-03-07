@@ -6,7 +6,7 @@ use yii\widgets\ActiveForm;
 use yii\captcha\Captcha;
 use yii\helpers\Url;
 
-$this->title = 'industryArc - Buy Now';
+$this->title = 'IndustryARC - Buy Now';
 
 $utmsrc = !empty($_GET['utm_source'])?urldecode($_GET['utm_source']):'';
 $utmmed = !empty($_GET['utm_medium'])?urldecode($_GET['utm_medium']):'';
@@ -54,17 +54,17 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
                                     <div class="licence-select-btn">
                                         <div>
                                             <label for="Single">
-                                                <input type="radio" id="Single" name="licence_price" value="<?= !empty($report['slp'])?$report['slp']:0; ?>" checked>
+                                                <input type="radio" id="Single" name="licence_price" value="<?= !empty($report['slp'])?$report['slp']:0; ?>" <?= $_GET['license_type']=="Basic" ? "checked": "" ?>>
                                                 Single User <span>$ <?= !empty($report['slp'])?$report['slp']:0; ?></span></label>
                                         </div>
                                         <div>
                                             <label for="Corporate">
-                                                <input type="radio" id="Corporate" name="licence_price" value="<?= !empty($report['clp'])?$report['clp']:0; ?>">
+                                                <input type="radio" id="Corporate" name="licence_price" value="<?= !empty($report['clp'])?$report['clp']:0; ?>" <?= $_GET['license_type']=="Advanced" ? "checked": "" ?>>
                                                 Corporate User <span>$ <?= !empty($report['clp'])?$report['clp']:0; ?></span></label>
                                         </div>
                                         <div>
-                                            <label for="Corporate">
-                                                <input type="radio" id="Expert" name="licence_price" value="9500">
+                                            <label for="Expert">
+                                                <input type="radio" id="Expert" name="licence_price" value="9500" <?= $_GET['license_type']=="Expert" ? "checked": "" ?>>
                                                 Corporate User <span>$ 9500</span></label>
                                         </div>
                                     </div>
