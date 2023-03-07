@@ -340,7 +340,7 @@ function windowprint(reportrd){
                       <span class="r-format">Report Format: PDF + Excel</span>
                   </div>
                   <div class="buy-licence col-6">
-                      <div class="licence-content">
+                      <div class="licence-content text-right">
                           <ul>
                               <!--<li>
                                   <label>
