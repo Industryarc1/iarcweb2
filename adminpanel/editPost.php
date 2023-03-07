@@ -399,15 +399,15 @@ include_once "includes/js.php";
 
 									<div class="head4 left">Which is the leading segment in this market?</div>
 									<br>
-									<textarea name="faq3" type="text" class="width70" id="faq3"></textarea>
+									<textarea name="faq3" type="text" class="width70" id="faq3"><?= $faq_rows[2]?></textarea>
 
 									<div class="head4 left">What is the key factor driving of this market?</div>
 									<br>
-									<textarea name="faq4" type="text" class="width70" id="faq4"></textarea>
+									<textarea name="faq4" type="text" class="width70" id="faq4"><?= $faq_rows[3]?></textarea>
 
 									<div class="head4 left">Who are the leading players of the market?</div>
 									<br>
-									<textarea name="faq5" type="text" class="width70" id="faq5"></textarea>
+									<textarea name="faq5" type="text" class="width70" id="faq5"><?= $faq_rows[4]?></textarea>
 
 
 								</div>
