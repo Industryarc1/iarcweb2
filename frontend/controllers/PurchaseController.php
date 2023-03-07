@@ -19,9 +19,14 @@ class PurchaseController extends IarcfbaseController {
     }
 
      public function actionViewLicenses(){
+        $arrGet = Yii::$app->request->get();
+        $strReportId = !empty($arrGet['id']) ? $arrGet['id'] : NULL;
+        echo $strReportId;
+
+        exit;
         return $this->render('viewLicenses');
     }
-    
+
     public function actionBuyReport() {
         $arrReportDetail = [];
         $arrPost = Yii::$app->request->post();
