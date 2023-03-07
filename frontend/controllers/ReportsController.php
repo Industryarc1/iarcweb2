@@ -156,7 +156,7 @@ class ReportsController extends IarcfbaseController {
             $reportDetail['brport'] = ZspCatlogCategories::find()->where(['inc_id' => $reportDetail['cat']])->asArray()->one();
         }
 
-		$reportFaqs = ZspFaqs::find()->where(['inc_id' => $reportDetail['inc_id']])->orderBy(['priority' => SORT_ASC])->asArray()->all();
+		$reportFaqs = ZspFaqs::find()->where(['inc_id' => $reportDetail['inc_id'],'status' =>1])->orderBy(['priority' => SORT_ASC])->asArray()->all();
 
         /* remember the page url in order to check the user is Loged in or not 
           if not redirect the user to login page and after login come back to this action again */
@@ -208,7 +208,7 @@ class ReportsController extends IarcfbaseController {
             $reportDetail['brport'] = ZspCatlogCategories::find()->where(['inc_id' => $reportDetail['cat']])->asArray()->one();
         }
 
-		$reportFaqs = ZspFaqs::find()->where(['inc_id' => $reportDetail['inc_id']])->orderBy(['priority' => SORT_ASC])->asArray()->all();
+		$reportFaqs = ZspFaqs::find()->where(['inc_id' => $reportDetail['inc_id'],'status' =>1])->orderBy(['priority' => SORT_ASC])->asArray()->all();
 
         /* remember the page url in order to check the user is Loged in or not 
           if not redirect the user to login page and after login come back to this action again */

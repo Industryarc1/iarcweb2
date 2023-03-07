@@ -275,7 +275,7 @@ if(isset($_POST["eidtArticle"]) && $_POST["eidtArticle"]=="Save Post"){
 				for($ai=1;$ai<=5;$ai++){
 				$q1 = mysqli_real_escape_string($mysqli,$_POST['q'.$ai]);
 				$faq1 =  mysqli_real_escape_string($mysqli,$_POST['faq'.$ai]);
-				$newSql = "insert into zsp_faqsqa(inc_id,question,answer,priority,status,created_date)values(?,?,?,1,1,now())";
+				$newSql = "insert into zsp_faqsqa(inc_id,question,answer,priority,status,created_date)values(?,?,?,".$ai.",1,now())";
 				$statement1 = $mysqli->prepare($newSql);
 				$statement1->bind_param("iss", $_POST['hid_article_id'],$q1,$faq1);
 				$statement1->execute();
