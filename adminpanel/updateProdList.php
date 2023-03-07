@@ -193,10 +193,10 @@ if(isset($_POST["addArticle1"]) && $_POST["addArticle1"]=="Save Post"){
 
 if(isset($_POST["eidtArticle"]) && $_POST["eidtArticle"]=="Save Post"){
 
-	echo "<pre>";	
+	/*echo "<pre>";	
 		print_r($_POST);
-		exit;
-		
+		exit;*/
+
 	$cat=$_POST['txtParent'];
 	$subcat=$_POST['txtParent1'];
 	$title = mysqli_escape_string($mysqli,$_POST['txtName']);
@@ -266,6 +266,18 @@ if(isset($_POST["eidtArticle"]) && $_POST["eidtArticle"]=="Save Post"){
 			
 			//var_dump($stmt);exit;
 			if($flag){
+				$sqlQuery  =  "DELETE FROM zsp_faqsqa WHERE id=?";
+				$statement = $mysqli->prepare($sqlQuery);
+				$statement->bind_param("i", $_POST['hid_article_id']);
+				$statement->execute();
+
+				$q1 = mysqli_real_escape_string($mysqli,$_POST['q1']);
+				$faq1 =  mysqli_real_escape_string($mysqli,$_POST['faq1']);
+				$newSql = "insert into zsp_faqsqa(inc_id,question,answer,priority,status,created_date)values(?,?,?,1,1,now())";
+				$statement1 = $mysqli->prepare($newSql);
+				$statement1->bind_param("iss", $_POST['hid_article_id'],$q1,$faq1);
+				$statement1->execute();
+
 				$_SESSION['stat']="SE";
 				$allClasses->forRedirect ("posts.php");
 				exit;
