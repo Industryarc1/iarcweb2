@@ -376,9 +376,25 @@ include_once "includes/js.php";
 							  <div id="ctab4">
 								<div class="padding10">
 									
-									<div class="head4 left">Commercial Refrigeration Equipment Market CAGR Value</div>
+									<div class="head4 left">Commercial Refrigeration Equipment Market growth?</div>
 									<br>
 									<textarea name="faq1" type="text" class="width70" id="faq1"></textarea>
+
+									<div class="head4 left">Commercial Refrigeration Equipment Market CAGR value?</div>
+									<br>
+									<textarea name="faq2" type="text" class="width70" id="faq2"></textarea>
+
+									<div class="head4 left">Which is the leading segment in this market?</div>
+									<br>
+									<textarea name="faq3" type="text" class="width70" id="faq3"></textarea>
+
+									<div class="head4 left">What is the key factor driving of this market?</div>
+									<br>
+									<textarea name="faq4" type="text" class="width70" id="faq4"></textarea>
+
+									<div class="head4 left">Who are the leading players of the market?</div>
+									<br>
+									<textarea name="faq5" type="text" class="width70" id="faq5"></textarea>
 
 
 								</div>
