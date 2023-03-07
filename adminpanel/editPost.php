@@ -375,7 +375,12 @@ include_once "includes/js.php";
 
 							  <div id="ctab4">
 								<div class="padding10">
-									demo123
+									
+									<div class="head4 left">Commercial Refrigeration Equipment Market CAGR Value</div>
+									<br>
+									<textarea name="faq1" type="text" class="width70" id="faq1"></textarea>
+
+
 								</div>
 								</div>	
 
