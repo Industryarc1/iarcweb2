@@ -389,13 +389,13 @@ include_once "includes/js.php";
 							  <div id="ctab4">
 								<div class="padding10">
 									
-									<div class="head4 left">Commercial Refrigeration Equipment Market growth?</div>
+									<div class="head4 left"><?=$det34?> growth?</div>
 									<br>
 									<textarea name="faq1" type="text" class="width70" id="faq1"><?= $faq_rows[0]?></textarea>
 
-									<div class="head4 left">Commercial Refrigeration Equipment Market CAGR value?</div>
+									<div class="head4 left"><?=$det34?> CAGR value?</div>
 									<br>
-									<textarea name="faq2" type="text" class="width70" id="faq2"></textarea>
+									<textarea name="faq2" type="text" class="width70" id="faq2"><?= $faq_rows[1]?></textarea>
 
 									<div class="head4 left">Which is the leading segment in this market?</div>
 									<br>
