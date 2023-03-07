@@ -40,6 +40,19 @@ if($_REQUEST['act']=="edit" && $_REQUEST['id']!=""){
 				$det40= str_replace('\"', '"', $det40);
 				$det40= str_replace("\'", "'", $det40);
 				$det40= str_replace('\n', "<br>", $det40);
+
+
+				$sql = "SELECT * FROM zsp_faqsqa WHERE inc_id=?";
+				$stmt = $mysqli->prepare($sql); 
+				$stmt->bind_param("i", $cid);
+				$stmt->execute();
+				$result = $stmt->get_result();
+				while ($row = $result->fetch_assoc()) {
+				    $faq_rows =  $row['answer'];
+				}
+
+
+
 			}else{
 				$_SESSION['stat']="NA";
 				$allClasses->forRedirect ("addPost.php");
@@ -378,7 +391,7 @@ include_once "includes/js.php";
 									
 									<div class="head4 left">Commercial Refrigeration Equipment Market growth?</div>
 									<br>
-									<textarea name="faq1" type="text" class="width70" id="faq1"></textarea>
+									<textarea name="faq1" type="text" class="width70" id="faq1"><?= $faq_rows[0]?></textarea>
 
 									<div class="head4 left">Commercial Refrigeration Equipment Market CAGR value?</div>
 									<br>
