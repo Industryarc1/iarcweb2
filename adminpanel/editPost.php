@@ -41,10 +41,10 @@ if($_REQUEST['act']=="edit" && $_REQUEST['id']!=""){
 				$det40= str_replace("\'", "'", $det40);
 				$det40= str_replace('\n', "<br>", $det40);
 
-
-				$sql = "SELECT * FROM zsp_faqsqa WHERE inc_id=?";
+				$stck=1;
+				$sql = "SELECT * FROM zsp_faqsqa WHERE inc_id=? and status =?";
 				$stmt = $mysqli->prepare($sql); 
-				$stmt->bind_param("i", $cid);
+				$stmt->bind_param("ii", $cid,$stck);
 				$stmt->execute();
 				$result = $stmt->get_result();
 				while ($row = $result->fetch_assoc()) {
