@@ -266,9 +266,10 @@ if(isset($_POST["eidtArticle"]) && $_POST["eidtArticle"]=="Save Post"){
 			
 			//var_dump($stmt);exit;
 			if($flag){
-				$sqlQuery  =  "DELETE FROM zsp_faqsqa WHERE inc_id=?";
+				$stn1 =0;
+				$sqlQuery  =  "update zsp_faqsqa set status=? WHERE inc_id=?";
 				$statement = $mysqli->prepare($sqlQuery);
-				$statement->bind_param("i", $_POST['hid_article_id']);
+				$statement->bind_param("ii", $stn1,$_POST['hid_article_id']);
 				$statement->execute();
 
 				$q1 = mysqli_real_escape_string($mysqli,$_POST['q1']);
