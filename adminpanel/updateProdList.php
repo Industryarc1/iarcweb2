@@ -272,7 +272,7 @@ if(isset($_POST["eidtArticle"]) && $_POST["eidtArticle"]=="Save Post"){
 				$statement->bind_param("ii", $stn1,$_POST['hid_article_id']);
 				$statement->execute();
 
-				for($ai=1;$ai<=5;$i++){
+				for($ai=1;$ai<=5;$ai++){
 				$q1 = mysqli_real_escape_string($mysqli,$_POST['q'.$ai]);
 				$faq1 =  mysqli_real_escape_string($mysqli,$_POST['faq'.$ai]);
 				$newSql = "insert into zsp_faqsqa(inc_id,question,answer,priority,status,created_date)values(?,?,?,1,1,now())";
