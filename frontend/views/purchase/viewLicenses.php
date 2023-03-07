@@ -562,6 +562,7 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
 </div>
 <!-- partial -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
 	var planBtn = $('.pricing-plan');
 var pricingCol = $('.col-pricing');
