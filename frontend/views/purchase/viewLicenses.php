@@ -496,7 +496,7 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
           <div class='cost-wrap text-center'>
             <h3 class='cost mb-1'>$9500</h3>
             <span class='d-block sub-title fw-bold mb-3'>12 - 15 Days / Report Devlivery Timeline</span>
-            <button class='btn btn-teal btn-sm'>Buy Now</button>
+            <a href="purchasereport.php?id=<?= $reportId?>&license_type=Expert" class='btn btn-teal btn-sm'>Buy Now</a>
           </div>
         </div>
         <div class='compare-item-row d-flex justify-content-center align-items-center'>
