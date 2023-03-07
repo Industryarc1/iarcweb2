@@ -238,6 +238,14 @@ use yii\helpers\Url;
 }
 </style>
 
+<div class="row child-nav">
+    <div class="breadcrumb col-8 ">
+        <ul>
+            <li><a href="<?= Url::to(['site/index']); ?>">Home</a></li>
+            <li>View Licenses</li>
+        </ul>
+    </div>
+</div>
 
 <!-- partial-->
 <div class='container my-5'>
