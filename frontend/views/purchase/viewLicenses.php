@@ -2,6 +2,16 @@
 
 <?php
 use yii\helpers\Url;
+
+$this->title = 'IndustryARC - Buy Now';
+
+$utmsrc = !empty($_GET['utm_source'])?urldecode($_GET['utm_source']):'';
+$utmmed = !empty($_GET['utm_medium'])?urldecode($_GET['utm_medium']):'';
+$utmcmp = !empty($_GET['utm_campaign'])?urldecode($_GET['utm_campaign']):'';	
+$utmid = !empty($_GET['utm_id'])?urldecode($_GET['utm_id']):'';	
+$utmterm = !empty($_GET['utm_term'])?urldecode($_GET['utm_term']):'';	
+$utmcontent = !empty($_GET['utm_content'])?urldecode($_GET['utm_content']):'';	
+$utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$utmcmp.'&utm_id='.$utmid.'&utm_term='.$utmterm.'&utm_content='.$utmcontent.'':'';
 ?>
 
 <style>
@@ -331,7 +341,7 @@ use yii\helpers\Url;
         </div>
         <div class='cost-row d-flex justify-content-center align-items-center'>
           <div class='cost-wrap text-center'>
-            <h3 class='cost mb-1'>$4250</h3>
+            <h3 class='cost mb-1'>$<?= !empty($report['slp'])?$report['slp']:0; ?></h3>
             <span class='d-block sub-title fw-bold mb-3'>2 Days / Report Devlivery Timeline</span>
             <button class='btn btn-teal btn-sm'>Buy Now</button>
           </div>

@@ -19,12 +19,11 @@ class PurchaseController extends IarcfbaseController {
     }
 
      public function actionViewLicenses(){
+        $arrReportDetail = [];
         $arrGet = Yii::$app->request->get();
         $strReportId = !empty($arrGet['id']) ? $arrGet['id'] : NULL;
-        echo $strReportId;
-
-        exit;
-        return $this->render('viewLicenses');
+        $arrReportDetail = ZspPosts::find()->where(['dup_inc_id' => $strReportId])->asArray()->one();
+        return $this->render('viewLicenses',['report' => $arrReportDetail,'reportId' => $strReportId]);
     }
 
     public function actionBuyReport() {
