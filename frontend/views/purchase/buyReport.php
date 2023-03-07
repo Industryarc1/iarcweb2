@@ -87,12 +87,7 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
                                     <b id="total_amount" class="f-right w-50-percent text-right">$ <?= !empty($report['slp'])?$report['slp']:0; ?></b>
                                 </div>
 
-                                <div>
-                                    <input type="radio" name="dbt" value="dbt" checked> Direct Bank Transfer
-                                    </div>
-                                    <p>
-                                    Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
-                                    </p>
+                                
                                     <div>
                                     <input type="radio" id="cc" name="payment_mode" value="paypal" checked> Paypal<span>
                                     <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="Paypal Card" width="50">
