@@ -2,11 +2,6 @@
 //ini_set('display_errors',1); error_reporting(E_ALL);
 include_once "includes/config.php";
 if(isset($_POST["addArticle"]) && $_POST["addArticle"]=="Save Posts"){
-
-		echo "<pre>";	
-		print_r($_POST);
-		exit;
-		
 		$cat=$_POST['txtParent'];
 		$subcat=$_POST['txtParent1'];
 		
@@ -197,6 +192,11 @@ if(isset($_POST["addArticle1"]) && $_POST["addArticle1"]=="Save Post"){
 }
 
 if(isset($_POST["eidtArticle"]) && $_POST["eidtArticle"]=="Save Post"){
+
+	echo "<pre>";	
+		print_r($_POST);
+		exit;
+		
 	$cat=$_POST['txtParent'];
 	$subcat=$_POST['txtParent1'];
 	$title = mysqli_escape_string($mysqli,$_POST['txtName']);
