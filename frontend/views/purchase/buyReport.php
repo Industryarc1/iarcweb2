@@ -62,6 +62,11 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
                                                 <input type="radio" id="Corporate" name="licence_price" value="<?= !empty($report['clp'])?$report['clp']:0; ?>">
                                                 Corporate User <span>$ <?= !empty($report['clp'])?$report['clp']:0; ?></span></label>
                                         </div>
+                                        <div>
+                                            <label for="Corporate">
+                                                <input type="radio" id="Expert" name="licence_price" value="9500">
+                                                Corporate User <span>$ 9500</span></label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

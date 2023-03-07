@@ -343,7 +343,7 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
           <div class='cost-wrap text-center'>
             <h3 class='cost mb-1'>$<?= !empty($report['slp'])?$report['slp']:0; ?></h3>
             <span class='d-block sub-title fw-bold mb-3'>2 Days / Report Devlivery Timeline</span>
-            <button class='btn btn-teal btn-sm'>Buy Now</button>
+            <a href="purchasereport.php?id=<?= $reportId?>&license_type=Basic" class='btn btn-teal btn-sm'>Buy Now</a>
           </div>
         </div>
         <div class='compare-item-row d-flex justify-content-center align-items-center'>
@@ -421,7 +421,7 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
           <div class='cost-wrap text-center'>
             <h3 class='cost mb-1'>$<?= !empty($report['clp'])?$report['clp']:0; ?></h3>
             <span class='d-block sub-title fw-bold mb-3'>7 Days / Report Devlivery Timeline</span>
-            <button class='btn btn-teal btn-sm'>Buy Now</button>
+            <a href="purchasereport.php?id=<?= $reportId?>&license_type=Advanced" class='btn btn-teal btn-sm'>Buy Now</a>
           </div>
         </div>
         <div class='compare-item-row d-flex justify-content-center align-items-center'>
