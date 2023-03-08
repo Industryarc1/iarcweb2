@@ -84,7 +84,29 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
                                     <b id="discount_amount" class="f-right w-50-percent text-right">$ 0</b>
                                 </div>
                                 <div class="row"><b class="f-left w-50-percent">Total</b>
-                                    <b id="total_amount" class="f-right w-50-percent text-right">$ <?= !empty($report['slp'])?$report['slp']:0; ?></b>
+                                    <b id="total_amount" class="f-right w-50-percent text-right">
+                                        <?php
+                                            $total_amount = 0;
+                                            
+                                            if($_GET['license_type']=="Basic"){
+                                              $total_amount = !empty($report['slp'])?$report['slp']:0;  
+                                            }
+
+                                            if($_GET['license_type']=="Advanced"){
+                                               $total_amount = !empty($report['clp'])?$report['clp']:0;
+                                            }
+
+                                            if($_GET['license_type']=="Expert"){
+                                                $total_amount = 9500;
+                                            }
+
+                                        ?>
+                                        $ <?= $total_amount?>
+                                        <?= /*!empty($report['slp'])?$report['slp']:0; */?>
+
+
+                                            
+                                    </b>
                                 </div>
 
                                 
