@@ -102,7 +102,7 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
 
                                         ?>
                                         $ <?= $total_amount?>
-                                        <?= /*!empty($report['slp'])?$report['slp']:0; */?>
+                                        
 
 
                                             
