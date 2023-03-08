@@ -114,7 +114,7 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
                                     <input type="radio" id="cc" name="payment_mode" value="paypal" checked> Paypal<span>
                                     <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="Paypal Card" width="50">
                                     </span>
-                                    </div><br/>
+                                    </div>
                                     <div>
                                     <input type="radio" id="ccr" name="payment_mode" value="razorpay"> Pay with Cards <span>
                                     <img src="https://www.clipartmax.com/png/middle/255-2550378_credit-card-logo-credit-card-icons-png.png"  alt="Credit Card" width="50">
