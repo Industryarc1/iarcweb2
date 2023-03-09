@@ -35,7 +35,8 @@ class PurchaseController extends IarcfbaseController {
 		//$arrGet['id'] = filter_var($arrGet['id'], FILTER_VALIDATE_INT);
 
         /* Capcha code start */
-        $secret = '6LfezHYUAAAAAG98xgwe0N1MC8_7LjnPAL84NzSi';
+        // iarc main - $secret = '6LfezHYUAAAAAG98xgwe0N1MC8_7LjnPAL84NzSi';
+        $secret = '6LerueYkAAAAAB6hiKhfFQWqi6NhUPksLyuyFOFp';
         $captcha = !empty($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : NULL;
         $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $captcha);
         $responseData = json_decode($verifyResponse);
