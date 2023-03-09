@@ -235,7 +235,7 @@ $this->registerJs($js);
 
 		$.ajax({
 			//url: '<?=Url::to('purchase/apply-coupon');?>',
-			url: 'https://www.industryarc.com/purchase/apply-coupon',
+			url: 'http://34.67.44.136/purchase/apply-coupon',
 			type: 'post',
 			data: {'coupon_code':code,'price':actualPrice},
 			success: function (response) {
