@@ -195,6 +195,11 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
                         </div>
 						<?php } ?>
                     </div>
+
+                    <div id="paypalCheckoutContainer">
+
+                    </div>
+
                 </div>
                 <div>
                     <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>">
@@ -225,6 +230,107 @@ $js = <<<JS
 JS;
 $this->registerJs($js);
 ?>
+
+
+
+<script src="https://www.paypal.com/sdk/js?client-id=ATHj-BC-e8TmIXkAF-R0Fqy0j51ukGjztiSxWKE1MFpyK8WyrEVd29JLM2_2072130-KeL-2tf2pjCYI&currency=USD"></script>
+
+
+<script type="text/javascript">
+
+                paypal.Buttons({
+                    // Set your environment
+                    env: 'production',
+                    // Set style of button
+                    /*style: {
+                        layout: 'horizontal', // horizontal | vertical
+                        size: 'responsive', // medium | large | responsive
+                        shape: 'pill', // pill | rect
+                        color: 'gold'       // gold | blue | silver | black
+                    },*/
+
+                    // Execute payment on authorize
+                    commit: true,
+
+                    // Wait for the PayPal button to be clicked
+                    createOrder: function (data, actions) {
+                        // Set up the transaction
+                        return actions.order.create({
+                            intent: "CAPTURE",
+                            application_context: {
+                                brand_name:"Industryarc",
+                                user_action:"PAY_NOW",
+                                shipping_preference: "NO_SHIPPING",
+                                payment_method:{
+                                    payer_selected:"PAYPAL",
+                                    payee_preferred:"IMMEDIATE_PAYMENT_REQUIRED"
+                                },
+                                return_url: "https://www.industryarc.com?commit=true",
+                                cancel_url: "https://www.industryarc.com?commit=false",
+                            },
+                            payer:{
+                                    name:{
+                                        given_name:"Abc",
+                                        surname:"G"
+                                    },
+                                    email_address:"rajesh.gajula505@gmail.com",
+                                    phone: {
+                                        phone_number: {                                     
+                                            national_number: "7207670165"
+                                        }
+                                    }
+                                },
+                            purchase_units: [{
+                                    invoice_id:"ABC123",
+                                    description:"Order Purchase",
+                                    amount: {
+                                        currency_code: 'USD',
+                                        value: "1",
+                                        breakdown: {
+                                            item_total: {
+                                                currency_code: 'USD',
+                                                value: "1",
+                                            },
+                                        },
+                                    },
+                                    items: [{
+                                            name: "IndustryARC™ - Market Report",
+                                            description: "AUTOMO Report",
+                                            sku: "34532",
+                                            unit_amount: {
+                                                currency_code: 'USD',
+                                                value: "1"
+                                            },
+                                            quantity: "1",
+                                            category: "DIGITAL_GOODS"
+                                        }]
+                                }]
+                        });
+                    },
+
+                    // Wait for the payment to be authorized by the customer
+                    onApprove: function (data, actions) {
+                        console.log(data);
+                        $.ajax({
+                            url: "<?= Url::to(['purchase/payment-responce']) ?>",
+                            type: 'post',
+                            data: data,
+                            success: function (response) {
+                                console.log(response);
+                                //return false;
+                            }
+                        });
+
+                        window.location.href = "<?= Url::to(['purchase/payment-status']) ?>";
+                    }
+
+                }).render('#paypalCheckoutContainer');
+
+
+</script>
+
+
+
 
 <script type="text/javascript">
 	function applyCoupon(){
