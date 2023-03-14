@@ -196,11 +196,9 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
 						<?php } ?>
                     </div>
 
-                    <button id="paypalCheckoutContainer" hidden>
 
-                    </button>
-
-                    <button type="button" onclick="n1()">Click me</button>
+                    <button id="custombutton" type="button">Pay with PayPal</button>
+                    <div id="paypalCheckoutContainer"></div>
 
                 </div>
                 <div>
@@ -331,10 +329,15 @@ $this->registerJs($js);
                 }).render('#paypalCheckoutContainer');
 
 
-function n1(){
-    alert("hi..");
-    paypalCheckoutContainer.click();
-}
+const paypalButton = document.querySelector('#paypalCheckoutContainer > button');
+paypalButton.style.display = 'none';
+
+// Attach a click event listener to the custom button
+const customButton = document.getElementById('custombutton');
+customButton.addEventListener('click', function() {
+    // Programmatically click the PayPal button
+    paypalButton.click();
+});
 
 
 </script>
