@@ -198,7 +198,7 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
                     </div>
 
 
-                    <button id="custombutton">Pay with PayPal</button>
+                    <button id="custombutton" type="button">Pay with PayPal</button>
                     <div id="paypalCheckoutContainer"></div>
 
                 </div>
@@ -350,7 +350,8 @@ customButton.on('click', function() {
     // Programmatically click the PayPal button
     //alert("hi..");
     console.log("hi..");
-    paypalButton.click();
+    //paypalButton.click();
+    $('#paypalCheckoutContainer').children().first().click();
 });
 
 alert("hi...outside..");
