@@ -346,9 +346,10 @@ $(document).ready(function(){
 const paypalButton = $('#paypalCheckoutContainer > button');
 
 const customButton = $('#custombutton');
-customButton.addEventListener('click', function() {
+customButton.on('click', function() {
     // Programmatically click the PayPal button
-    alert("hi..");
+    //alert("hi..");
+    console.log("hi..");
     paypalButton.click();
 });
 
