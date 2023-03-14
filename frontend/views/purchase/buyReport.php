@@ -328,7 +328,7 @@ $this->registerJs($js);
 
                 }).render('#paypalCheckoutContainer');
 
-
+/*
 const paypalButton = document.querySelector('#paypalCheckoutContainer > button');
 //paypalButton.style.display = 'none';
 
@@ -338,6 +338,11 @@ customButton.addEventListener('click', function() {
     // Programmatically click the PayPal button
     alert("hi..");
     paypalButton.click();
+});
+*/
+
+$(document).ready(function(){
+alert("hi...");
 });
 
 
