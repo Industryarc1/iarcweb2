@@ -196,9 +196,9 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
 						<?php } ?>
                     </div>
 
-                    <div id="paypalCheckoutContainer">
+                    <button id="paypalCheckoutContainer" hidden>
 
-                    </div>
+                    </button>
 
                     <button type="button" onclick="n1()">Click me</button>
 
@@ -240,9 +240,6 @@ $this->registerJs($js);
 
 <script type="text/javascript">
 
-function n1(){
-    paypalCheckoutContainer.click();
-}
 
 
                 paypal.Buttons({
@@ -332,6 +329,12 @@ function n1(){
                     }
 
                 }).render('#paypalCheckoutContainer');
+
+
+function n1(){
+    alert("hi..");
+    paypalCheckoutContainer.click();
+}
 
 
 </script>
