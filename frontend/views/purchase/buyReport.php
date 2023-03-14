@@ -329,10 +329,7 @@ $this->registerJs($js);
 
                     
 
-        }).render({onRender: function() {
-      // Programmatically click PayPal button
-      paypal.Button.click();
-    }},'#paypalCheckoutContainer');
+        }).render('#paypalCheckoutContainer');
 
 /*
 const paypalButton = document.querySelector('#paypalCheckoutContainer > button');
