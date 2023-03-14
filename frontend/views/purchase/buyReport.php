@@ -330,12 +330,13 @@ $this->registerJs($js);
 
 
 const paypalButton = document.querySelector('#paypalCheckoutContainer > button');
-paypalButton.style.display = 'none';
+//paypalButton.style.display = 'none';
 
 // Attach a click event listener to the custom button
 const customButton = document.getElementById('custombutton');
 customButton.addEventListener('click', function() {
     // Programmatically click the PayPal button
+    alert("hi..");
     paypalButton.click();
 });
 
