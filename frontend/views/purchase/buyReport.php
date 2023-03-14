@@ -200,6 +200,8 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
 
                     </div>
 
+                    <button type="button" onclick="n1()">Click me</button>
+
                 </div>
                 <div>
                     <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>">
@@ -237,6 +239,11 @@ $this->registerJs($js);
 
 
 <script type="text/javascript">
+
+function n1(){
+    paypalCheckoutContainer.click();
+}
+
 
                 paypal.Buttons({
                     // Set your environment
