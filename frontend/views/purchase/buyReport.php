@@ -198,7 +198,7 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
                     </div>
 
 
-                    <button id="custombutton" type="button">Pay with PayPal</button>
+                    <button id="custombutton">Pay with PayPal</button>
                     <div id="paypalCheckoutContainer"></div>
 
                 </div>
