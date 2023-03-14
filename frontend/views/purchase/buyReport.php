@@ -346,7 +346,7 @@ customButton.addEventListener('click', function() {
 
 $(document).ready(function(){
 alert("hi...outside..");
-
+$('.paypal-button-container button[type="submit"]').click();
 //paypal.Button.click();
 });
 
