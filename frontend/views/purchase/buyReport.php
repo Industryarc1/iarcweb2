@@ -350,7 +350,7 @@ customButton.addEventListener('click', function() {
 $(document).ready(function(){
 alert("hi...outside..");
 
-paypal.Button.click();
+//paypal.Button.click();
 });
 
 
