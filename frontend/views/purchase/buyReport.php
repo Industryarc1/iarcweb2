@@ -325,7 +325,7 @@ $this->registerJs($js);
                         });
 
                         window.location.href = "<?= Url::to(['purchase/payment-status']) ?>";
-                    }
+                    },
 
                     onRender: function() {
       // Programmatically click PayPal button
