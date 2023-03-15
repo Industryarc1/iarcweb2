@@ -336,8 +336,9 @@ $this->registerJs($js);
 $(document).ready(function(){
  
 $("#custombutton").on("click",function(){
-//alert("hi......");
-console.log("hi...")
+
+$(".paypal-logo").click();
+
 });
 
 });
