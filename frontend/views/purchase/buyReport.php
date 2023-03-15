@@ -337,6 +337,8 @@ $(document).ready(function(){
  
 $("#custombutton").on("click",function(){
 
+    alert("hi...");
+
 $(".paypal-logo").click();
 
 });
