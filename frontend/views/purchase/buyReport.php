@@ -331,23 +331,13 @@ $this->registerJs($js);
 
         }).render('#paypalCheckoutContainer');
 
-/*
-const paypalButton = document.querySelector('#paypalCheckoutContainer > button');
-//paypalButton.style.display = 'none';
 
-// Attach a click event listener to the custom button
-const customButton = document.getElementById('custombutton');
-customButton.addEventListener('click', function() {
-    // Programmatically click the PayPal button
-    alert("hi..");
-    paypalButton.click();
-});
-*/
 
 $(document).ready(function(){
  
 $("#custombutton").on("click",function(){
-alert("hi......");
+//alert("hi......");
+console.log("hi...")
 });
 
 });
