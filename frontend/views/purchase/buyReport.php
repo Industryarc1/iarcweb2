@@ -345,13 +345,11 @@ customButton.addEventListener('click', function() {
 */
 
 $(document).ready(function(){
-alert("hi...outside..");
-$("#customButton").on("click",function(){
+ 
+$("#custombutton").on("click",function(){
 alert("hi......");
 });
 
- $('.paypal-button-container button[type="submit"]').click();
-//paypal.Button.click();
 });
 
 
