@@ -534,9 +534,9 @@ var options = {
         }
       }).dispatch();
     })
-    .catch(function(error) {
+    /*.catch(function(error) {
       console.error(error);
-    });
+    });*/
   });
 
 
