@@ -395,10 +395,10 @@ var options = {
 
                         rzp1.open();
 
-                        /*document.getElementById('custombutton').onclick = function(e){
+                        document.getElementById('custombutton').onclick = function(e){
                             rzp1.open();
                             e.preventDefault();
-                        }*/
+                        }
 <!--*********************Razorpay script end**************************-->
 */
 
