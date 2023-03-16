@@ -236,6 +236,7 @@ $this->registerJs($js);
 
 <script src="https://www.paypal.com/sdk/js?client-id=ATHj-BC-e8TmIXkAF-R0Fqy0j51ukGjztiSxWKE1MFpyK8WyrEVd29JLM2_2072130-KeL-2tf2pjCYI&currency=USD"></script>
 
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script type="text/javascript">
 
@@ -337,9 +338,65 @@ $(document).ready(function(){
  
 $("#custombutton").on("click",function(){
 
-    alert("hi...");
+<!--*********************Razorpay script start**************************-->
+var options = {
+                            //"key": "rzp_test_j24qXGQtpz0JWA",//test Key
+                            "key": "rzp_live_PQ1RvvmG2UByh4",//Live Key
+                            "amount": "<?= 1*100;?>", /// The amount is shown in currency subunits. Actual amount is ₹599.
+                            "name": "IndustryArc",
+                            "currency": "USD", // Optional. Same as the Order currency
+                            "description": "Demo Testing Report",
+                            "image": "https://www.industryarc.com/images/Arc_logo.png",
+                            "handler": function (response){
+                                var payId = response.razorpay_payment_id;
+                                if(payId != ''){
+                                    $.ajax({
+                                        url: "<?=Url::to(['purchase/payment-status']);?>",
+                                        type: 'post',
+                                        data: {razor_payId:payId},
+                                        success: function (res) {
+                                            if(res != ""){
+                                                //console.log(res);
+                                                alert('Payment Done Successfully.');
+                                                return false;
+                                            }
+                                        }
+                                    });
+                                }else{
+                                    $.ajax({
+                                        url: "<?=Url::to(['purchase/payment-status']);?>",
+                                        type: 'post',
+                                        data: {razor_payId:''},
+                                        success: function (res) {
+                                            if(res != ""){
+                                                //console.log(res);
+                                                alert('Payment not done.');
+                                                return false;
+                                            }
+                                        }
+                                    });
+                                }
+                            },
+                            "prefill": {
+                                "name": "Raj",
+                                "email": "raj.gajula@gmail.com"
+                            },
+                            "notes": {
+                                "address": "HYD",
+                                "iarc_order_id": "3489"
+                            },
+                            "theme": {
+                                "color": "#F37254"
+                            }
+                        };
+                        var rzp1 = new Razorpay(options);
 
-$(".paypal-logo").click();
+                        document.getElementById('rzp-button1').onclick = function(e){
+                            rzp1.open();
+                            e.preventDefault();
+                        }
+<!--*********************Razorpay script end**************************-->
+
 
 });
 
