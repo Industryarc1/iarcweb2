@@ -338,6 +338,8 @@ $(document).ready(function(){
  
 $("#custombutton").on("click",function(){
 
+paypal.Buttons().dispatch('initiate');
+/*
 <!--*********************Razorpay script start**************************-->
 var options = {
                             //"key": "rzp_test_j24qXGQtpz0JWA",//test Key
@@ -398,7 +400,7 @@ var options = {
                             e.preventDefault();
                         }*/
 <!--*********************Razorpay script end**************************-->
-
+*/
 
 });
 
