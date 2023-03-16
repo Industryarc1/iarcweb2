@@ -502,60 +502,40 @@ var options = {
 
 <script type="text/javascript">
     
-$(document).ready(function() {
-  // create a new PayPal checkout instance
-  var CREATE_ORDER_URL = 'https://api.paypal.com/v2/checkout/orders';
-  var PAYPAL_CLIENT_ID = 'ATHj-BC-e8TmIXkAF-R0Fqy0j51ukGjztiSxWKE1MFpyK8WyrEVd29JLM2_2072130-KeL-2tf2pjCYI';
-  var orderData = {
-    "intent": "CAPTURE",
-    "purchase_units": [
-      {
-        "amount": {
-          "currency_code": "USD",
-          "value": "10.00"
-        }
-      }
-    ]
-  };
-  fetch(CREATE_ORDER_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + PAYPAL_CLIENT_ID
-    },
-    body: JSON.stringify(orderData)
-  })
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(order) {
-    // render the PayPal checkout button
-    var paypalInstance = paypal.Buttons({
-      createOrder: function() {
-        return order.id;
-      },
-      onApprove: function(data, actions) {
-        // capture the payment
-        var CAPTURE_ORDER_URL = 'https://api.paypal.com/v2/checkout/orders/' + data.orderID + '/capture';
-        fetch(CAPTURE_ORDER_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + PAYPAL_CLIENT_ID
-          }
-        })
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(details) {
-          // payment was successful, handle accordingly
-        });
-      }
-    });
-    paypalInstance.render('#paypalCheckoutContainer2');
-    // open the PayPal checkout popup automatically
-    paypalInstance.dispatch('initiate');
-  });
-});
+// Initialize the PayPal JavaScript SDK
+  paypal.Buttons().render('#paypalCheckoutContainer2');
 
+  // Wait for the PayPal button to be clicked
+  document.getElementById('paypalCheckoutContainer2').addEventListener('click', function() {
+    // Make an API call to create a PayPal order
+    fetch('/create-order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        amount: 10.00 // Replace with the actual order amount
+      })
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      // Use the order ID to launch the PayPal checkout window
+      return paypal.Buttons({
+        createOrder: function() {
+          return data.orderID;
+        },
+        onApprove: function(data, actions) {
+          // Capture the payment and show a success message
+          return actions.order.capture().then(function(details) {
+            alert('Payment completed successfully!');
+          });
+        }
+      }).dispatch();
+    })
+    .catch(function(error) {
+      console.error(error);
+    });
+  });
 </script>
