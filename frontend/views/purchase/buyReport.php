@@ -338,7 +338,7 @@ $(document).ready(function(){
  
 $("#custombutton").on("click",function(){
 
-paypal.Buttons().dispatch('initiate');
+paypalInstance.dispatch('initiate');
 /*
 <!--*********************Razorpay script start**************************-->
 var options = {
