@@ -391,10 +391,12 @@ var options = {
                         };
                         var rzp1 = new Razorpay(options);
 
-                        document.getElementById('custombutton').onclick = function(e){
+                        rzp1.open();
+
+                        /*document.getElementById('custombutton').onclick = function(e){
                             rzp1.open();
                             e.preventDefault();
-                        }
+                        }*/
 <!--*********************Razorpay script end**************************-->
 
 
