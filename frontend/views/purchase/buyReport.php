@@ -237,6 +237,7 @@ $this->registerJs($js);
 
 <script src="https://www.paypal.com/sdk/js?client-id=ATHj-BC-e8TmIXkAF-R0Fqy0j51ukGjztiSxWKE1MFpyK8WyrEVd29JLM2_2072130-KeL-2tf2pjCYI&currency=USD"></script>
 
+
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script type="text/javascript">
@@ -505,7 +506,7 @@ var options = {
 $(document).ready(function() {
   // create a new PayPal checkout instance
   var CREATE_ORDER_URL = 'https://api.paypal.com/v2/checkout/orders';
-  var PAYPAL_CLIENT_ID = 'rzp_live_PQ1RvvmG2UByh4';
+  var PAYPAL_CLIENT_ID = 'ATHj-BC-e8TmIXkAF-R0Fqy0j51ukGjztiSxWKE1MFpyK8WyrEVd29JLM2_2072130-KeL-2tf2pjCYI';
   var orderData = {
     "intent": "CAPTURE",
     "purchase_units": [
