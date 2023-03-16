@@ -391,7 +391,7 @@ var options = {
                         };
                         var rzp1 = new Razorpay(options);
 
-                        document.getElementById('rzp-button1').onclick = function(e){
+                        document.getElementById('custombutton').onclick = function(e){
                             rzp1.open();
                             e.preventDefault();
                         }
