@@ -497,3 +497,64 @@ var options = {
 
     }
 </script>
+
+
+<script type="text/javascript">
+    
+$(document).ready(function() {
+  // create a new PayPal checkout instance
+  var CREATE_ORDER_URL = 'https://api.paypal.com/v2/checkout/orders';
+  var PAYPAL_CLIENT_ID = 'rzp_live_PQ1RvvmG2UByh4';
+  var orderData = {
+    "intent": "CAPTURE",
+    "purchase_units": [
+      {
+        "amount": {
+          "currency_code": "USD",
+          "value": "10.00"
+        }
+      }
+    ]
+  };
+  fetch(CREATE_ORDER_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + PAYPAL_CLIENT_ID
+    },
+    body: JSON.stringify(orderData)
+  })
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(order) {
+    // render the PayPal checkout button
+    var paypalInstance = paypal.Buttons({
+      createOrder: function() {
+        return order.id;
+      },
+      onApprove: function(data, actions) {
+        // capture the payment
+        var CAPTURE_ORDER_URL = 'https://api.paypal.com/v2/checkout/orders/' + data.orderID + '/capture';
+        fetch(CAPTURE_ORDER_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + PAYPAL_CLIENT_ID
+          }
+        })
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(details) {
+          // payment was successful, handle accordingly
+        });
+      }
+    });
+    paypalInstance.render('#paypal-button-container');
+    // open the PayPal checkout popup automatically
+    paypalInstance.dispatch('initiate');
+  });
+});
+    
+</script>
