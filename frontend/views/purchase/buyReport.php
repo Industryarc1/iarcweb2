@@ -542,7 +542,7 @@ var options = {
 
 $(document).ready(function(){
     alert("hi...");
-paypalCheckoutContainer2.clcik();
+paypalCheckoutContainer2.click();
 });
 
 </script>
