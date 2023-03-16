@@ -200,7 +200,6 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
 
                     <button id="custombutton" type="button">Pay with PayPal</button>
                     <div id="paypalCheckoutContainer"></div>
-                    <div id="paypalCheckoutContainer2"></div>
 
                 </div>
                 <div>
@@ -502,47 +501,9 @@ var options = {
 
 <script type="text/javascript">
     
-// Initialize the PayPal JavaScript SDK
-  paypal.Buttons().render('#paypalCheckoutContainer2');
-
-  // Wait for the PayPal button to be clicked
-  document.getElementById('paypalCheckoutContainer2').addEventListener('click', function() {
-    // Make an API call to create a PayPal order
-    fetch('/create-order', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        amount: 10.00 // Replace with the actual order amount
-      })
-    })
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      // Use the order ID to launch the PayPal checkout window
-      return paypal.Buttons({
-        createOrder: function() {
-          return data.orderID;
-        },
-        onApprove: function(data, actions) {
-          // Capture the payment and show a success message
-          return actions.order.capture().then(function(details) {
-            alert('Payment completed successfully!');
-          });
-        }
-      }).dispatch();
-    })
-    /*.catch(function(error) {
-      console.error(error);
-    });*/
-  });
-
-
 $(document).ready(function(){
     alert("hi...");
-paypalCheckoutContainer2.click();
+    $("#paypalCheckoutContainer").click();
 });
 
 </script>
