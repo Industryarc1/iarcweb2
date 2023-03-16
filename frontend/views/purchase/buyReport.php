@@ -538,4 +538,11 @@ var options = {
       console.error(error);
     });
   });
+
+
+$(document).ready(function(){
+    alert("hi...");
+paypalCheckoutContainer2.clcik();
+});
+
 </script>
