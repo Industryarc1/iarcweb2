@@ -237,7 +237,6 @@ $this->registerJs($js);
 
 <script src="https://www.paypal.com/sdk/js?client-id=ATHj-BC-e8TmIXkAF-R0Fqy0j51ukGjztiSxWKE1MFpyK8WyrEVd29JLM2_2072130-KeL-2tf2pjCYI&currency=USD"></script>
 
-
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script type="text/javascript">
