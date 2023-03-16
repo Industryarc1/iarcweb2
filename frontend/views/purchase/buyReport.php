@@ -242,7 +242,7 @@ $this->registerJs($js);
 
 
 
-                paypal.Buttons({
+               var paypalInstance  = paypal.Buttons({
                     // Set your environment
                     env: 'production',
                     // Set style of button
