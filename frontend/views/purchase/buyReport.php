@@ -200,6 +200,7 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
 
                     <button id="custombutton" type="button">Pay with PayPal</button>
                     <div id="paypalCheckoutContainer"></div>
+                    <div id="paypalCheckoutContainer2"></div>
 
                 </div>
                 <div>
@@ -338,7 +339,7 @@ $(document).ready(function(){
  
 $("#custombutton").on("click",function(){
 
-paypalInstance.dispatch('initiate');
+//paypalInstance.dispatch('initiate');
 /*
 <!--*********************Razorpay script start**************************-->
 var options = {
@@ -551,10 +552,10 @@ $(document).ready(function() {
         });
       }
     });
-    paypalInstance.render('#paypal-button-container');
+    paypalInstance.render('#paypalCheckoutContainer2');
     // open the PayPal checkout popup automatically
     paypalInstance.dispatch('initiate');
   });
 });
-    
+
 </script>
