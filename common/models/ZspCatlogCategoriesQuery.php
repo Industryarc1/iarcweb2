@@ -33,7 +33,7 @@ class ZspCatlogCategoriesQuery extends \yii\db\ActiveQuery
     }
 	
 	public static function getAllCatlogs(){
-		$arrCategories = ZspCatlogCategories::find()//->select(['inc_id','name','p_id','status'])
+		$arrCategories = ZspCatlogCategories::find()->select(['inc_id', 'p_id','name','code','seo_keyword'])
 					->where(['status'=>1])->asArray()->all();	
 		return $arrCategories;
 		}
