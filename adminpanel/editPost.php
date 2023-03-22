@@ -48,6 +48,7 @@ if($_REQUEST['act']=="edit" && $_REQUEST['id']!=""){
 				$stmt->execute();
 				$result = $stmt->get_result();
 				while ($row = $result->fetch_assoc()) {
+				    $faq_question[] =  $row['question'];
 				    $faq_rows[] =  $row['answer'];
 				}
 
@@ -390,13 +391,14 @@ include_once "includes/js.php";
 								<div class="padding10">
 									
 									<div class="head4 left">
-									<input type="text" value="<?=$det34?>" name="q1">
-									</div>
+									<input type="text" value="<?= $faq_question[0]?>" name="q1">
+									
 									<br>
 									<textarea name="faq1" type="text" class="width70" id="faq1"><?= $faq_rows[0]?></textarea>
-
+									</div>
+									
 									<div class="head4 left">2. <?=$det34?> CAGR value?</div>
-									<input type="text" value="<?=$det34?> CAGR value?" name="q2">
+									<input type="text" value="<?= $faq_question[1]?>" name="q2">
 									<br>
 									<textarea name="faq2" type="text" class="width70" id="faq2"><?= $faq_rows[1]?></textarea>
 
