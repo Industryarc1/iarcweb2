@@ -392,13 +392,10 @@ include_once "includes/js.php";
 									
 									<div class="head4">
 									<p>Question</p>	
-									
 									<input type="text" value="<?= $faq_question[0]?>" name="q1" class="width70">
 									</div>
-									<br>
 									<p>Answer</p>
 									<textarea name="faq1" type="text" class="width70" id="faq1"><?= $faq_rows[0]?></textarea>
-									<br>
 									<hr/>
 
 									<div class="head4 left">2. <?=$det34?> CAGR value?</div>
