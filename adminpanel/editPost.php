@@ -396,24 +396,27 @@ include_once "includes/js.php";
 									</div>
 									<p>Answer</p>
 									<textarea name="faq1" type="text" class="width70" id="faq1"><?= $faq_rows[0]?></textarea>
-									<hr class="width70" />
+									<hr/>
 
-									<div class="head4 left">2. <?=$det34?> CAGR value?</div>
+									<div class="head4">
+									<p>Question</p>
 									<input type="text" value="<?= $faq_question[1]?>" name="q2">
-									<br>
+									</div>
+									<p>Answer</p>
 									<textarea name="faq2" type="text" class="width70" id="faq2"><?= $faq_rows[1]?></textarea>
+									<hr/>
 
-									<div class="head4 left">3. Which is the leading segment in this market?</div>
+									<div class="head4">3. Which is the leading segment in this market?</div>
 									<input type="text" value="Which is the leading segment in this market?" name="q3">
 									<br>
 									<textarea name="faq3" type="text" class="width70" id="faq3"><?= $faq_rows[2]?></textarea>
 
-									<div class="head4 left">4. What is the key factor driving of this market?</div>
+									<div class="head4">4. What is the key factor driving of this market?</div>
 									<input type="text" value="What is the key factor driving of this market?" name="q4">
 									<br>
 									<textarea name="faq4" type="text" class="width70" id="faq4"><?= $faq_rows[3]?></textarea>
 
-									<div class="head4 left">5. Who are the leading players of the market?</div>
+									<div class="head4">5. Who are the leading players of the market?</div>
 									<input type="text" value="Who are the leading players of the market?" name="q5">
 									<br>
 									<textarea name="faq5" type="text" class="width70" id="faq5"><?= $faq_rows[4]?></textarea>
