@@ -389,8 +389,9 @@ include_once "includes/js.php";
 							  <div id="ctab4">
 								<div class="padding10">
 									
-									<div class="head4 left">1. <?=$det34?> growth?</div>
-									<input type="text" value="<?=$det34?> growth?" name="q1">
+									<div class="head4 left">
+									<input type="text" value="<?=$det34?>" name="q1">
+									</div>
 									<br>
 									<textarea name="faq1" type="text" class="width70" id="faq1"><?= $faq_rows[0]?></textarea>
 
