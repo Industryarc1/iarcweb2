@@ -80,7 +80,7 @@ use yii\helpers\Url;
                                                 $licenceType = 'Expert';
                                             }
                                         ?>
-                                        <b>Licence Type : <?= $licenceType?> <?= $orderInfo["report_id"]?></b> 
+                                        <b>Licence Type : <?= $licenceType?></b> 
 
                                     </td>
                                     <td align="right">$ <?= $orderInfo['licence_amount'] ?></td>
@@ -293,8 +293,9 @@ var options = {
 							},
 
                             "modal": {
-        "ondismiss": function(){
-            alert('Checkout form closed');
+        "ondismiss": function(){ 
+            var nurl = "http://34.67.44.136/purchasereport.php?id=<?= $orderInfo['report_id']?>&license_type=<?= $licenceType?>";
+            alert(nurl);
         }
     }
 						};
