@@ -110,7 +110,7 @@ use yii\helpers\Url;
                                 </tr>
                                 <tr>
                                     <!--<td ><button type="submit" class="btn btn-danger" name="submitCancel" value="Cancel">Cancel</button></td>-->
-                                    <td align="right">
+                                    <td align="">
                                         <?php if ($orderInfo['payment_mode'] == 'paypal') { ?>
                                             <div id="paypalCheckoutContainer"></div>											
                                         <?php } else if ($orderInfo['payment_mode'] == 'HDFC') { ?>
