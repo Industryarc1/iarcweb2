@@ -1,5 +1,6 @@
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css'>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
 <?php
 //use yii\helpers\Html;
 use frontend\helper\CommonHelper;
@@ -652,6 +653,7 @@ if(count($relatedReport) > 0){
   <div class="fadeeffect"></div>
   <a href="javasript:void();" class="rsp-content close-category ">x</a>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 $("#accordion").on("hide.bs.collapse show.bs.collapse", e => {
