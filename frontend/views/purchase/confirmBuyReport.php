@@ -80,7 +80,7 @@ use yii\helpers\Url;
                                                 $licenceType = 'Expert';
                                             }
                                         ?>
-                                        <b>Licence Type : <?= $licenceType?> </b> 
+                                        <b>Licence Type : <?= $licenceType?> <?= $orderInfo["reportId"]?></b> 
 
                                     </td>
                                     <td align="right">$ <?= $orderInfo['licence_amount'] ?></td>
