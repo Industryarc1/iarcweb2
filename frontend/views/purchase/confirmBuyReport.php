@@ -75,7 +75,7 @@ use yii\helpers\Url;
                                              if ($orderInfo['licence_type'] == 'SL') {
                                                 $licenceType = 'Basic';
                                             } elseif ($orderInfo['licence_type'] == 'CL') {
-                                                $licenceType = 'Advance';
+                                                $licenceType = 'Advanced';
                                             }else{
                                                 $licenceType = 'Expert';
                                             }
