@@ -295,7 +295,7 @@ var options = {
                             "modal": {
         "ondismiss": function(){ 
             var nurl = "http://34.67.44.136/purchasereport.php?id=<?= $orderInfo['report_id']?>&license_type=<?= $licenceType?>";
-            alert(nurl);
+            $(location).prop('href', nurl);
         }
     }
 						};
