@@ -673,6 +673,7 @@ $("#accordion").on("hide.bs.collapse show.bs.collapse", e => {
 if(isset($faqs)){
 $cval = count($faqs);
 foreach ($faqs as $key => $q) {
+if($q["question"]!=""){
 ++$key;
 ?>
 {
@@ -684,6 +685,7 @@ foreach ($faqs as $key => $q) {
     }
 }<?php if($key < $cval){?>,
 <?php
+}
 }
 }
 }
