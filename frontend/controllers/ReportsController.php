@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use Yii;
 use common\models\ZspCatlogCategories;
 use common\models\ZspPosts;
+use common\models\ZspFaqs;
 use common\models\ZspPostsQuery;
 use frontend\controllers\IarcfbaseController;
 use frontend\forms\SampleRequestForm;
@@ -115,6 +116,8 @@ class ReportsController extends IarcfbaseController {
             return $this->redirect(['site/index']);
         }
 
+        $reportDetail = array();
+
         if (isset($arrRequest['inc_id']) && !empty($arrRequest['inc_id'])) {
             $reportDetail = ZspPosts::find()
                             ->where(['dup_inc_id' => $arrRequest['inc_id']])
@@ -131,15 +134,18 @@ class ReportsController extends IarcfbaseController {
                                 //->createCommand()->rawSql;echo $arrRelated;exit;
                                 ->asArray()->All();
                 foreach ($arrRelated as $related) {
-					$pub_date = $related["pub_date_new"];
+					$pub_date = $related["pub_date"];
+                    $str = $related['title'];
+                    $str = substr($str, strrpos($str, 'Forecast' ));
+                    $str = str_replace( array( '\'', '"',',' , ';', '(', ')' ), ' ', $str);
                     $arrRelatedReport[] = [
-                        'title' => substr($related['title'], 0, strpos(strtolower($related['title']), 'market') + 6), //strpos + 6 will give the position till market because characters in market =6
+                        'title' => substr($related['title'], 0, strpos(strtolower($related['title']), 'market') + 6)." ".$str, //strpos + 6 will give the position till market because characters in market =6
                         'code' => $related['code'],
                         'short_descr' => $related['short_descr'],
                         'curl' => ($related['dup_inc_id'] < 500000) ? 'Report/' . $related['dup_inc_id'] . '/' . $related['curl'] : 'Research/' . $related['curl'] . '-' . $related['dup_inc_id'],
                         'meta_title' => $related['meta_title'],
                         'dup_inc_id' => $related['dup_inc_id'],
-						'pub_date_new' => date("F Y", strtotime($pub_date)),
+                        'pub_date_new' => date("F Y", strtotime($pub_date)),
                     ];
                 }
             }
@@ -150,6 +156,8 @@ class ReportsController extends IarcfbaseController {
             $reportDetail['brport'] = ZspCatlogCategories::find()->where(['inc_id' => $reportDetail['cat']])->asArray()->one();
         }
 
+        $reportFaqs = ZspFaqs::find()->where(['inc_id' => $reportDetail['inc_id'],'status' =>1])->orderBy(['priority' => SORT_ASC])->asArray()->all();
+
         /* remember the page url in order to check the user is Loged in or not 
           if not redirect the user to login page and after login come back to this action again */
         \yii\helpers\Url::remember();
@@ -157,6 +165,7 @@ class ReportsController extends IarcfbaseController {
         return $this->render('report', [
                     'reportDet' => !empty($reportDetail) ? $reportDetail : [],
                     'relatedReport' => !empty($arrRelatedReport) ? $arrRelatedReport : [],
+                    'faqs' => $reportFaqs
         ]);
     }
 
@@ -182,8 +191,11 @@ class ReportsController extends IarcfbaseController {
                                 ->asArray()->All();
                 foreach ($arrRelated as $related) {
                     $pub_date = $related["pub_date_new"];
+                    $str = $related['title'];
+                    $str = substr($str, strrpos($str, 'Forecast' ));
+                    $str = str_replace( array( '\'', '"',',' , ';', '(', ')' ), ' ', $str);
                     $arrRelatedReport[] = [
-                        'title' => substr($related['title'], 0, strpos(strtolower($related['title']), 'market') + 6), //strpos + 6 will give the position till market because characters in market =6
+                        'title' => substr($related['title'], 0, strpos(strtolower($related['title']), 'market') + 6)." ".$str, //strpos + 6 will give the position till market because characters in market =6
                         'code' => $related['code'],
                         'short_descr' => $related['short_descr'],
                         'curl' => ($related['dup_inc_id'] < 500000) ? 'Report/' . $related['dup_inc_id'] . '/' . $related['curl'] : 'Research/' . $related['curl'] . '-' . $related['dup_inc_id'],
@@ -199,6 +211,8 @@ class ReportsController extends IarcfbaseController {
             $reportDetail['brport'] = ZspCatlogCategories::find()->where(['inc_id' => $reportDetail['cat']])->asArray()->one();
         }
 
+        $reportFaqs = ZspFaqs::find()->where(['inc_id' => $reportDetail['inc_id'],'status' =>1])->orderBy(['priority' => SORT_ASC])->asArray()->all();
+
         /* remember the page url in order to check the user is Loged in or not 
           if not redirect the user to login page and after login come back to this action again */
         \yii\helpers\Url::remember();
@@ -206,6 +220,7 @@ class ReportsController extends IarcfbaseController {
         return $this->render('report', [
                     'reportDet' => !empty($reportDetail) ? $reportDetail : [],
                     'relatedReport' => !empty($arrRelatedReport) ? $arrRelatedReport : [],
+                    'faqs' => $reportFaqs
                         //	'catDet'=>!empty($arrCategoryDetail)?$arrCategoryDetail:[],
         ]);
     }
