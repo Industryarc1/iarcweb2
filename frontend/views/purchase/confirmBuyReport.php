@@ -69,7 +69,20 @@ use yii\helpers\Url;
                         <div class="checkout-block-row">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
-                                    <td><b>Single User</b> </td>
+                                    <td>
+
+                                        <?php
+                                             if ($orderInfo['licence_type'] == 'SL') {
+                                                $licenceType = 'Basic';
+                                            } elseif ($orderInfo['licence_type'] == 'CL') {
+                                                $licenceType = 'Advance';
+                                            }else{
+                                                $licenceType = 'Expert';
+                                            }
+                                        ?>
+                                        <b>Licence Type : <?= $licenceType?> </b> 
+
+                                    </td>
                                     <td align="right">$ <?= $orderInfo['licence_amount'] ?></td>
                                 </tr>
 

@@ -93,6 +93,8 @@ class PurchaseController extends IarcfbaseController {
                 $licenceType = 'SL';
             } elseif ($arrSessionOrder['clp'] == $amount) {
                 $licenceType = 'CL';
+            }else{
+                $licenceType = 'EL';
             }
 
             if (empty($arrSessionUser) && $isEmailExist == false) {
@@ -138,6 +140,7 @@ class PurchaseController extends IarcfbaseController {
                 'user_id' => $email,
                 'order_id' => $orderId,
                 'report_id' => $reportId,
+                'licence_type' => $licenceType,
                 'licence_amount' => $amount,
                 'f_name' => $fname,
                 'l_name' => $lname,
