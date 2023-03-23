@@ -711,7 +711,7 @@ padding: 0 65px 0 0;
 }
 
 
-.report-data-description, .report-data-toc, .report-data-tf{
+.report-data-description, .report-data-toc, .report-data-tf, .report-data-faqs{
 	position:relative;
 	padding:60px 0  ;
 }
@@ -720,7 +720,7 @@ padding: 0 65px 0 0;
 	 padding-bottom:0;
 		}
 
-.report-data-description:before, .report-data-toc:before, .report-data-tf:before{
+.report-data-description:before, .report-data-toc:before, .report-data-tf:before,  .report-data-faqs::before{
 	content:"Report Description";
 	position:absolute;
 	width: 100%;
@@ -740,6 +740,10 @@ font-weight: 500;
 	content:"Tables and Figures";
 }
 
+.report-data-faqs:before{
+	content:"FAQ'S";
+}
+
 .report-content-nav .report-disc a, .report-content-nav-rsp .report-disc a{
 	background:url(../images/report-txt.png) no-repeat;
 	background-size:24px;
@@ -756,6 +760,13 @@ font-weight: 500;
 
 .report-content-nav .tof a, .report-content-nav-rsp .tof a{
 	background:url(../images/tnf.png) no-repeat;
+	background-size:24px;
+	background-position: 10px center;
+
+}
+
+.report-content-nav .faqs a, .report-content-nav-rsp .faqs a{
+	background:url(../images/faqs.png) no-repeat;
 	background-size:24px;
 	background-position: 10px center;
 
