@@ -248,8 +248,8 @@ $(document).ready(function(){
 
 <!--*********************Razorpay script start**************************-->
 var options = {
-							//"key": "rzp_test_j24qXGQtpz0JWA",//test Key
-							"key": "rzp_live_PQ1RvvmG2UByh4",//Live Key
+							"key": "rzp_test_j24qXGQtpz0JWA",//test Key
+							//"key": "rzp_live_PQ1RvvmG2UByh4",//Live Key
 							"amount": "<?= $orderInfo['licence_amount']*100;?>", /// The amount is shown in currency subunits. Actual amount is ₹599.
 							"name": "IndustryArc",
 							"currency": "USD", // Optional. Same as the Order currency
@@ -264,7 +264,7 @@ var options = {
 										data: {razor_payId:payId},
 										success: function (res) {
 											if(res != ""){
-												//console.log(res);
+												console.log(res);
 												alert('Payment Done Successfully.');
 												return false;
 											}
