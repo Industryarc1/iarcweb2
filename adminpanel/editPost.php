@@ -40,6 +40,18 @@ if($_REQUEST['act']=="edit" && $_REQUEST['id']!=""){
 				$det40= str_replace('\"', '"', $det40);
 				$det40= str_replace("\'", "'", $det40);
 				$det40= str_replace('\n', "<br>", $det40);
+
+				$stck=1;
+				$sql = "SELECT * FROM zsp_faqsqa WHERE inc_id=? and status =?";
+				$stmt = $mysqli->prepare($sql); 
+				$stmt->bind_param("ii", $cid,$stck);
+				$stmt->execute();
+				$result = $stmt->get_result();
+				while ($row = $result->fetch_assoc()) {
+				    $faq_question[] =  $row['question'];
+				    $faq_rows[] =  $row['answer'];
+				}
+
 			}else{
 				$_SESSION['stat']="NA";
 				$allClasses->forRedirect ("addPost.php");
@@ -121,7 +133,8 @@ include_once "includes/js.php";
 						<ul class='etabs'>
 						   <li class='tab'><a href="#ctab1">General</a></li>
                            <li class='tab'><a href="#ctab2">Other Info.</a></li>
-						   <li class='tab'><a href="#ctab3">SEO</a></li> 
+						   <li class='tab'><a href="#ctab3">SEO</a></li>
+						   <li class='tab'><a href="#ctab4">FAQ'S</a></li>  
 						</ul>
 						<div class='panel-container'>  
 						      <?php
@@ -371,6 +384,53 @@ include_once "includes/js.php";
 								</div>
 								<div class="height20px"></div>
 							  </div>
+
+							  <div id="ctab4">
+								<div class="padding10">
+									
+									<div class="head4">
+									<p>Question</p>	
+									<input type="text" value="<?= $faq_question[0]?>" name="q1" class="width70">
+									</div>
+									<p>Answer</p>
+									<textarea name="faq1" type="text" class="width70" id="faq1"><?= $faq_rows[0]?></textarea>
+									<hr/>
+
+									<div class="head4">
+									<p>Question</p>
+									<input type="text" value="<?= $faq_question[1]?>" name="q2" class="width70">
+									</div>
+									<p>Answer</p>
+									<textarea name="faq2" type="text" class="width70" id="faq2"><?= $faq_rows[1]?></textarea>
+									<hr/>
+
+									<div class="head4">
+									<p>Question</p>
+									<input type="text" value="<?= $faq_question[2]?>" name="q3" class="width70">
+									</div>
+									<p>Answer</p>
+									<textarea name="faq3" type="text" class="width70" id="faq3"><?= $faq_rows[2]?></textarea>
+									<hr/>
+
+									<div class="head4">
+									<p>Question</p>	
+									<input type="text" value="<?= $faq_question[3]?>" name="q4" class="width70">
+									</div>
+									<p>Answer</p>
+									<textarea name="faq4" type="text" class="width70" id="faq4"><?= $faq_rows[3]?></textarea>
+									<hr/>
+
+									<div class="head4">
+									<p>Question</p>	
+									<input type="text" value="<?= $faq_question[4]?>" name="q5" class="width70">
+									</div>
+									<p>Answer</p>
+									<textarea name="faq5" type="text" class="width70" id="faq5"><?= $faq_rows[4]?></textarea>
+
+
+								</div>
+								</div>	
+
 					  	</div>
 					</div> 
                 </div>
