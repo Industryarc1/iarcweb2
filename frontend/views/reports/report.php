@@ -542,6 +542,7 @@ function windowprint(reportrd){
                     
                       
                         foreach ($faqs as $key => $k) {
+                          if($k["question"]!=""){
                             $keyv = ++$key;
                             $expand = $keyv == 1 ? "true" : "false";
                             $shownow = $keyv == 1 ? "show" : "";
@@ -564,7 +565,8 @@ function windowprint(reportrd){
                           </div>
                         </div>
                       </div>
-                      <?php  
+                      <?php
+                      }  
                       }
                       }      
                       ?>  
