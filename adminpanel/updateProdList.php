@@ -262,6 +262,22 @@ if(isset($_POST["eidtArticle"]) && $_POST["eidtArticle"]=="Save Post"){
 			
 			//var_dump($stmt);exit;
 			if($flag){
+				$stn1 =0;
+				$sqlQuery  =  "update zsp_faqsqa set status=? WHERE inc_id=?";
+				$statement = $mysqli->prepare($sqlQuery);
+				$statement->bind_param("ii", $stn1,$_POST['hid_article_id']);
+				$statement->execute();
+
+				for($ai=1;$ai<=5;$ai++){
+				$q1 = mysqli_real_escape_string($mysqli,$_POST['q'.$ai]);
+				$faq1 =  mysqli_real_escape_string($mysqli,$_POST['faq'.$ai]);
+				$newSql = "insert into zsp_faqsqa(inc_id,question,answer,priority,status,created_date)values(?,?,?,".$ai.",1,now())";
+				$statement1 = $mysqli->prepare($newSql);
+				$statement1->bind_param("iss", $_POST['hid_article_id'],$q1,$faq1);
+				$statement1->execute();
+				}
+
+				
 				$_SESSION['stat']="SE";
 				$allClasses->forRedirect ("posts.php");
 				exit;
