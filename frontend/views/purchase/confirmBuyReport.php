@@ -121,6 +121,7 @@ use yii\helpers\Url;
 											<?php } else if(!empty($orderInfo['payment_mode']) && $orderInfo['payment_mode']== 'razorpay'){ ?>
 												<button style="float:right" id="rzp-button1" type="submit" class="btn btn-success" name="submitPayment" value="Confirm Payment">Confirm Payment <i class="fa fa-arrow-right"></i></button>
 												<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                                                <div id="error_msg"  class="alert alert-danger" role="alert"></div>
 
                                             <?php } else { ?>
                                             <button style="float:right" type="submit" class="btn btn-success" name="submitPayment" value="Confirm Payment">Confirm Payment <i class="fa fa-arrow-right"></i></button>
@@ -294,8 +295,11 @@ var options = {
 
                             "modal": {
         "ondismiss": function(){ 
-            var nurl = "http://34.67.44.136/purchasereport.php?id=<?= $orderInfo['report_id']?>&license_type=<?= $licenceType?>";
-            $(location).prop('href', nurl);
+            $("#rzp-button1").hide();
+            $("#error_msg").html("Payment Failed!");
+
+            //var nurl = "http://34.67.44.136/purchasereport.php?id=<?= $orderInfo['report_id']?>&license_type=<?= $licenceType?>";
+            //$(location).prop('href', nurl);
         }
     }
 						};
