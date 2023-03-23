@@ -153,6 +153,10 @@ $reportName = substr($orderInfo['title'], 0, strpos(strtolower($orderInfo['title
 <!--<script src="<?= Url::base() . '/frontend/web/customAssets' ?>/js/paypall.config.js"></script>-->
 <!-- PayPal In-Context Checkout script -->
 <script type="text/javascript">
+$(document).ready(function(){
+    $("#error_msg").hide();
+});
+
 
                 paypal.Buttons({
                     // Set your environment
@@ -296,6 +300,7 @@ var options = {
                             "modal": {
         "ondismiss": function(){ 
             $("#rzp-button1").hide();
+            $("#error_msg").show();
             $("#error_msg").html("Payment Failed!");
 
             //var nurl = "http://34.67.44.136/purchasereport.php?id=<?= $orderInfo['report_id']?>&license_type=<?= $licenceType?>";
