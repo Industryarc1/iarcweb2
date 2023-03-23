@@ -260,7 +260,7 @@ $utmParam = !empty($utmsrc)?''.$utmsrc.'&utm_medium='.$utmmed.'&utm_campaign='.$
 <!-- partial-->
 <div class='container my-5'>
   <div class='row pricing-intro'>
-    <div class='col-12 col-md-12 col-lg-2 mx-auto'>
+    <div class='col-12 col-md-12 col-lg-12 mx-auto'>
       <h4><?= !empty($report['title']) ? $report['title'] : NULL; ?></h4>
       <h5 class="text-center">Select a license type that suits your business needs</h5>
     </div>
