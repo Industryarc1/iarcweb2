@@ -290,14 +290,16 @@ var options = {
 							},
 							"theme": {
 								"color": "#F37254"
-							}
+							},
+
+                            "modal": {
+        "ondismiss": function(){
+            alert('Checkout form closed');
+        }
+    }
 						};
 						var rzp1 = new Razorpay(options);
 
-                        rzp1.on('payment.cancel', function() {
-                              // Show error message to the user
-                              alert('Payment cancelled');
-                            });
 
 						document.getElementById('rzp-button1').onclick = function(e){
 
