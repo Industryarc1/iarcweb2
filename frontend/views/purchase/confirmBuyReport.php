@@ -302,9 +302,11 @@ var options = {
             $("#rzp-button1").hide();
             $("#error_msg").show();
             $("#error_msg").html("Payment Failed!");
-            sleep(5000);
-            var nurl = "http://34.67.44.136/purchasereport.php?id=<?= $orderInfo['report_id']?>&license_type=<?= $licenceType?>";
+            setTimeout(function() {
+              var nurl = "http://34.67.44.136/purchasereport.php?id=<?= $orderInfo['report_id']?>&license_type=<?= $licenceType?>";
             $(location).prop('href', nurl);
+            }, 3000); // 3 seconds delay
+
         }
     }
 						};
