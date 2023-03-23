@@ -295,6 +295,11 @@ var options = {
 						var rzp1 = new Razorpay(options);
 
 						document.getElementById('rzp-button1').onclick = function(e){
+
+                            rzp1.on('payment.cancel', function() {
+                              // Show error message to the user
+                              alert('Payment cancelled');
+                            });
 							rzp1.open();
 							e.preventDefault();
 						}
