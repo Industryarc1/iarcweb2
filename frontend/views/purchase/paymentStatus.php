@@ -115,12 +115,12 @@ echo "</pre>";
                            <tbody>
                               <tr>
                                  <td width="60%">
-                                    <p class="mar-btm-30"><b>Report Code - <?= $arrOrderDtls["report_code"]?> <br>Report Title:  </b></p>
+                                    <p class="mar-btm-30"><b>Report Code : <?= $arrOrderDtls["report_code"]?> <br>Report Title:  </b></p>
                                     <span class=""><?= $arrOrderDtls['title'] ?></span>
                                     <div class="product-qty" hidden> <span class="d-block"> By Solder (Copper pillar, Tin, Tin-Lead, Lead free, High Lead, Gold, Electrically Conductive Epoxy Adhesives, Eutectic, Others)</span></div>
                                  </td>
                                  <td width="20%">
-                                    <div class="text-right"> <span class="font-weight-bold">$<?= $arrOrderDtls['licence_amount']?></span> </div>
+                                    <div> <span class="font-weight-bold">$<?= $arrOrderDtls['licence_amount']?></span> </div>
                                  </td>
                               </tr> 
                            </tbody>
@@ -129,7 +129,7 @@ echo "</pre>";
 
                      <div class="row">
                         <div class="col-md-12">
-                             <p class="mar-btm-30"><b>Delivery Details:</b><br/>
+                             <p class="mar-btm-30"><br><b>Delivery Details:</b><br/>
 
                             <span><?= $arrOrderDtls['f_name'] . ' ' . $arrOrderDtls['l_name'] ?></span><br/>
                             <span>Email: <?= $arrOrderDtls['user_id']; ?></span><br/>
