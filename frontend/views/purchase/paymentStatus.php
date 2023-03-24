@@ -56,9 +56,9 @@ use yii\helpers\Url;
 
 
 <?php
-echo "<pre>";
+/*echo "<pre>";
 print_r($arrOrderDtls);
-
+*/
 ?>
 
 <div class="container mt-5 mb-5">
