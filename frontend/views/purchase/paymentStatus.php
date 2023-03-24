@@ -121,7 +121,7 @@ echo "</pre>";
                                  </td>
                                  <td width="20%">
                                     <div> <span class="font-weight-bold">Amount (USD$)</span>
-                                          <p class="text-center">$<?= $arrOrderDtls['licence_amount']?></p>
+                                          <p class="text-center font-weight-bold">$<?= $arrOrderDtls['licence_amount']?></p>
                                      </div>
                                  </td>
                               </tr> 
