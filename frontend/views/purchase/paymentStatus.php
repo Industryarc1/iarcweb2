@@ -55,6 +55,12 @@ use yii\helpers\Url;
         <div class="ordr-thnk-hdr"><?= ($payStatus == 'SUCCESS') ? 'Payment Done successfully' : 'Payment Failed! ' ?></div>
 
 
+<?php
+echo "<pre>";
+print_r($arrOrderDtls);
+
+?>
+
 <div class="container mt-5 mb-5">
          <div class="row d-flex justify-content-center">
             <div class="col-md-8">
