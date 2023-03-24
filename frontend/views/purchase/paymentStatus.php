@@ -115,8 +115,8 @@ echo "</pre>";
                            <tbody>
                               <tr>
                                  <td width="60%">
-                                    <p class=""><b>Report Code : <?= $arrOrderDtls["report_code"]?> <br>Report Title:  </b></p>
-                                    <span class=""><?= $arrOrderDtls['title'] ?></span>
+                                    <p class=""><b>Report Code : <?= $arrOrderDtls["report_code"]?> <br></b></p>
+                                    <span class="">Report Title:  <br><?= $arrOrderDtls['title'] ?></span>
                                     <div class="product-qty" hidden> <span class="d-block"> By Solder (Copper pillar, Tin, Tin-Lead, Lead free, High Lead, Gold, Electrically Conductive Epoxy Adhesives, Eutectic, Others)</span></div>
                                  </td>
                                  <td width="20%">
