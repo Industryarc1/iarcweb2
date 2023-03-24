@@ -669,7 +669,7 @@ $("#accordion").on("hide.bs.collapse show.bs.collapse", e => {
 
 
 <?php
-if(isset($faqs) && $faqs!=""){
+if(isset($faqs) && count($faqs)!=0){
 ?>
 <script type="application/ld+json">
 {
