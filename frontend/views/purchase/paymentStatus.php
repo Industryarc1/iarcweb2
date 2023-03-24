@@ -61,6 +61,7 @@ use yii\helpers\Url;
                <div class="card">
                  
                   <div class="invoice p-5">
+                     <p class="text-center"><img src="/images/Arc_logo.png" style="width: 30%;"></p> 
                      <h5>Your order Confirmed!</h5>
                      <span class="font-weight-bold d-block mt-4">Hello, <?= $arrOrderDtls['f_name'] . ' ' . $arrOrderDtls['l_name'] ?></span> <span>You order has been confirmed and will be shipped in next two days!</span>
                      <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
