@@ -125,9 +125,8 @@ echo "</pre>";
                               </tr> 
                            </tbody>
                         </table>
-                     </div>
 
-                     <div class="row">
+                        <div class="row">
                         <div class="col-md-12">
                              <p class="mar-btm-30"><br><b>Delivery Details:</b><br/>
 
@@ -140,7 +139,11 @@ echo "</pre>";
                         </p>
 
                         </div>    
-                     </div>   
+                        </div>  
+
+                     </div>
+
+                      
                      
                      <p>We will be sending across the full report PDF and quantitative excel data to your email directly in 48-72 hours.</p>
                      <p class="font-weight-bold mb-0"><i>Thanks for choosing IndustryARC as your preferred market research vendor.</i></p>
