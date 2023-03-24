@@ -344,7 +344,7 @@ class PurchaseController extends IarcfbaseController {
             }
         }else{
             unset($_SESSION['order']);
-            unset($_SESSION['payment_status']);
+            //unset($_SESSION['payment_status']);
 
 
             $arrOrderHdrs = \common\models\ZspOrderHdrs::find()
