@@ -312,6 +312,7 @@ var options = {
 						};
 						var rzp1 = new Razorpay(options);
                         rzp1.on('payment.failed', function (response){
+        console.log(response.error);
         alert(response.error.code+" 1");
         alert(response.error.description+" 2");
         alert(response.error.source+" 3");
@@ -319,6 +320,8 @@ var options = {
         alert(response.error.reason+" 5");
         alert(response.error.metadata.order_id+" 6");
         alert(response.error.metadata.payment_id+" 7");
+
+
 });
 
 						document.getElementById('rzp-button1').onclick = function(e){
