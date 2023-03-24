@@ -74,7 +74,7 @@ use yii\helpers\Url;
                                     <div class="py-2"> <span class="d-block text-muted">Order No</span> <span>INARC12332345</span> </div>
                                  </td>
                                  <td>
-                                    <div class="py-2"> <span class="d-block text-muted">Payment</span> <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20"></span> </div>
+                                    <div class="py-2"> <span class="d-block text-muted">Payment</span> <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20"></span> - <?= $pay_mode?> </div>
                                  </td>
                                  <td>
                                     <div class="py-2"> <span class="d-block text-muted">Shiping Address</span> <span>Hyderabad</span> </div>
