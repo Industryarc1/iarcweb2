@@ -311,7 +311,14 @@ var options = {
     }
 						};
 						var rzp1 = new Razorpay(options);
-                        rzp1.on('payment.failed', function (response){
+
+
+						document.getElementById('rzp-button1').onclick = function(e){
+
+
+							rzp1.open();
+
+                            rzp1.on('payment.failed', function (response){
         alert(response.error.code);
         alert(response.error.description);
         alert(response.error.source);
@@ -320,11 +327,7 @@ var options = {
         alert(response.error.metadata.order_id);
         alert(response.error.metadata.payment_id);
 });
-
-						document.getElementById('rzp-button1').onclick = function(e){
-
-
-							rzp1.open();
+                            
 							e.preventDefault();
 						}
 <!--*********************Razorpay script end**************************-->
