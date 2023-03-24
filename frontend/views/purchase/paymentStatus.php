@@ -56,9 +56,10 @@ use yii\helpers\Url;
 
 
 <?php
-echo "<pre>";
+/*echo "<pre>";
 print_r($arrOrderDtls);
 echo "</pre>";
+*/
 ?>
 
 <div class="container mt-5 mb-5">
@@ -114,7 +115,7 @@ echo "</pre>";
                            <tbody>
                               <tr>
                                  <td width="60%">
-                                    <p class="mar-btm-30"><b>Report Title: Report Code - <?= $arrOrderDtls["licence_amount"]?></b></p>
+                                    <p class="mar-btm-30"><b>Report Title: Report Code - <?= $arrOrderDtls["report_code"]?></b></p>
                                     <span class=""><?= $arrOrderDtls['title'] ?></span>
                                     <div class="product-qty" hidden> <span class="d-block"> By Solder (Copper pillar, Tin, Tin-Lead, Lead free, High Lead, Gold, Electrically Conductive Epoxy Adhesives, Eutectic, Others)</span></div>
                                  </td>
@@ -153,7 +154,7 @@ echo "</pre>";
 
 
 
-        <div class="main-txt">
+        <div class="main-txt" hidden>
 
             <div class="clearfix padd-top-20 ordr-review-block">
 
