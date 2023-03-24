@@ -345,8 +345,7 @@ class PurchaseController extends IarcfbaseController {
         }else{
             unset($_SESSION['order']);
             //unset($_SESSION['payment_status']);
-            $paymentStatus = "Failed";
-            $_SESSION['payment_status'] = $paymentStatus;
+
 
             $arrOrderHdrs = \common\models\ZspOrderHdrs::find()
                             ->where(['order_num' => $orderId])
@@ -416,6 +415,9 @@ class PurchaseController extends IarcfbaseController {
 
                 $emailMessage = $mailmsg;
                 $subject = "Industryarc : Order Payment Failed ";
+
+                $paymentStatus = "Failed";
+                $_SESSION['payment_status'] = $paymentStatus;
 
                 Yii::$app->mailer->compose(['html' => '@common/mail/layouts/html'], ['content' => $emailMessage])
                         ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
