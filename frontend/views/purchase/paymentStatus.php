@@ -76,7 +76,7 @@ use yii\helpers\Url;
                                     <div class="py-2"> <span class="d-block text-muted">Order No</span> <span><?= $arrOrderDtls['order_id']; ?></span> </div>
                                  </td>
                                  <td>
-                                    <div class="py-2"> <span class="d-block text-muted">Payment</span> <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20"></span> - <?= ucfirst($pay_mode)?> </div>
+                                    <div class="py-2"> <span class="d-block text-muted">Payment</span> <?= ucfirst($pay_mode)?> </div>
                                  </td>
                                  <td hidden>
                                     <div class="py-2"> <span class="d-block text-muted">Shiping Address</span> <span>Hyderabad</span> </div>
@@ -94,13 +94,28 @@ use yii\helpers\Url;
                                     <div class="product-qty" hidden> <span class="d-block"> By Solder (Copper pillar, Tin, Tin-Lead, Lead free, High Lead, Gold, Electrically Conductive Epoxy Adhesives, Eutectic, Others)</span></div>
                                  </td>
                                  <td width="20%">
-                                    <div class="text-right"> <span class="font-weight-bold">$6750</span> </div>
+                                    <div class="text-right"> <span class="font-weight-bold">$<?= $arrOrderDtls['licence_amount']?></span> </div>
                                  </td>
                               </tr> 
                            </tbody>
                         </table>
                      </div>
-                     <div class="row d-flex justify-content-end">
+
+                     <div class="row">
+                        <div class="col-md-12">
+                             <p class="mar-btm-30"><b>Delivery for:</b><br/>
+
+                            <span><?= $arrOrderDtls['f_name'] . ' ' . $arrOrderDtls['l_name'] ?></span><br/>
+                            <span>Email: <?= $arrOrderDtls['user_id']; ?></span><br/>
+                            <span>Ph No: <?= $arrOrderDtls['contact_number']; ?></span>
+                        </p>
+                        <p class="mar-btm-30"><b>Billing Address :</b><br/>
+                            <?= $arrOrderDtls['address'] ?>
+                        </p>
+
+                        </div>    
+                     </div>   
+                     <div class="row d-flex justify-content-end" hidden>
                         <div class="col-md-5">
                            <table class="table table-borderless">
                               <tbody class="totals">
