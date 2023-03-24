@@ -127,7 +127,7 @@ echo "</pre>";
                         </table>
                      </div>
 
-                     <div class="row">
+                     <div class="row" style="margin:0px 15px">
                         <div class="col-md-12">
                              <p class="mar-btm-30"><br><b>Delivery Details:</b><br/>
 
