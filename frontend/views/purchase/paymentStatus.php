@@ -69,8 +69,8 @@ echo "</pre>";
                  
                   <div class="invoice p-5">
                      <p class="text-center"><img src="/images/Arc_logo.png" style="width: 30%;"></p> 
-                     <h5>Your Order is Confirmed!</h5>
-                     <span class="font-weight-bold d-block mt-4">Hello, <?= $arrOrderDtls['f_name'] . ' ' . $arrOrderDtls['l_name'] ?></span> <span>Below are the order details:</span>
+                     <h5><?= ($payStatus == 'SUCCESS') ? 'Your Order is Confirmed!' : 'Due to some technical error your payment for this order failed!' ?> </h5>
+                     <span class="font-weight-bold d-block mt-4">Hello, <?= $arrOrderDtls['f_name'] . ' ' . $arrOrderDtls['l_name'] ?></span> <span>Below are the <?= ($payStatus == 'SUCCESS') ? "order " : ""?>details:</span>
                      <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
                         <table class="table table-borderless">
                            <tbody>
@@ -81,7 +81,7 @@ echo "</pre>";
                                     </div>
                                  </td>
                                  <td>
-                                    <div class="py-2"> <span class="d-block">Order No</span> <span><?= $arrOrderDtls['order_id']; ?></span> </div>
+                                    <div class="py-2"> <span class="d-block">Order No</span> <span><?= ($payStatus == 'SUCCESS') ? $arrOrderDtls['order_id'] : "Failed"?></span> </div>
                                  </td>
                                  <td>
                                     <div class="py-2"> <span class="d-block">Payment Gateway</span> <?= ucfirst($pay_mode)?> </div>
@@ -144,7 +144,11 @@ echo "</pre>";
                         </div>    
                      </div>   
                      
-                     <p>We will be sending across the full report PDF and quantitative excel data to your email directly in 48-72 hours.</p>
+                     
+                     <p>
+                        <?= ($payStatus == 'SUCCESS') ? 'We will be sending across the full report PDF and quantitative excel data to your email directly in 48-72 hours.' : 'We noticed that your payment failed, my team will contact you shortly and help you with alternate payment methods.'?>
+                     </p>
+
                      <p class="font-weight-bold mb-0"><i>Thanks for choosing IndustryARC as your preferred market research vendor.</i></p>
                      <span>IndustryARC Team</span>
                      <p>
