@@ -120,7 +120,9 @@ echo "</pre>";
                                     <div class="product-qty" hidden> <span class="d-block"> By Solder (Copper pillar, Tin, Tin-Lead, Lead free, High Lead, Gold, Electrically Conductive Epoxy Adhesives, Eutectic, Others)</span></div>
                                  </td>
                                  <td width="20%">
-                                    <div> <span class="font-weight-bold">Amount (USD$)<br>$<?= $arrOrderDtls['licence_amount']?></span> </div>
+                                    <div> <span class="font-weight-bold">Amount (USD$)</span>
+                                          <p class="text-center">$<?= $arrOrderDtls['licence_amount']?></p>
+                                     </div>
                                  </td>
                               </tr> 
                            </tbody>
