@@ -312,13 +312,13 @@ var options = {
 						};
 						var rzp1 = new Razorpay(options);
                         rzp1.on('payment.failed', function (response){
-        alert(response.error.code);
-        alert(response.error.description);
-        alert(response.error.source);
-        alert(response.error.step);
-        alert(response.error.reason);
-        alert(response.error.metadata.order_id);
-        alert(response.error.metadata.payment_id);
+        alert(response.error.code+" 1");
+        alert(response.error.description+" 2");
+        alert(response.error.source+" 3");
+        alert(response.error.step+" 4");
+        alert(response.error.reason+" 5");
+        alert(response.error.metadata.order_id+" 6");
+        alert(response.error.metadata.payment_id+" 7");
 });
 
 						document.getElementById('rzp-button1').onclick = function(e){
