@@ -69,8 +69,8 @@ echo "</pre>";
                  
                   <div class="invoice p-5">
                      <p class="text-center"><img src="/images/Arc_logo.png" style="width: 30%;"></p> 
-                     <h5>Your order Confirmed!</h5>
-                     <span class="font-weight-bold d-block mt-4">Hello, <?= $arrOrderDtls['f_name'] . ' ' . $arrOrderDtls['l_name'] ?></span> <span>Below are the order details</span>
+                     <h5>Your Order is Confirmed!</h5>
+                     <span class="font-weight-bold d-block mt-4">Hello, <?= $arrOrderDtls['f_name'] . ' ' . $arrOrderDtls['l_name'] ?></span> <span>Below are the order details:</span>
                      <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
                         <table class="table table-borderless">
                            <tbody>
@@ -84,7 +84,7 @@ echo "</pre>";
                                     <div class="py-2"> <span class="d-block">Order No</span> <span><?= $arrOrderDtls['order_id']; ?></span> </div>
                                  </td>
                                  <td>
-                                    <div class="py-2"> <span class="d-block">Payment</span> <?= ucfirst($pay_mode)?> </div>
+                                    <div class="py-2"> <span class="d-block">Payment Gateway</span> <?= ucfirst($pay_mode)?> </div>
                                  </td>
                                  <td>
                                     <div class="py-2"> <span class="d-block">Licence Type</span> 
@@ -120,7 +120,7 @@ echo "</pre>";
                                     <div class="product-qty" hidden> <span class="d-block"> By Solder (Copper pillar, Tin, Tin-Lead, Lead free, High Lead, Gold, Electrically Conductive Epoxy Adhesives, Eutectic, Others)</span></div>
                                  </td>
                                  <td width="20%">
-                                    <div> <span class="font-weight-bold">$<?= $arrOrderDtls['licence_amount']?></span> </div>
+                                    <div> <span class="font-weight-bold">Amount (USD$)<br>$<?= $arrOrderDtls['licence_amount']?></span> </div>
                                  </td>
                               </tr> 
                            </tbody>
