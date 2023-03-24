@@ -426,7 +426,7 @@ class PurchaseController extends IarcfbaseController {
         return $this->render('paymentStatus', [
                     'payStatus' => $_SESSION['payment_status'],
                     'arrOrderDtls' => $orderDet,
-                    'pay_mode' = > $arrOrderHdrs['pay_mode'],
+                    'pay_mode' => $arrOrderHdrs['pay_mode'],
 
         ]);
 
