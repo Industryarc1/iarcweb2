@@ -68,15 +68,17 @@ use yii\helpers\Url;
                            <tbody>
                               <tr>
                                  <td>
-                                    <div class="py-2"> <span class="d-block text-muted">Order Date</span> <span>05 March, 2023</span> </div>
+                                    <div class="py-2"> <span class="d-block text-muted">Order Date</span> 
+                                        <span><?= date('d F, Y');?></span> 
+                                    </div>
                                  </td>
                                  <td>
-                                    <div class="py-2"> <span class="d-block text-muted">Order No</span> <span>INARC12332345</span> </div>
+                                    <div class="py-2"> <span class="d-block text-muted">Order No</span> <span><?= $arrOrderDtls['order_id']; ?></span> </div>
                                  </td>
                                  <td>
-                                    <div class="py-2"> <span class="d-block text-muted">Payment</span> <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20"></span> - <?= $pay_mode?> </div>
+                                    <div class="py-2"> <span class="d-block text-muted">Payment</span> <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20"></span> - <?= ucfirst($pay_mode)?> </div>
                                  </td>
-                                 <td>
+                                 <td hidden>
                                     <div class="py-2"> <span class="d-block text-muted">Shiping Address</span> <span>Hyderabad</span> </div>
                                  </td>
                               </tr>
@@ -88,8 +90,8 @@ use yii\helpers\Url;
                            <tbody>
                               <tr>
                                  <td width="60%">
-                                    <span class="font-weight-bold">Flip Chip Market</span>
-                                    <div class="product-qty"> <span class="d-block"> By Solder (Copper pillar, Tin, Tin-Lead, Lead free, High Lead, Gold, Electrically Conductive Epoxy Adhesives, Eutectic, Others)</span></div>
+                                    <span class="font-weight-bold"><?= $arrOrderDtls['title'] ?></span>
+                                    <div class="product-qty" hidden> <span class="d-block"> By Solder (Copper pillar, Tin, Tin-Lead, Lead free, High Lead, Gold, Electrically Conductive Epoxy Adhesives, Eutectic, Others)</span></div>
                                  </td>
                                  <td width="20%">
                                     <div class="text-right"> <span class="font-weight-bold">$6750</span> </div>
@@ -150,7 +152,7 @@ use yii\helpers\Url;
                      <p class="font-weight-bold mb-0">Thanks for shopping with us!</p>
                      <span>IndustryARC Team</span>
                   </div>
-                  <div class="d-flex justify-content-between footer p-3"> <span>Need Help? visit our <a href="#"> help center</a></span> <span>05 March, 2023</span> </div>
+                  <div class="d-flex justify-content-between footer p-3"> <span>Need Help? visit our <a href="/contact-us.php"> help center</a></span> <span><?= date('d F, Y');?></span> </div>
                </div>
             </div>
          </div>
