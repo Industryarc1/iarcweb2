@@ -90,7 +90,7 @@ use yii\helpers\Url;
                            <tbody>
                               <tr>
                                  <td width="60%">
-                                    <span class="font-weight-bold"><?= $arrOrderDtls['title'] ?></span>
+                                    <span class=""><?= $arrOrderDtls['title'] ?></span>
                                     <div class="product-qty" hidden> <span class="d-block"> By Solder (Copper pillar, Tin, Tin-Lead, Lead free, High Lead, Gold, Electrically Conductive Epoxy Adhesives, Eutectic, Others)</span></div>
                                  </td>
                                  <td width="20%">
@@ -103,7 +103,7 @@ use yii\helpers\Url;
 
                      <div class="row">
                         <div class="col-md-12">
-                             <p class="mar-btm-30"><b>Delivery for:</b><br/>
+                             <p class="mar-btm-30"><b>Delivery Details:</b><br/>
 
                             <span><?= $arrOrderDtls['f_name'] . ' ' . $arrOrderDtls['l_name'] ?></span><br/>
                             <span>Email: <?= $arrOrderDtls['user_id']; ?></span><br/>
