@@ -261,7 +261,8 @@ class PurchaseController extends IarcfbaseController {
 		//echo '<pre>';print_r($_REQUEST);exit;
         if (!empty($orderDet['paypall_orderID']) || !empty($_REQUEST["razor_payId"])) {
             $paymentStatus = 'SUCCESS';
-            //$_SESSION['payment_status'] = $paymentStatus;
+            $_SESSION['payment_status'] = $paymentStatus;
+            $paymentStatus = $_SESSION['payment_status'];
             /* STATUS OP = Order Placed */
             $updateOrderHdrs = "update zsp_order_hdrs set order_status='OP' where order_num='$orderId'";
             $isUpdatedOrderHdrs = Yii::$app->db->createCommand($updateOrderHdrs)->execute();
@@ -343,7 +344,7 @@ class PurchaseController extends IarcfbaseController {
             }
         }else{
             unset($_SESSION['order']);
-            //unset($_SESSION['payment_status']);
+            unset($_SESSION['payment_status']);
             $paymentStatus = "Failed";
 
             $arrOrderHdrs = \common\models\ZspOrderHdrs::find()
