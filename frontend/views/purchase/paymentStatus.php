@@ -85,8 +85,25 @@ print_r($arrOrderDtls);
                                  <td>
                                     <div class="py-2"> <span class="d-block text-muted">Payment</span> <?= ucfirst($pay_mode)?> </div>
                                  </td>
-                                 <td hidden>
-                                    <div class="py-2"> <span class="d-block text-muted">Shiping Address</span> <span>Hyderabad</span> </div>
+                                 <td>
+                                    <div class="py-2"> <span class="d-block text-muted">Licence Type</span> 
+                                        
+                                        <?php
+                                        $licence_type = "";
+                                        if($arrOrderDtls["licence_type"]=="SL"){
+                                            $licence_type = "Basic";
+                                        }
+                                        if($arrOrderDtls["licence_type"]=="CL"){
+                                            $licence_type = "Advanced";
+                                        }
+                                        if($arrOrderDtls["licence_type"]=="EL"){
+                                            $licence_type = "Expert";
+                                        }
+
+
+                                        ?>
+                                        <span><?= $licence_type?></span> 
+                                    </div>
                                  </td>
                               </tr>
                            </tbody>
