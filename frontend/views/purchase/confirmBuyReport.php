@@ -110,13 +110,13 @@ use yii\helpers\Url;
                                 </tr>
                                 <tr>
                                     <!--<td ><button type="submit" class="btn btn-danger" name="submitCancel" value="Cancel">Cancel</button></td>-->
-                                    <td align="">
+                                    <td colspan="2">
                                         <?php if ($orderInfo['payment_mode'] == 'paypal') { ?>
                                             <div id="paypalCheckoutContainer"></div>											
                                         <?php } else if ($orderInfo['payment_mode'] == 'HDFC') { ?>
                                             <form method="POST" action="<?= yii\helpers\Url::to(['purchase/confirm-buy-report']) ?>">
                                                 <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
-                                                <button style="float:right" type="submit" class="btn btn-success" name="submitPayment" value="HDFC_Payment">Confirm Payment <i class="fa fa-arrow-right"></i></button>
+                                                <button type="submit" class="btn btn-success" name="submitPayment" value="HDFC_Payment">Confirm Payment <i class="fa fa-arrow-right"></i></button>
                                             </form>
 											<?php } else if(!empty($orderInfo['payment_mode']) && $orderInfo['payment_mode']== 'razorpay'){ ?>
 												<button style="float:right" id="rzp-button1" type="submit" class="btn btn-success" name="submitPayment" value="Confirm Payment">Confirm Payment <i class="fa fa-arrow-right"></i></button>
