@@ -344,6 +344,8 @@ class PurchaseController extends IarcfbaseController {
         }else{
             unset($_SESSION['order']);
             unset($_SESSION['payment_status']);
+            $paymentStatus = "Failed";
+
             $arrOrderHdrs = \common\models\ZspOrderHdrs::find()
                             ->where(['order_num' => $orderId])
                             ->asArray()->one();
@@ -426,7 +428,7 @@ class PurchaseController extends IarcfbaseController {
     
 
         return $this->render('paymentStatus', [
-                    'payStatus' => $_SESSION['payment_status'],
+                    'payStatus' => $paymentStatus,
                     'arrOrderDtls' => $orderDet,
                     'pay_mode' => $arrOrderHdrs['pay_mode'],
 
