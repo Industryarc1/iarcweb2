@@ -322,6 +322,8 @@ var options = {
         alert(response.error.metadata.order_id+" 6");
         alert(response.error.metadata.payment_id+" 7");
 
+        $(location).prop('href', '<?=Url::to(["purchase/payment-status"]);?>');
+
 
 });
 
