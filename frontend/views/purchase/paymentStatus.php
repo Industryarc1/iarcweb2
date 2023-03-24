@@ -76,7 +76,7 @@ echo "</pre>";
                            <tbody>
                               <tr>
                                  <td>
-                                    <div class="py-2"> <span class="d-block text-muted">Order Date</span> 
+                                    <div class="py-2"> <span class="d-block">Order Date</span> 
                                         <span><?= date('d F, Y');?></span> 
                                     </div>
                                  </td>
@@ -115,7 +115,7 @@ echo "</pre>";
                            <tbody>
                               <tr>
                                  <td width="60%">
-                                    <p class="mar-btm-30"><b>Report Title: Report Code - <?= $arrOrderDtls["report_code"]?></b></p>
+                                    <p class="mar-btm-30"><b>Report Code - <?= $arrOrderDtls["report_code"]?> <br>Report Title:  </b></p>
                                     <span class=""><?= $arrOrderDtls['title'] ?></span>
                                     <div class="product-qty" hidden> <span class="d-block"> By Solder (Copper pillar, Tin, Tin-Lead, Lead free, High Lead, Gold, Electrically Conductive Epoxy Adhesives, Eutectic, Others)</span></div>
                                  </td>
