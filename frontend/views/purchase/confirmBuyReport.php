@@ -266,6 +266,8 @@ var options = {
 											if(res != ""){
 												console.log(res);
 												alert('Payment Done Successfully.');
+                                                //PaymentStatus
+                                                $(location).prop('href', <?=Url::to(['purchase/payment-status']);?>);
 												return false;
 											}
 										}

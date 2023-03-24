@@ -418,11 +418,16 @@ class PurchaseController extends IarcfbaseController {
                         ->send();
             }
 		}
-        unset($_SESSION['order']);
+        
+        //unset($_SESSION['order']);
+        
         return $this->render('paymentStatus', [
                     'payStatus' => $paymentStatus,
                     'arrOrderDtls' => $orderDet,
         ]);
+
+
+
     }
 
     public function actionHdfcPaymentStatus() {
