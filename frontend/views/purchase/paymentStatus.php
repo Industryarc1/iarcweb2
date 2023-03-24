@@ -147,9 +147,10 @@ echo "</pre>";
                      <p>We will be sending across the full report PDF and quantitative excel data to your email directly in 48-72 hours.</p>
                      <p class="font-weight-bold mb-0"><i>Thanks for choosing IndustryARC as your preferred market research vendor.</i></p>
                      <span>IndustryARC Team</span>
-                     <h5>Contact Details:</h5>
-                     <p><a href="mailto:sales@industryarc.com">sales@industryarc.com</a></p>
-                     <p><a href="tel:+1970-236-3677">+1970-236-3677</a></p>
+                     <p>
+                        Email : <a href="mailto:sales@industryarc.com">sales@industryarc.com</a><br>
+                        Phone : <a href="tel:+1970-236-3677">+1970-236-3677</a>
+                     </p>
                   </div>
                   <div class="d-flex justify-content-between footer p-3"> <span>Need Help? visit our <a href="/contact-us.php"> help center</a></span> <span><?= date('d F, Y');?></span> </div>
                </div>
