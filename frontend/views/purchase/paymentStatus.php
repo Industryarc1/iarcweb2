@@ -115,56 +115,9 @@ use yii\helpers\Url;
 
                         </div>    
                      </div>   
-                     <div class="row d-flex justify-content-end" hidden>
-                        <div class="col-md-5">
-                           <table class="table table-borderless">
-                              <tbody class="totals">
-                                 <tr>
-                                    <td>
-                                       <div class="text-left"> <span class="text-muted">Subtotal</span> </div>
-                                    </td>
-                                    <td>
-                                       <div class="text-right"> <span>$168.50</span> </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td>
-                                       <div class="text-left"> <span class="text-muted">Shipping Fee</span> </div>
-                                    </td>
-                                    <td>
-                                       <div class="text-right"> <span>$22</span> </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td>
-                                       <div class="text-left"> <span class="text-muted">Tax Fee</span> </div>
-                                    </td>
-                                    <td>
-                                       <div class="text-right"> <span>$7.65</span> </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td>
-                                       <div class="text-left"> <span class="text-muted">Discount</span> </div>
-                                    </td>
-                                    <td>
-                                       <div class="text-right"> <span class="text-success">$168.50</span> </div>
-                                    </td>
-                                 </tr>
-                                 <tr class="border-top border-bottom">
-                                    <td>
-                                       <div class="text-left"> <span class="font-weight-bold">Subtotal</span> </div>
-                                    </td>
-                                    <td>
-                                       <div class="text-right"> <span class="font-weight-bold">$238.50</span> </div>
-                                    </td>
-                                 </tr>
-                              </tbody>
-                           </table>
-                        </div>
-                     </div>
-                     <p>We will be sending shipping confirmation email when the item shipped successfully!</p>
-                     <p class="font-weight-bold mb-0">Thanks for shopping with us!</p>
+                     
+                     <p>We will be sending across the full report PDF and quantitative excel data to your email directly in 48-72 hours.</p>
+                     <p class="font-weight-bold mb-0"><i>Thanks for choosing IndustryARC as your preferred market research vendor.</i></p>
                      <span>IndustryARC Team</span>
                   </div>
                   <div class="d-flex justify-content-between footer p-3"> <span>Need Help? visit our <a href="/contact-us.php"> help center</a></span> <span><?= date('d F, Y');?></span> </div>
