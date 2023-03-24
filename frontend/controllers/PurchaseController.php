@@ -342,6 +342,8 @@ class PurchaseController extends IarcfbaseController {
                         ->send();
             }
         }else{
+            unset($_SESSION['order']);
+            unset($_SESSION['payment_status']);
             $arrOrderHdrs = \common\models\ZspOrderHdrs::find()
                             ->where(['order_num' => $orderId])
                             ->asArray()->one();
