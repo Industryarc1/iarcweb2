@@ -428,7 +428,11 @@ class PurchaseController extends IarcfbaseController {
             }
 		}
         
-        unset($_SESSION['order']);
+        //unset($_SESSION['order']);
+
+print_r($orderDet);
+
+exit;
 
         return $this->render('paymentStatus', [
                     'payStatus' => $_SESSION['payment_status'],
