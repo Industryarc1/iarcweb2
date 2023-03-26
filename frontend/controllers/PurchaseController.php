@@ -447,12 +447,13 @@ class PurchaseController extends IarcfbaseController {
         $arrOrderDtls = $arrOrderHdrs = [];
         $paymentStatus = "Failed";
         $orderDet = Yii::$app->session->get('order');
-        return $this->render('paymentStatus', [
+        print_r($orderDet);
+        /*return $this->render('paymentStatus', [
                     'payStatus' => $paymentStatus,
                     'arrOrderDtls' => $orderDet,
                     'pay_mode' => $orderDet['pay_mode'],
 
-        ]);   
+        ]);*/   
 
     }     
 
