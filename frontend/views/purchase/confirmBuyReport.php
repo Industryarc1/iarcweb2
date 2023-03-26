@@ -322,7 +322,21 @@ var options = {
         alert(response.error.metadata.order_id+" 6");
         alert(response.error.metadata.payment_id+" 7");
 
-        $(location).prop('href', '<?=Url::to(["purchase/payment-status"]);?>');
+        //$(location).prop('href', '<?=Url::to(["purchase/payment-status"]);?>');
+
+        $.ajax({
+                                        url: "<?=Url::to(['purchase/payment-status-fail']);?>",
+                                        type: 'get',
+                                        //data: {razor_payId:payId},
+                                        success: function (res) {
+                                            if(res != ""){
+                                                console.log(res);
+                                                //alert('Payment Done Successfully.');
+                                                //$(location).prop('href', '<?=Url::to(["purchase/payment-status"]);?>');
+                                                return false;
+                                            }
+                                        }
+                                    });
 
 
 });

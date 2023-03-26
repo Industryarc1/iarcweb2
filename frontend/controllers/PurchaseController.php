@@ -261,7 +261,7 @@ class PurchaseController extends IarcfbaseController {
 		//echo '<pre>';print_r($_REQUEST);exit;
         if (!empty($orderDet['paypall_orderID']) || !empty($_REQUEST["razor_payId"])) {
             $paymentStatus = 'SUCCESS';
-            $_SESSION['payment_status'] = $paymentStatus;
+            //$_SESSION['payment_status'] = $paymentStatus;
             //$paymentStatus = $_SESSION['payment_status'];
             /* STATUS OP = Order Placed */
             $updateOrderHdrs = "update zsp_order_hdrs set order_status='OP' where order_num='$orderId'";
@@ -343,7 +343,7 @@ class PurchaseController extends IarcfbaseController {
                         ->send();
             }
         }else{
-            unset($_SESSION['order']);
+            //unset($_SESSION['order']);
             //unset($_SESSION['payment_status']);
 
 
@@ -428,11 +428,11 @@ class PurchaseController extends IarcfbaseController {
             }
 		}
         
-        //unset($_SESSION['order']);
+        unset($_SESSION['order']);
     
 
         return $this->render('paymentStatus', [
-                    'payStatus' => $_SESSION['payment_status'],
+                    'payStatus' => $paymentStatus,
                     'arrOrderDtls' => $orderDet,
                     'pay_mode' => $arrOrderHdrs['pay_mode'],
 
@@ -441,6 +441,14 @@ class PurchaseController extends IarcfbaseController {
 
 
     }
+
+
+    public function actionPaymentStatusFail() {
+        $arrOrderDtls = $arrOrderHdrs = [];
+        $paymentStatus = NULL;
+        $orderDet = Yii::$app->session->get('order');
+        print_r($orderDet);    
+    }     
 
     public function actionHdfcPaymentStatus() {
         $arrOrderDtls = $arrOrderHdrs = [];
