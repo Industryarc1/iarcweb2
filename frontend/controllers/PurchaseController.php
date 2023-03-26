@@ -447,6 +447,88 @@ class PurchaseController extends IarcfbaseController {
         $arrOrderDtls = $arrOrderHdrs = [];
         $paymentStatus = "Failed";
         $orderDet = Yii::$app->session->get('order');
+        $orderId = (!empty($orderDet['order_id'])) ? $orderDet['order_id'] : NULL;
+
+        $arrOrderHdrs = \common\models\ZspOrderHdrs::find()
+                            ->where(['order_num' => $orderId])
+                            ->asArray()->one();
+
+            $mailmsg = '
+                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                      <td width="100%" valign="top" align="center">
+                      <table width="100%" cellpadding="0" cellspacing="0" >
+                      <tr>
+                      <td width="49%" valign="top" style="border-right:thin dotted #7D7D7D">
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                      <td class="labelTab" >
+                      User ID : ' . $arrOrderHdrs['login_id'] . '<br>
+                      Address : ' . $arrOrderHdrs['cust_name'] . '' . $arrOrderHdrs['cust_s_addr'] . '<br>' . $arrOrderHdrs['pincode'] . '<br> Phone : ' . $arrOrderHdrs['cust_po_num'] . '
+                      </td>
+                      </tr>
+                      </table>
+                      </td>
+                      <td width="49%" valign="top" style="padding-left:8px">
+                      <table width="100%" cellpadding="0" cellspacing="0" class="labelTab">
+                      <tr>
+                      <td width="28%" >Order Amount </td> 
+                      <td width="72%" > : $ ' . $arrOrderHdrs['order_amt'] . '</td>
+                      </tr>  
+                      <tr>
+                      <td>Ordered Date</td> 
+                      <td> : ' . date('d M Y H:i:s', strtotime($arrOrderHdrs['dt_created'])) . '</td></tr>
+                      <tr>
+                      <td>Order Status </td> 
+                      <td> : Order Placed</td>
+                      </tr>
+                      <tr>
+                      <td>Payment Mode </td> 
+                      <td> :' . $arrOrderHdrs['pay_mode'] . ' </td>
+                      </tr>
+                      </table>
+                      </td>
+                      </tr>
+                      <tr><td height="20px" colspan="2"></td></tr>
+                      <tr>
+                      <td colspan="2">
+                      <table width="100%" cellspacing="0" cellpadding="10px" bordercolor="#f0dfd3" border="1" style="border-collapse:collapse">
+                      <tr style="background-color:#a14b2a">
+
+                      <td width="42%" height="30" align="center" valign="middle" class="td_txt1">Item</td>                      
+                      <td width="25%" height="30" align="center" valign="middle" class="td_txt1">Quantity</td>
+                      <td width="33%" height="30" align="center" valign="middle" class="td_txt1">Price</td>
+                      </tr>';
+            $arrOrderDtls = \common\models\ZspOrderDtls::find()
+                            ->where(['order_hdr_num' => $orderId])
+                            ->asArray()->all();
+
+            if (count($arrOrderDtls) > 0) {
+                // for multiple order
+                foreach ($arrOrderDtls as $ordDtls) {
+                    $arrReportDet = ZspPosts::find()->where(['inc_id' => $ordDtls['post_id']])->asArray()->one();
+                    $mailmsg = $mailmsg . '<tr style="background-color:#fff"  >
+                                <td align="left" style="padding:5px" class="f_text" height="25" valign="middle">' . $arrReportDet['title'] . ' <br><span style="font-size:10px"> ' . $ordDtls['licence'] . '</span></td>
+                                <td align="center" class="f_text" height="25" valign="middle" style="padding:4px" >' . $ordDtls['qty'] . ' X  ' . $ordDtls['price'] . ' $</td>
+                                <td align="center" class="f_text" height="25" valign="middle" style="padding:4px" > ' . $ordDtls['qty'] * $ordDtls['price'] . ' $</td>
+                            </tr>';
+                }
+                $mailmsg = $mailmsg . '</table></td></tr></table></td></tr></table>';
+
+                $emailMessage = $mailmsg;
+                $subject = "Industryarc : Order Payment Failed ";
+
+                //$paymentStatus = "Failed";
+                //$_SESSION['payment_status'] = $paymentStatus;
+
+                Yii::$app->mailer->compose(['html' => '@common/mail/layouts/html'], ['content' => $emailMessage])
+                        ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
+                        ->setTo(\Yii::$app->params['salesEmail'])
+                        ->setBcc(\Yii::$app->params['testEmail'])
+                        ->setSubject($subject)
+                        ->send();
+            }
+        
         //print_r($orderDet);
         unset($_SESSION['order']);
         return $this->render('paymentStatus', [
