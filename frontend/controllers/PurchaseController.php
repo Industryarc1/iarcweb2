@@ -644,7 +644,7 @@ Below are the details:
                 $mailmsg = $mailmsg . '</table></td></tr></table></td></tr></table>';
 
                 $emailMessage = $mailmsg;
-                $subject = "Industryarc : Order Payment Failed ";
+                $subject = "Industryarc : Order Payment Failed 2";
 
                 //$paymentStatus = "Failed";
                 //$_SESSION['payment_status'] = $paymentStatus;
@@ -988,8 +988,8 @@ Below are the details:
 
                 Yii::$app->mailer->compose(['html' => '@common/mail/layouts/html'], ['content' => $emailMessage])
                         ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
-                        //->setTo(\Yii::$app->params['salesEmail'])
-                        ->setTo('japa.bits@gmail.com')
+                        ->setTo(\Yii::$app->params['salesEmail'])
+                        //->setTo('japa.bits@gmail.com')
                         ->setBcc(\Yii::$app->params['testEmail'])
                         ->setSubject($subject)
                         ->send();
