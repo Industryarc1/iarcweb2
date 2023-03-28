@@ -264,8 +264,8 @@ var options = {
 										data: {razor_payId:payId},
 										success: function (res) {
 											if(res != ""){
-												console.log(res);
-												alert('Payment Done Successfully.');
+												//console.log(res);
+												//alert('Payment Done Successfully.');
                                                 $(location).prop('href', '<?=Url::to(["purchase/payment-status"]);?>');
 												return false;
 											}
