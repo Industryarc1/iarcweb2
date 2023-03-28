@@ -253,7 +253,295 @@ class PurchaseController extends IarcfbaseController {
         return TRUE;
     }
 
+
+
     public function actionPaymentStatus() {
+        $arrOrderDtls = $arrOrderHdrs = [];
+        $paymentStatus = NULL;
+        $orderDet = Yii::$app->session->get('order');
+        $orderId = (!empty($orderDet['order_id'])) ? $orderDet['order_id'] : NULL;
+        //echo '<pre>';print_r($_REQUEST);exit;
+        if (!empty($orderDet['paypall_orderID']) || !empty($_REQUEST["razor_payId"])) {
+            $paymentStatus = 'SUCCESS';
+            $_SESSION['payment_status'] = $paymentStatus;
+            //$paymentStatus = $_SESSION['payment_status'];
+            /* STATUS OP = Order Placed */
+            $updateOrderHdrs = "update zsp_order_hdrs set order_status='OP' where order_num='$orderId'";
+            $isUpdatedOrderHdrs = Yii::$app->db->createCommand($updateOrderHdrs)->execute();
+            $arrOrderHdrs = \common\models\ZspOrderHdrs::find()
+                            ->where(['order_num' => $orderId])
+                            ->asArray()->one();
+
+
+            $arrOrderDtls = \common\models\ZspOrderDtls::find()
+                            ->where(['order_hdr_num' => $orderId])
+                            ->asArray()->all();
+
+            if (count($arrOrderDtls) > 0) {  
+            echo "Payment Done Successfully!";
+            }              
+
+        }
+        else{
+            $paymentStatus = 'SUCCESS';
+            $arrOrderHdrs = \common\models\ZspOrderHdrs::find()
+                            ->where(['order_num' => $orderId])
+                            ->asArray()->one();
+
+
+               $licence_type = "";
+        if($orderDet["licence_type"]=="SL"){
+            $licence_type = "Basic";
+        }
+        if($orderDet["licence_type"]=="CL"){
+            $licence_type = "Advanced";
+        }
+        if($orderDet["licence_type"]=="EL"){
+            $licence_type = "Expert";
+        }                    
+
+        $mailmsg = '<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<style type="text/css">
+
+body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+img { -ms-interpolation-mode: bicubic; }
+
+img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+table { border-collapse: collapse !important; }
+body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
+
+
+a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+}
+
+@media screen and (max-width: 480px) {
+    .mobile-hide {
+        display: none !important;
+    }
+    .mobile-center {
+        text-align: center !important;
+    }
+}
+div[style*="margin: 16px 0;"] { margin: 0 !important; }
+</style>
+<body style="margin: 0 !important; padding: 0 !important; background-color: #eeeeee;" bgcolor="#eeeeee">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td align="center" style="background-color: #eeeeee;" bgcolor="#eeeeee">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+            <tr>
+                <td align="center" valign="top" style="font-size:0; padding: 15px;background-color: #ededf7;">
+               
+                <div style="display:inline-block; vertical-align:top;">
+                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
+                        <tr>
+                            <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 36px; font-weight: 800; line-height: 48px;" class="mobile-center">
+                                <img src="http://34.67.44.136/images/Arc_logo.png">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+              
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding: 35px 35px 20px 35px; background-color: #ffffff;" bgcolor="#ffffff">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+                    <tr>
+                        <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/004/628/192/small_2x/check-mark-icon-design-free-vector.jpg" width="75" style="display: block; border: 0px;" />
+                            <h2 style="font-size: 20px; font-weight: 800; line-height: 36px; color: #333333; margin: 0;">
+                              Your Order Confirmed!
+                            </h2>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px;">
+                        Hello, '.$orderDet['f_name'] . ' ' . $orderDet['l_name']. '<br>
+Below are the details:
+                        </td>
+
+                    </tr>    
+
+                    <tr>
+                        <td align="left" style="padding-top: 5px;">
+
+                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 800; line-height: 24px;">
+                                       Order Date: '.date("d F, Y").'
+                                       <br>
+                                       Order No: '.$orderDet["order_id"].'
+
+                                    </td>
+                                    <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 800; line-height: 24px;">
+                                        Payment Gateway: '.$orderDet['payment_mode'].'
+                                        <br>
+                                        Licence Type: '.$licence_type.' 
+                                    </td>
+                                </tr>
+                            </table>    
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="padding-top: 20px;">
+                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td width="100%" colspan="2" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 12px; line-height: 24px; padding: 10px;">
+                                       '.$orderDet['title'].'
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="75%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                        Report Code : '.$orderDet['report_code'].'
+                                    </td>
+                                    <td width="25%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                        $'.$orderDet['licence_amount'].'
+                                    </td>
+                                </tr>
+                                
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="padding-top: 20px;">
+                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td width="75%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
+                                        TOTAL
+                                    </td>
+                                    <td width="25%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
+                                        $'.$orderDet["licence_amount"].'
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                
+                </td>
+            </tr>
+             <tr>
+                <td align="center" height="100%" valign="top" width="100%" style="padding: 0 35px 35px 35px; background-color: #ffffff;" bgcolor="#ffffff">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:660px;">
+                    <tr>
+                        <td align="center" valign="top" style="font-size:0;">
+                            <div style="display:inline-block; max-width:100%; min-width:240px; vertical-align:top; width:100%;">
+
+                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
+                                    <tr>
+                                        <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px;">
+                                            <span style="font-weight: 800;">Delivery Details:</span>
+                                            <br>'.$orderDet['f_name']. ' '.$orderDet['l_name'].'
+                                            <br>Email: '.$orderDet['user_id'].'
+                                            <br>Ph No: '.$orderDet['contact_number'].'
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px;">
+                                            <span style="font-weight: 800;">Billing Address:</span>
+                                            <br>'.$orderDet['address'].'
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style=" padding: 5px 0px 10px; background-color: #181536;" bgcolor="#181536">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+                    <tr>
+                        <td align="center" style="padding: 25px 0 15px 0;">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td align="center" style="border-radius: 5px;" bgcolor="#66b3b7">
+                                      <a href="http://industryarc.com" target="_blank" style="font-size: 18px; font-family: Open Sans, Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 5px; background-color: #F44336; padding: 5px 15px; border: 1px solid #F44336; display: block;">Browse Reports</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding: 35px; background-color: #ffffff;" bgcolor="#ffffff">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+                   
+                    <tr>
+                        <td align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 5px 0 10px 0;">
+                            
+                            '.($paymentStatus == 'SUCCESS' ? 'We will be sending across the full report PDF and quantitative excel data to your email directly in 48-72 hours.<br>' : 'We noticed that your payment failed, my team will contact you shortly and help you with alternate payment methods.<br>').'
+                            
+                            <p><i>Thanks for choosing IndustryARC as your preferred market research vendor.</i></p>
+
+                            <span style="font-weight: 800;">IndustryARC Team</span><br>
+                            Email : <a href="mailto:sales@industryarc.com" style="text-decoration: none;color: #000">sales@industryarc.com</a><br>
+                            Phone : <a href="tel:+1970-236-3677" style="text-decoration: none;color: #000;">+1970-236-3677</a>
+
+                        </td>
+                    </tr>
+                    
+                </table>
+                </td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+</table>
+    
+</body>
+</html>'; 
+
+                $emailMessage = $mailmsg;
+                $subject = "Industryarc : Order Confirmation ";
+
+                //$paymentStatus = "Failed";
+                //$_SESSION['payment_status'] = $paymentStatus;
+
+                Yii::$app->mailer->compose(['html' => '@common/mail/layouts/html'], ['content' => $emailMessage])
+                        ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
+                        ->setTo(\Yii::$app->params['salesEmail'])
+                        ->setBcc(\Yii::$app->params['testEmail'])
+                        ->setSubject($subject)
+                        ->send();  
+
+                        return $this->render('paymentStatus', [
+                    'payStatus' => $paymentStatus,
+                    'arrOrderDtls' => $orderDet,
+                    'pay_mode' => $orderDet['payment_mode'],
+
+        ]);                             
+
+        }
+
+                            
+    }    
+
+    public function actionPaymentStatus1() {
         $arrOrderDtls = $arrOrderHdrs = [];
         $paymentStatus = NULL;
         $orderDet = Yii::$app->session->get('order');
