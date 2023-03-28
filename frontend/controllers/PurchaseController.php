@@ -969,9 +969,9 @@ Below are the details:
 
             if (count($arrOrderDtls) > 0) {
                 // for multiple order
-                foreach ($arrOrderDtls as $ordDtls) {
+                /*foreach ($arrOrderDtls as $ordDtls) {
                     $arrReportDet = ZspPosts::find()->where(['inc_id' => $ordDtls['post_id']])->asArray()->one();
-                    /*$mailmsg = $mailmsg . '<tr style="background-color:#fff"  >
+                    $mailmsg = $mailmsg . '<tr style="background-color:#fff"  >
                                 <td align="left" style="padding:5px" class="f_text" height="25" valign="middle">' . $arrReportDet['title'] . ' <br><span style="font-size:10px"> ' . $ordDtls['licence'] . '</span></td>
                                 <td align="center" class="f_text" height="25" valign="middle" style="padding:4px" >' . $ordDtls['qty'] . ' X  ' . $ordDtls['price'] . ' $</td>
                                 <td align="center" class="f_text" height="25" valign="middle" style="padding:4px" > ' . $ordDtls['qty'] * $ordDtls['price'] . ' $</td>
