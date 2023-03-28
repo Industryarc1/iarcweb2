@@ -658,7 +658,7 @@ Below are the details:
             }
 		}
         
-        unset($_SESSION['order']);
+        //unset($_SESSION['order']);
 
 //print_r($orderDet);
 
