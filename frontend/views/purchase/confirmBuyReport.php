@@ -238,11 +238,16 @@ $(document).ready(function(){
                             success: function (response) {
                                 console.log(response);
                                 //return false;
+                                alert("success!..");
                             }
                         });
 
-                        window.location.href = "<?= Url::to(['purchase/payment-status1']) ?>";
-                    }
+                        //window.location.href = "<?= Url::to(['purchase/payment-status1']) ?>";
+                    },
+
+                     onError: function(error) {
+      alert('Payment failed!');
+    }
 
                 }).render('#paypalCheckoutContainer');
 
