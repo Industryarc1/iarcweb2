@@ -567,8 +567,7 @@ Below are the details:
 
                 Yii::$app->mailer->compose(['html' => '@common/mail/layouts/html'], ['content' => $emailMessage])
                         ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
-                        //->setTo(\Yii::$app->params['salesEmail'])
-                        ->setTo('rajesh.gajula505@gmail.com')
+                        ->setTo(\Yii::$app->params['salesEmail'])
                         ->setBcc(\Yii::$app->params['testEmail'])
                         ->setSubject($subject)
                         ->send();
@@ -989,8 +988,7 @@ Below are the details:
 
                 Yii::$app->mailer->compose(['html' => '@common/mail/layouts/html'], ['content' => $emailMessage])
                         ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
-                        //->setTo(\Yii::$app->params['salesEmail'])
-                        ->setTo('rajesh.gajula505@gmail.com')
+                        ->setTo(\Yii::$app->params['salesEmail'])
                         ->setBcc(\Yii::$app->params['testEmail'])
                         ->setSubject($subject)
                         ->send();
