@@ -344,21 +344,7 @@ div[style*="margin: 16px 0;"] { margin: 0 !important; }
         <td align="center" style="background-color: #eeeeee;" bgcolor="#eeeeee">
         
         <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
-            <tr>
-                <td align="center" valign="top" style="font-size:0; padding: 15px;background-color: #ededf7;">
-               
-                <div style="display:inline-block; vertical-align:top;">
-                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
-                        <tr>
-                            <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 36px; font-weight: 800; line-height: 48px;" class="mobile-center">
-                                
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-              
-                </td>
-            </tr>
+            
             <tr>
                 <td align="center" style="padding: 35px 35px 20px 35px; background-color: #ffffff;" bgcolor="#ffffff">
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
@@ -518,9 +504,9 @@ Below are the details:
 
 
 
-$mailmsg1 = "Welcome!";
+//$mailmsg1 = "Welcome!";
 
-                $emailMessage = $mailmsg1;
+                $emailMessage = $mailmsg;
                 $subject = "Industryarc : Order Confirmation ";
 
                 //$paymentStatus = "Failed";
