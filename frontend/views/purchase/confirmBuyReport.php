@@ -160,7 +160,7 @@ $(document).ready(function(){
 
                 paypal.Buttons({
                     // Set your environment
-                    env: 'production',
+                    env: 'sandbox',
                     // Set style of button
                     /*style: {
                         layout: 'horizontal', // horizontal | vertical
