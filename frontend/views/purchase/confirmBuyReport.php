@@ -241,7 +241,7 @@ $(document).ready(function(){
                             }
                         });
 
-                        window.location.href = "<?= Url::to(['purchase/payment-status']) ?>";
+                        window.location.href = "<?= Url::to(['purchase/payment-status1']) ?>";
                     }
 
                 }).render('#paypalCheckoutContainer');
