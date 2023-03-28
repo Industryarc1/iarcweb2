@@ -699,7 +699,7 @@ Below are the details:
             $licence_type = "Expert";
         }                    
 
-        $mailmsg = '<!DOCTYPE html>
+        $mailmsg1 = '<!DOCTYPE html>
 <html>
 <head>
 <title></title>
@@ -971,13 +971,13 @@ Below are the details:
                 // for multiple order
                 foreach ($arrOrderDtls as $ordDtls) {
                     $arrReportDet = ZspPosts::find()->where(['inc_id' => $ordDtls['post_id']])->asArray()->one();
-                    $mailmsg = $mailmsg . '<tr style="background-color:#fff"  >
+                    /*$mailmsg = $mailmsg . '<tr style="background-color:#fff"  >
                                 <td align="left" style="padding:5px" class="f_text" height="25" valign="middle">' . $arrReportDet['title'] . ' <br><span style="font-size:10px"> ' . $ordDtls['licence'] . '</span></td>
                                 <td align="center" class="f_text" height="25" valign="middle" style="padding:4px" >' . $ordDtls['qty'] . ' X  ' . $ordDtls['price'] . ' $</td>
                                 <td align="center" class="f_text" height="25" valign="middle" style="padding:4px" > ' . $ordDtls['qty'] * $ordDtls['price'] . ' $</td>
                             </tr>';
                 }
-                $mailmsg = $mailmsg . '</table></td></tr></table></td></tr></table>';
+                $mailmsg = $mailmsg . '</table></td></tr></table></td></tr></table>';*/
 
                 $emailMessage = $mailmsg;
                 $subject = "Industryarc : Order Payment Failed ";
