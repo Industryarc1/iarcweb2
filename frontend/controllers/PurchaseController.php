@@ -699,7 +699,7 @@ Below are the details:
             $licence_type = "Expert";
         }                    
 
-        $mailmsg1 = '<!DOCTYPE html>
+        $mailmsg = '<!DOCTYPE html>
 <html>
 <head>
 <title></title>
