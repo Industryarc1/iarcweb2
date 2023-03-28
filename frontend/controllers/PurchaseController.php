@@ -464,7 +464,7 @@ Below are the details:
                             <table border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <td align="center" style="border-radius: 5px;" bgcolor="#66b3b7">
-                                      <a href="https://industryarc.com/" target="_blank" style="font-size: 18px; font-family: Open Sans, Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 5px; background-color: #F44336; padding: 5px 15px; border: 1px solid #F44336; display: block;">Browse Reports</a>
+                                      <a href="#" target="_blank" style="font-size: 18px; font-family: Open Sans, Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 5px; background-color: #F44336; padding: 5px 15px; border: 1px solid #F44336; display: block;">Browse Reports</a>
                                     </td>
                                 </tr>
                             </table>
