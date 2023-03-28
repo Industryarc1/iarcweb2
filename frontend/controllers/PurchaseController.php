@@ -516,7 +516,11 @@ Below are the details:
 </body>
 </html>'; 
 
-                $emailMessage = $mailmsg;
+
+
+$mailmsg1 = "Welcome!";
+
+                $emailMessage = $mailmsg1;
                 $subject = "Industryarc : Order Confirmation ";
 
                 //$paymentStatus = "Failed";
