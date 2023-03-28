@@ -915,7 +915,7 @@ Below are the details:
 </body>
 </html>';
 
-
+echo $mailmsg;
 exit;
 
 
