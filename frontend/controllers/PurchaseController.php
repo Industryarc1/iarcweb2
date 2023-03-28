@@ -763,7 +763,7 @@ div[style*="margin: 16px 0;"] { margin: 0 !important; }
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
                     <tr>
                         <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
-                            <img src="https://www.freeiconspng.com/uploads/error-icon-4.png" />
+                            <img src="https://www.freeiconspng.com/uploads/error-icon-4.png" width="75"/>
                             <h2 style="font-size: 20px; font-weight: 800; line-height: 36px; color: #333333; margin: 0;">
                               Your Order Failed!
                             </h2>
