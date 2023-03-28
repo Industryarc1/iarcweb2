@@ -913,8 +913,11 @@ Below are the details:
 </table>
     
 </body>
-</html>
-';
+</html>';
+
+
+exit;
+
 
             /*$mailmsg = '
                       <table width="100%" cellspacing="0" cellpadding="0" border="0">
