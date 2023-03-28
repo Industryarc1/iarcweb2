@@ -332,7 +332,7 @@ div[style*="margin: 16px 0;"] { margin: 0 !important; }
                     <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
                         <tr>
                             <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 36px; font-weight: 800; line-height: 48px;" class="mobile-center">
-                                <img src=/images/Arc_logo.png">
+                                <img src="cid:/images/Arc_logo.png">
                             </td>
                         </tr>
                     </table>
@@ -345,7 +345,7 @@ div[style*="margin: 16px 0;"] { margin: 0 !important; }
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
                     <tr>
                         <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
-                            <img src="https://static.vecteezy.com/system/resources/thumbnails/004/628/192/small_2x/check-mark-icon-design-free-vector.jpg" width="75" style="display: block; border: 0px;" />
+                            <img src="cid:https://static.vecteezy.com/system/resources/thumbnails/004/628/192/small_2x/check-mark-icon-design-free-vector.jpg" width="75" style="display: block; border: 0px;" />
                             <h2 style="font-size: 20px; font-weight: 800; line-height: 36px; color: #333333; margin: 0;">
                               Your Order Confirmed!
                             </h2>
@@ -394,7 +394,7 @@ Below are the details:
                                         Report Code : '.$orderDet['report_code'].'
                                     </td>
                                     <td width="25%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 15px 10px 5px 10px;">
-                                        $'.$orderDet['licence_amount'].'00
+                                        $'.$orderDet['licence_amount'].'.00
                                     </td>
                                 </tr>
                                 
