@@ -915,8 +915,7 @@ Below are the details:
 </body>
 </html>';
 
-echo $mailmsg;
-exit;
+
 
 
             /*$mailmsg = '
@@ -990,15 +989,15 @@ exit;
 
                 Yii::$app->mailer->compose(['html' => '@common/mail/layouts/html'], ['content' => $emailMessage])
                         ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
-                        ->setTo(\Yii::$app->params['salesEmail'])
-                        //->setTo('rajesh.gajula505@gmail.com')
+                        //->setTo(\Yii::$app->params['salesEmail'])
+                        ->setTo('rajesh.gajula505@gmail.com')
                         ->setBcc(\Yii::$app->params['testEmail'])
                         ->setSubject($subject)
                         ->send();
             }
 
         //print_r($orderDet);
-        unset($_SESSION['order']);
+        //unset($_SESSION['order']);
         return $this->render('paymentStatus', [
                     'payStatus' => $paymentStatus,
                     'arrOrderDtls' => $orderDet,
