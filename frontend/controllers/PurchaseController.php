@@ -495,8 +495,7 @@ Below are the details:
 </table>
     
 </body>
-</html>
-';                
+</html>';                
 
 
 
