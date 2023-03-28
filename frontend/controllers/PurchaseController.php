@@ -399,7 +399,7 @@ Below are the details:
                                         Report Code : '.$orderDet['report_code'].'
                                     </td>
                                     <td width="25%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 15px 10px 5px 10px;">
-                                        $'.$orderDet['licence_amount'].'
+                                        $'.$orderDet['licence_amount'].'.00
                                     </td>
                                 </tr>
                                 
@@ -414,7 +414,7 @@ Below are the details:
                                         TOTAL
                                     </td>
                                     <td width="25%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
-                                        $'.$orderDet["licence_amount"].'
+                                        $'.$orderDet["licence_amount"].'.00
                                     </td>
                                 </tr>
                             </table>
