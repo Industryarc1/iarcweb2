@@ -148,8 +148,8 @@ $reportName = substr($orderInfo['title'], 0, strpos(strtolower($orderInfo['title
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <!-- Javascript Import -->
-<script src="https://www.paypal.com/sdk/js?client-id=ATHj-BC-e8TmIXkAF-R0Fqy0j51ukGjztiSxWKE1MFpyK8WyrEVd29JLM2_2072130-KeL-2tf2pjCYI&currency=USD"></script>
-<!--<script src="https://www.paypal.com/sdk/js?client-id=ARnP6MdktzVpOtd2ps9mNJAC_n0uw6LBxsZliVdVwhRkkS80eO_VwnFrJOy_HDlezUGkFpWO3-5f3WD7&currency=USD"></script>-->
+<!--<script src="https://www.paypal.com/sdk/js?client-id=ATHj-BC-e8TmIXkAF-R0Fqy0j51ukGjztiSxWKE1MFpyK8WyrEVd29JLM2_2072130-KeL-2tf2pjCYI&currency=USD"></script>-->
+<<script src="https://www.paypal.com/sdk/js?client-id=ARnP6MdktzVpOtd2ps9mNJAC_n0uw6LBxsZliVdVwhRkkS80eO_VwnFrJOy_HDlezUGkFpWO3-5f3WD7&currency=USD"></script>
 <!--<script src="<?= Url::base() . '/frontend/web/customAssets' ?>/js/paypall.config.js"></script>-->
 <!-- PayPal In-Context Checkout script -->
 <script type="text/javascript">
