@@ -394,7 +394,7 @@ Below are the details:
                                         Report Code : '.$orderDet['report_code'].'
                                     </td>
                                     <td width="25%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 15px 10px 5px 10px;">
-                                        $'.$orderDet['licence_amount'].'.00
+                                        $'.$orderDet['licence_amount'].'
                                     </td>
                                 </tr>
                                 
@@ -409,7 +409,7 @@ Below are the details:
                                         TOTAL
                                     </td>
                                     <td width="25%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
-                                        $'.$orderDet["licence_amount"].'.00
+                                        $'.$orderDet["licence_amount"].'
                                     </td>
                                 </tr>
                             </table>
@@ -765,7 +765,7 @@ div[style*="margin: 16px 0;"] { margin: 0 !important; }
                         <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
                             <img src="https://static.vecteezy.com/system/resources/thumbnails/004/628/192/small_2x/check-mark-icon-design-free-vector.jpg" width="75" style="display: block; border: 0px;" />
                             <h2 style="font-size: 20px; font-weight: 800; line-height: 36px; color: #333333; margin: 0;">
-                              Your Order Confirmed!
+                              Your Order Failed!
                             </h2>
                         </td>
                     </tr>
@@ -786,7 +786,7 @@ Below are the details:
                                     <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 800; line-height: 24px;">
                                        Order Date: '.date("d F, Y").'
                                        <br>
-                                       Order No: '.$orderDet["order_id"].'
+                                       Order No: Failed
 
                                     </td>
                                     <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 800; line-height: 24px;">
@@ -812,7 +812,7 @@ Below are the details:
                                         Report Code : '.$orderDet['report_code'].'
                                     </td>
                                     <td width="25%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 15px 10px 5px 10px;">
-                                        $'.$orderDet['licence_amount'].'00
+                                        $'.$orderDet['licence_amount'].'
                                     </td>
                                 </tr>
                                 
@@ -827,7 +827,7 @@ Below are the details:
                                         TOTAL
                                     </td>
                                     <td width="25%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
-                                        $'.$orderDet["licence_amount"].'.00
+                                        $'.$orderDet["licence_amount"].'
                                     </td>
                                 </tr>
                             </table>
