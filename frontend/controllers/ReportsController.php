@@ -108,7 +108,7 @@ class ReportsController extends IarcfbaseController {
     public function actionReport() {
 
         $arrRequest = Yii::$app->request->get();
-
+		
         /* inc_Id grater then 500000 indicates its new report
           and it need to be redirected to actionResearch */
         if ($arrRequest['inc_id'] >= 500000) {
@@ -122,6 +122,7 @@ class ReportsController extends IarcfbaseController {
                             ->andWhere(['curl' => $arrRequest['curl']])
                             ->andWhere(['status' => 1])
                             ->asArray()->one();
+							
             /* Below code is to featch the related report 	 */
             if (!empty($reportDetail['related'])) {
                 $arrRelated = ZspPosts::find()
@@ -144,6 +145,8 @@ class ReportsController extends IarcfbaseController {
                     ];
                 }
             }
+
+			
             if (empty($reportDetail)) {
                 return $this->goHome();
             }
@@ -153,6 +156,7 @@ class ReportsController extends IarcfbaseController {
 				->where(['inc_id' => $reportDetail['cat']])
 				->asArray()
 				->one();
+				
         }
 
         /* remember the page url in order to check the user is Loged in or not 
@@ -173,17 +177,18 @@ class ReportsController extends IarcfbaseController {
 
         if (isset($arrRequest['inc_id']) && !empty($arrRequest['inc_id'])) {
             $reportDetail = ZspPosts::find()
+							->select(['inc_id','cat','subcat','title','code','short_descr','description','table_of_content','report_type','pub_date','slp','clp','image','status','curl','meta_title','meta_keywords','meta_descr','seo_keyword','dt_created','related','taf','cc','pages','dup_inc_id','cbreadcrumb','pub_date_new','taf_new','region'])
                             ->where(['dup_inc_id' => $arrRequest['inc_id']])
                             ->andWhere(['curl' => $arrRequest['curl']])
                             ->andWhere(['status' => 1])
                             ->asArray()->one();
+							
             if (!empty($reportDetail['related'])) {
                 $arrRelated = ZspPosts::find()
+								->select(['inc_id','cat','subcat','title','code','short_descr','description','table_of_content','report_type','pub_date','slp','clp','image','status','curl','meta_title','meta_keywords','meta_descr','seo_keyword','dt_created','related','taf','cc','pages','dup_inc_id','cbreadcrumb','pub_date_new','taf_new','region'])
                                 ->where(['IN', 'code', explode(',', $reportDetail['related'])])
                                 ->andWhere(['status' => 1])
-								->orderBy("RAND()")
 								->limit(6)
-                                // ->createCommand()->rawSql;echo $arrRelated;exit;
                                 ->asArray()->All();
                 foreach ($arrRelated as $related) {
                     $pub_date = $related["pub_date_new"];
@@ -201,6 +206,7 @@ class ReportsController extends IarcfbaseController {
             if (empty($reportDetail)) {
                 return $this->goHome();
             }
+
             $reportDetail['brport'] = ZspCatlogCategories::find()->where(['inc_id' => $reportDetail['cat']])->asArray()->one();
         }
 
@@ -211,7 +217,6 @@ class ReportsController extends IarcfbaseController {
         return $this->render('report', [
                     'reportDet' => !empty($reportDetail) ? $reportDetail : [],
                     'relatedReport' => !empty($arrRelatedReport) ? $arrRelatedReport : [],
-                        //	'catDet'=>!empty($arrCategoryDetail)?$arrCategoryDetail:[],
         ]);
     }
 
@@ -265,8 +270,7 @@ class ReportsController extends IarcfbaseController {
 		$arrPost = Yii::$app->request->post();
         $dupIncId = filter_var(Yii::$app->request->get('id'), FILTER_VALIDATE_INT);		
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && empty($dupIncId)) {
-			//echo "deep";exit;
-            //return $this->redirect(['site/index']);
+
         }
 
         /* Capcha code start */
@@ -278,7 +282,7 @@ class ReportsController extends IarcfbaseController {
         /* Capcha code End */
         
         if ($isValidCaptcha && isset($arrPost) && !empty($arrPost)) {			
-            // echo "<pre>" ;print_r($arrPost);exit;
+           
             $priority = !empty($arrPost['priority_range']) ? $arrPost['priority_range'] : NULL;
             $type = 'RB';
             $ip = Yii::$app->getRequest()->getUserIP();
@@ -559,7 +563,7 @@ class ReportsController extends IarcfbaseController {
             if (empty($reportDetail)) {
                 return $this->goHome();
             }
-            //$_SESSION['curl'] = $reportDetail['curl'];
+            
             $zspCatlog = ZspCatlogCategories::find()->where(['inc_id' => $reportDetail["cat"]])->asArray()->one();
             $zspSubCatlog = ZspCatlogCategories::find()->where(['inc_id' => $reportDetail["subcat"]])->asArray()->one();
         }
@@ -880,8 +884,6 @@ class ReportsController extends IarcfbaseController {
         $isValidCaptcha = (Yii::$app->request->hostName == '34.90.23.238') ? TRUE : $responseData->success;
         /* Capcha code End */
         if ($isValidCaptcha && isset($arrPost) && !empty($arrPost)) {
-
-            //echo '<pre>';print_r($arrPost);exit;
 
             $type = 'AQ';
             $ip = Yii::$app->getRequest()->getUserIP();

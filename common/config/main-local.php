@@ -3,9 +3,9 @@ return [
     'components' => [
          'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=iarcdb-live',
+            'dsn' => 'mysql:host=34.67.44.136;dbname=iarcdb-live',
             'username' => 'iarcdbmain',
-            'password' => 'vpfjeVCuRqm4#5c9AhPeDdG6mGWX!jY6',
+            'password' => 'vpfjeVCuRqm3#c8AhPeDdG6mGWX!jY5',
             'charset' => 'utf8',
             'enableSchemaCache' => true,
             // Duration of schema cache.
