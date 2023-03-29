@@ -27,8 +27,10 @@ class ReportsController extends IarcfbaseController {
 
     public function actionCategoryWiseReport() {
         $arrRequest = Yii::$app->request->get();
+
         if (isset($arrRequest) && !empty($arrRequest)) {
-            $intReportsCount = ZspPostsQuery::getCategoryWiseReport(array_merge(['getCount' => TRUE], $arrRequest));
+            $objReportCatlog = ZspPostsQuery::getCategoryWiseReport(array_merge(['asObj' => TRUE], $arrRequest));
+			
             $arrCategoryDetail = ZspCatlogCategories::find()
                             ->where(['code' => (int)$arrRequest['cat']])
                             ->andWhere(['seo_keyword' => (string)$arrRequest['curl']])
@@ -37,18 +39,20 @@ class ReportsController extends IarcfbaseController {
             if (empty($arrCategoryDetail)) {
                 return $this->goHome();
             }
-            $objReportCatlog = ZspPostsQuery::getCategoryWiseReport(array_merge(['asObj' => TRUE], $arrRequest));
-            $count = $intReportsCount;
-            //creating the pagination object
-            $pagination = new Pagination(['totalCount' => $count, 'defaultPageSize' => 3000]);
+            
+            
             //limit the query using the pagination and retrieve the users
             /*$models = $objReportCatlog->offset($pagination->offset)
                     ->limit($pagination->limit)
                     ->all();*/
+			$forCount = $objReportCatlog->all();
+			$count = count($forCount);
+			
+            //creating the pagination object
+            $pagination = new Pagination(['totalCount' => $count, 'defaultPageSize' => 3000]);
 			$models = $objReportCatlog->offset($pagination->offset)
                     ->limit($pagination->limit)
-                    ->all();
-			//print_r($models);exit;			
+                    ->all();		
         } else {
             echo 'Please select an report';
             exit;
@@ -207,7 +211,7 @@ class ReportsController extends IarcfbaseController {
                 return $this->goHome();
             }
 
-            $reportDetail['brport'] = ZspCatlogCategories::find()->where(['inc_id' => $reportDetail['cat']])->asArray()->one();
+            $reportDetail['brport'] = ZspCatlogCategories::find()->select(['name', 'code', 'seo_keyword'])->where(['inc_id' => $reportDetail['cat']])->asArray()->one();
         }
 
         /* remember the page url in order to check the user is Loged in or not 
