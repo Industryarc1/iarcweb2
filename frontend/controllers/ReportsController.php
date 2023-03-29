@@ -174,7 +174,7 @@ class ReportsController extends IarcfbaseController {
         if ($arrRequest['inc_id'] < 500000) {
             return $this->redirect(['site/index']);
         }
-
+ 
         if (isset($arrRequest['inc_id']) && !empty($arrRequest['inc_id'])) {
             $reportDetail = ZspPosts::find()
 							->select(['inc_id','cat','subcat','title','code','short_descr','description','table_of_content','report_type','pub_date','slp','clp','image','status','curl','meta_title','meta_keywords','meta_descr','seo_keyword','dt_created','related','taf','cc','pages','dup_inc_id','cbreadcrumb','pub_date_new','taf_new','region'])
