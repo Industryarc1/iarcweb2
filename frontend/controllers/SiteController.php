@@ -77,7 +77,7 @@ class SiteController extends IarcfbaseController
     public function actionIndex()
     {
 		//$arrEmergingTrend = ZspPrsQuery::getListPress(['limit'=>4]);
-		$sql = "SELECT * FROM `zsp_prs` WHERE (`status`=1) AND (mnfctr <= CURRENT_DATE()) AND(LENGTH(TRIM(image)) > 0) ORDER BY `prod_id` DESC LIMIT 4";
+		$sql = "SELECT prod_id, title, image, short_descr, seo_keyword FROM `zsp_prs` WHERE (`status`=1) AND (mnfctr <= CURRENT_DATE()) AND(LENGTH(TRIM(image)) > 0) ORDER BY `prod_id` DESC LIMIT 4";
 		$arrEmergingTrend = Yii::$app->db->createCommand($sql)->queryAll();
 		// echo '<pre>';print_r($arrEmergingTrend);exit;
 		return $this->render('index',[

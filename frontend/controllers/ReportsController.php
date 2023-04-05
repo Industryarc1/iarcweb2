@@ -120,6 +120,7 @@ class ReportsController extends IarcfbaseController {
 
         if (isset($arrRequest['inc_id']) && !empty($arrRequest['inc_id'])) {
             $reportDetail = ZspPosts::find()
+                            ->select(['inc_id', 'cat', 'title', 'code', 'description', 'table_of_content', 'slp', 'clp', 'meta_title', 'meta_keywords', 'meta_descr', 'taf', 'taf_new', 'dup_inc_id', 'cbreadcrumb' ])    
                             ->where(['dup_inc_id' => $arrRequest['inc_id']])
                             ->andWhere(['curl' => $arrRequest['curl']])
                             ->andWhere(['status' => 1])
@@ -153,7 +154,11 @@ class ReportsController extends IarcfbaseController {
                 return $this->goHome();
             }
 
-            $reportDetail['brport'] = ZspCatlogCategories::find()->where(['inc_id' => $reportDetail['cat']])->asArray()->one();
+            $reportDetail['brport'] = ZspCatlogCategories::find()
+                ->select(['name', 'code', 'seo_keyword'])
+                ->where(['inc_id' => $reportDetail['cat']])
+                ->asArray()
+                ->one();
         }
 
 		$reportFaqs = ZspFaqs::find()->where(['inc_id' => $reportDetail['inc_id'],'status' =>1])->orderBy(['priority' => SORT_ASC])->asArray()->all();
