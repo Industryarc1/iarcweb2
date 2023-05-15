@@ -38,5 +38,10 @@ return [
 	'sitemap.html'=>'sitemap/sitemap-html',
 	//'quotation.php'=>'reports/request-quote',
 	'createsitemap'=>'sitemap/create-sitemap-xml',
+	'packagepage.php'=>'home/new-package',
+	'newcheckout.php'=>'home/new-checkout',
+	'thank-you.php' => 'purchase/thank-you',
+	'payment-failed.php' => 'purchase/payment-failed'
+
 	//'/category/<slug:.*>.html'=>'/finder/category',
 ];

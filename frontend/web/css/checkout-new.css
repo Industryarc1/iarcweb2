@@ -1,0 +1,268 @@
+
+@font-face {
+    font-family: 'open_sansbold';
+    src: url('Fonts/opensans-bold-webfont.woff2') format('woff2'),
+        url('Fonts/opensans-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('Fonts/opensans-regular-webfont.woff2') format('woff2'),
+        url('Fonts/opensans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+:root {
+    --prm-color: #0381ff;
+    --prm-gray: #b1b1b1;
+}
+
+/* CSS */
+.steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.step-button {
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    border: none;
+    background-color: #f4f4f4;
+    transition: .4s;
+    border: 3px solid #d5d5d5;
+}
+
+.step-button[aria-expanded="true"] {
+    width: 41px;
+    height: 41px;
+    background-color: #124477;
+    color: #fff;
+}
+
+.done {
+    background-color: #124477;
+    color: #fff;
+    border: 3px solid #124477;
+}
+
+.step-item {
+    z-index: 10;
+    text-align: center;
+}
+
+#progress {
+    position: absolute;
+    width: 95%;
+    z-index: 5;
+    height: 4px;
+    margin-left: 18px;
+    margin-bottom: 18px;
+}
+
+/* to customize progress bar */
+#progress::-webkit-progress-value {
+    background-color: #124477;
+    transition: .5s ease;
+}
+
+#progress::-webkit-progress-bar {
+    background-color: var(--prm-gray);
+
+}
+
+.cir1 {
+
+    height: 50px;
+    
+    border-radius: 50%;
+}
+.cir1 h6 i {
+    background: #124477;
+    padding: 14px 16px;
+    top: 0 !important;
+    border-radius: 50px;
+    left: 1px !important;
+}
+.cir1 p {
+    margin-left: -24px;
+    padding-top: 13px;
+}
+
+
+.accodian-sec:before {
+    position: absolute;
+    content: '';
+    width: 38%;
+    left: 8%;
+    height: 7%;
+    background: #124477;
+}
+
+.accodian-sec:after {
+    position: absolute;
+    content: '';
+    width: 38%;
+    right: 52px;
+    height: 7%;
+    background: #c3c3c3;
+}
+
+.accodian-sec {
+    position: relative;
+    max-width: 652px;
+    margin: 0 auto !important;
+}
+
+.accodian-sec i.fa-solid.fa-check {
+    position: absolute;
+    top: 29%;
+    left: 16px;
+    font-size: 23px;
+    color: #fff;
+}
+
+.accodian-sec {
+    position: relative;
+}
+
+.acodian-con {
+    background: #f7f7f7;
+    padding: 18px 0px;
+}
+
+.accodian-sec p {
+    font-size: 15px;
+    font-family: 'open_sansbold';
+}
+
+.Checkout-main-sec .Checkout-con {
+    max-width: 652px;
+    margin: 0 auto;
+}
+
+.Checkout-sec h1 {
+    font-size: 20.83px;
+    font-family: 'open_sansbold';
+}
+
+.Checkout-sec .step-title {
+    font-size: 13.33px;
+    font-family: 'open_sansbold';
+}
+
+.billing-review-sec h4 {
+    font-size: 17px;
+    font-family: 'open_sansbold';
+}
+
+.billing-review-sec .form-control {
+    border-radius: 0px;
+    background: #f2f2f2;
+}
+
+.form-label {
+    font-size: 16.67px;
+}
+
+.billing-review-sec .form-label {
+    font-size: 16.67px;
+    margin-bottom: 2px;
+    font-family: 'open_sansregular';
+}
+
+#adress {
+    font-size: 13px;
+    font-family: 'open_sansregular';
+}
+
+.billing-main-sec {
+    background: #f7f7f7;
+}
+
+.billing-review-sec {
+    background: #fff;
+}
+
+.bill-review-sec-con {
+    max-width: 1422px;
+    margin: 0 auto;
+}
+
+.billing-review-sec h5 {
+    font-size: 14.17px;
+    font-family: 'open_sansregular';
+}
+
+.form-check {
+    border: 1px solid;
+    width: 82%;
+    padding: 6px;
+}
+
+.bill-review-sec-con h6 {
+    font-size: 17px;
+    font-family: 'open_sansbold';
+    margin: 1px;
+}
+
+.bill-review-sec-con .btn {
+    background: #000;
+    color: #fff;
+}
+
+.bill-review-sec-con .btn:hover {
+    color: #fff;
+}
+
+.prise-row {
+    border-bottom: 2px solid #cacaca;
+}
+
+.prise-row2 {
+    border-bottom: 2px solid #cacaca;
+}
+
+label.form-check-label.ms-2 {
+    font-size: 15px;
+    font-family: 'open_sansregular';
+}
+
+.form-check1 {
+    border: 1px solid #9d9d9d;
+}
+
+.payment-sec {
+    font-size: 15px;
+    font-family: 'open_sansregular';
+}
+
+.terms-Conditions span.span-color {
+    color: #337ab7;
+}
+
+.terms-Conditions span.font-bold {
+    font-weight: 800;
+}
+
+.terms-Conditions .process-btn {
+    width: 100%;
+    background: #337ab7;
+    border: none;
+    color: #fff;
+    padding: 2%;
+    border-radius: 4px;
+}
+
+.terms-Conditions p {
+    font-size: 15px;
+    font-family: 'open_sansregular';
+}

@@ -9,22 +9,26 @@ use frontend\forms\BuyReportForm;
 use common\models\ZspUserAccounts;
 use frontend\helper\PurchaseHelper;
 
-class PurchaseController extends IarcfbaseController {
+class PurchaseController extends IarcfbaseController
+{
 
-    public function beforeAction($action) {
+    public function beforeAction($action)
+    {
         if ($action->id == 'payment-status' || $action->id == 'hdfc-payment-status') {
             $this->enableCsrfValidation = false;
         }
         return parent::beforeAction($action);
     }
 
-    public function actionBuyReport() {
+    public function actionBuyReport()
+    {
         $arrReportDetail = [];
         $arrPost = Yii::$app->request->post();
         $arrGet = Yii::$app->request->get();
         $session = Yii::$app->session;
         $arrSessionUser = Yii::$app->session->get('user');
-		//$arrGet['id'] = filter_var($arrGet['id'], FILTER_VALIDATE_INT);
+
+        //$arrGet['id'] = filter_var($arrGet['id'], FILTER_VALIDATE_INT);
 
         /* Capcha code start */
         $secret = '6LfezHYUAAAAAG98xgwe0N1MC8_7LjnPAL84NzSi';
@@ -38,7 +42,7 @@ class PurchaseController extends IarcfbaseController {
         $strLicenceAmount = NULL;
         if ($strReportId) {
             $arrReportDetail = ZspPosts::find()->where(['dup_inc_id' => $strReportId])->asArray()->one();
-
+            $session->set('orderDetails', $arrReportDetail);
             $session->set('order', [
                 'inc_id' => !empty($arrReportDetail['inc_id']) ? $arrReportDetail['inc_id'] : NULL,
                 'reportPrice' => !empty($strLicenceAmount) ? $strLicenceAmount : $arrReportDetail['slp'],
@@ -59,15 +63,15 @@ class PurchaseController extends IarcfbaseController {
             $model->country = !empty($arrSessionUser['country']) ? $arrSessionUser['country'] : NULL;
         }
         if ($isValidCaptcha && isset($arrPost) && !empty($arrPost)) {
-			//echo "<pre>";
-			//print_r($arrPost);exit;
+
+
             $arrSessionOrder = Yii::$app->session->get('order');
             $email = !empty($arrPost['email']) ? $arrPost['email'] : NULL;
             $isEmailExist = ZspUserAccounts::find()->where(['login_id' => $email])->exists();
             $orderId = PurchaseHelper::generateCode(8);
             $reportId = $arrSessionOrder['dup_inc_id'];
             $discount = !empty($arrPost['discount']) ? $arrPost['discount'] : 0;
-            $amount = !empty($arrPost['licence_price']) ? $arrPost['licence_price']-$discount : 0;
+            $amount = !empty($arrPost['licence_price']) ? $arrPost['licence_price'] - $discount : 0;
             $title = $arrSessionOrder['title'];
             $couponCode = !empty($arrPost['coupon_code']) ? $arrPost['coupon_code'] : NULL;
             //$discount = !empty($arrPost['discount']) ? $arrPost['discount'] : NULL;
@@ -99,11 +103,11 @@ class PurchaseController extends IarcfbaseController {
                     $msgNewUser = "Hi " . $fullName . " <br>You have successfully registerd into IndustryARC.<br> Your login details <br><br>User ID : " . $email . "<br>Password : " . $orderId;
                     $subject = "Welcome to IndustryARC : Registration Confirmation ";
                     Yii::$app->mailer->compose(['html' => '@common/mail/layouts/html'], ['content' => $msgNewUser])
-                            ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
-                            ->setTo($email)
-                            ->setBcc(\Yii::$app->params['testEmail'])
-                            ->setSubject($subject)
-                            ->send();
+                        ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
+                        ->setTo($email)
+                        // ->setBcc(\Yii::$app->params['testEmail'])
+                        ->setSubject($subject)
+                        ->send();
                 }
             }
 
@@ -139,23 +143,31 @@ class PurchaseController extends IarcfbaseController {
             /* set order related data in session::End */
 
             //return $this->redirect(['confirm-buy-report', 'id' => $orderId.$arrPost['utmParam']]);
-            return $this->redirect(['confirm-buy-report', 'id' => $orderId,'utm_source' =>$arrPost['utmParam']]);
+            // return $this->redirect(['confirm-buy-report', 'id' => $orderId,'utm_source' =>$arrPost['utmParam']]);
+
+            return json_encode(['id' => $orderId, 'utm_source' => $arrPost['utmParam']]);
         }
 
         return $this->render('buyReport', [
-                    'model' => $model,
-                    'user' => $arrSessionUser,
-                    'report' => $arrReportDetail,
-                    'reportId' => $strReportId,
-                    'licenceAmount' => $strLicenceAmount,
+            'model' => $model,
+            'user' => $arrSessionUser,
+            'report' => $arrReportDetail,
+            'reportId' => $strReportId,
+            'licenceAmount' => $strLicenceAmount,
         ]);
     }
 
-    public function actionConfirmBuyReport() {
+    public function actionConfirmBuyReport()
+    {
         $arrPost = Yii::$app->request->post();
         $orderId = Yii::$app->request->get('id');
         $orderSession = Yii::$app->session->get('order');
         $userId = $orderSession['user_id'];
+
+        /* echo "<pre>";
+        print_r($orderSession);
+        exit; */
+
         if (($_SERVER["REQUEST_METHOD"] == "GET") && (empty($orderId) || $orderId != $orderSession['order_id'])) {
             echo '<h3> Invalid Request Found !!!!!!!!</h3>';
             exit;
@@ -167,10 +179,10 @@ class PurchaseController extends IarcfbaseController {
                 $MERCHANT_KEY = "VWFiSz";
                 $SALT = "2VZlJHZ6";
                 //$PAYU_BASE_URL = "https://test.payu.in"; //Test Url
-                $PAYU_BASE_URL = "https://secure.payu.in";//Produvction Url
+                $PAYU_BASE_URL = "https://secure.payu.in"; //Produvction Url
 
                 $surl = $furl = $curl = $returnUrl = ($_SERVER['HTTP_HOST'] == 'localhost') ? 'http://localhost/stagging_industryarc/purchase/hdfc-payment-status' : 'https://www.industryarc.com/purchase/hdfc-payment-status';
-                
+
                 $hidReportName = $orderSession['title'];
                 $hidReportName = str_replace('&', 'and', $hidReportName);
                 $hidReportName = str_replace('-', ' ', $hidReportName);
@@ -226,11 +238,12 @@ class PurchaseController extends IarcfbaseController {
             }
         }
         return $this->render('confirmBuyReport', [
-                    'orderInfo' => !empty($orderSession) ? $orderSession : [],
+            'orderInfo' => !empty($orderSession) ? $orderSession : [],
         ]);
     }
 
-    public function actionPaymentResponce() {
+    public function actionPaymentResponce()
+    {
         $session = Yii::$app->session;
         $orderSession = $session->get('order');
         if (!empty($_POST)) {
@@ -241,20 +254,24 @@ class PurchaseController extends IarcfbaseController {
         return TRUE;
     }
 
-    public function actionPaymentStatus() {
+    public function actionPaymentStatus()
+    {
+        $session = Yii::$app->session;
         $arrOrderDtls = $arrOrderHdrs = [];
         $paymentStatus = NULL;
         $orderDet = Yii::$app->session->get('order');
         $orderId = (!empty($orderDet['order_id'])) ? $orderDet['order_id'] : NULL;
-		//echo '<pre>';print_r($_REQUEST);exit;
+        //echo '<pre>';print_r($_REQUEST);exit;
         if (!empty($orderDet['paypall_orderID']) || !empty($_REQUEST["razor_payId"])) {
             $paymentStatus = 'SUCCESS';
             /* STATUS OP = Order Placed */
             $updateOrderHdrs = "update zsp_order_hdrs set order_status='OP' where order_num='$orderId'";
             $isUpdatedOrderHdrs = Yii::$app->db->createCommand($updateOrderHdrs)->execute();
             $arrOrderHdrs = \common\models\ZspOrderHdrs::find()
-                            ->where(['order_num' => $orderId])
-                            ->asArray()->one();
+                ->where(['order_num' => $orderId])
+                ->asArray()->one();
+            $session->set('customerDetails', $arrOrderHdrs);
+
 
             $mailmsg = '
 					  <table width="100%" cellspacing="0" cellpadding="0" border="0">
@@ -296,15 +313,15 @@ class PurchaseController extends IarcfbaseController {
 					  <tr>
 					  <td colspan="2">
 					  <table width="100%" cellspacing="0" cellpadding="10px" bordercolor="#f0dfd3" border="1" style="border-collapse:collapse">
-					  <tr style="background-color:#a14b2a">
+					  <tr style="background-color:#0E5CA3">
 
-					  <td width="42%" height="30" align="center" valign="middle" class="td_txt1">Item</td>                      
-					  <td width="25%" height="30" align="center" valign="middle" class="td_txt1">Quantity</td>
-					  <td width="33%" height="30" align="center" valign="middle" class="td_txt1">Price</td>
-					  </tr>';
+    <td style="color:#fff;" width="42%" height="30" align="center" valign="middle" class="td_txt1">Item</td>                      
+    <td style="color:#fff;" width="25%" height="30" align="center" valign="middle" class="td_txt1">Quantity</td>
+    <td style="color:#fff;" width="33%" height="30" align="center" valign="middle" class="td_txt1">Price</td>
+    </tr>';
             $arrOrderDtls = \common\models\ZspOrderDtls::find()
-                            ->where(['order_hdr_num' => $orderId])
-                            ->asArray()->all();
+                ->where(['order_hdr_num' => $orderId])
+                ->asArray()->all();
 
             if (count($arrOrderDtls) > 0) {
                 // for multiple order
@@ -322,16 +339,16 @@ class PurchaseController extends IarcfbaseController {
                 $subject = "Industryarc : Order Confirmation ";
 
                 Yii::$app->mailer->compose(['html' => '@common/mail/layouts/html'], ['content' => $emailMessage])
-                        ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
-                        ->setTo(\Yii::$app->params['salesEmail'])
-                        ->setBcc(\Yii::$app->params['testEmail'])
-                        ->setSubject($subject)
-                        ->send();
+                    ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
+                    ->setTo($arrOrderHdrs['login_id'])
+                    // ->setBcc(\Yii::$app->params['testEmail'])
+                    ->setSubject($subject)
+                    ->send();
             }
-        }else{
+        } else {
             $arrOrderHdrs = \common\models\ZspOrderHdrs::find()
-                            ->where(['order_num' => $orderId])
-                            ->asArray()->one();
+                ->where(['order_num' => $orderId])
+                ->asArray()->one();
 
             $mailmsg = '
 					  <table width="100%" cellspacing="0" cellpadding="0" border="0">
@@ -380,8 +397,8 @@ class PurchaseController extends IarcfbaseController {
 					  <td width="33%" height="30" align="center" valign="middle" class="td_txt1">Price</td>
 					  </tr>';
             $arrOrderDtls = \common\models\ZspOrderDtls::find()
-                            ->where(['order_hdr_num' => $orderId])
-                            ->asArray()->all();
+                ->where(['order_hdr_num' => $orderId])
+                ->asArray()->all();
 
             if (count($arrOrderDtls) > 0) {
                 // for multiple order
@@ -399,21 +416,22 @@ class PurchaseController extends IarcfbaseController {
                 $subject = "Industryarc : Order Payment Failed ";
 
                 Yii::$app->mailer->compose(['html' => '@common/mail/layouts/html'], ['content' => $emailMessage])
-                        ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
-                        ->setTo(\Yii::$app->params['salesEmail'])
-                        ->setBcc(\Yii::$app->params['testEmail'])
-                        ->setSubject($subject)
-                        ->send();
+                    ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
+                    ->setTo(\Yii::$app->params['salesEmail'])
+                    // ->setBcc(\Yii::$app->params['testEmail'])
+                    ->setSubject($subject)
+                    ->send();
             }
-		}
+        }
         unset($_SESSION['order']);
         return $this->render('paymentStatus', [
-                    'payStatus' => $paymentStatus,
-                    'arrOrderDtls' => $orderDet,
+            'payStatus' => $paymentStatus,
+            'arrOrderDtls' => $orderDet,
         ]);
     }
 
-    public function actionHdfcPaymentStatus() {
+    public function actionHdfcPaymentStatus()
+    {
         $arrOrderDtls = $arrOrderHdrs = [];
         $paymentStatus = NULL;
         $salt = "2VZlJHZ6";
@@ -456,8 +474,8 @@ class PurchaseController extends IarcfbaseController {
                         $isUpdatedOrderHdrs = Yii::$app->db->createCommand($updateOrderHdrs)->execute();
 
                         $arrOrderHdrs = \common\models\ZspOrderHdrs::find()
-                                        ->where(['order_num' => $orderId])
-                                        ->asArray()->one();
+                            ->where(['order_num' => $orderId])
+                            ->asArray()->one();
 
                         $mailmsg = '
 					  <table width="100%" cellspacing="0" cellpadding="0" border="0">
@@ -506,8 +524,8 @@ class PurchaseController extends IarcfbaseController {
 					  <td width="33%" height="30" align="center" valign="middle" class="td_txt1">Price</td>
 					  </tr>';
                         $arrOrderDtls = \common\models\ZspOrderDtls::find()
-                                        ->where(['order_hdr_num' => $orderId])
-                                        ->asArray()->all();
+                            ->where(['order_hdr_num' => $orderId])
+                            ->asArray()->all();
 
                         if (count($arrOrderDtls) > 0) {
                             // for multiple order
@@ -525,11 +543,11 @@ class PurchaseController extends IarcfbaseController {
                             $subject = "Industryarc : Order Confirmation ";
 
                             Yii::$app->mailer->compose(['html' => '@common/mail/layouts/html'], ['content' => $emailMessage])
-                                    ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
-                                    ->setTo(\Yii::$app->params['salesEmail'])
-                                    ->setBcc(\Yii::$app->params['testEmail'])
-                                    ->setSubject($subject)
-                                    ->send();
+                                ->setFrom([\Yii::$app->params['supportEmail'] => 'IndustryARC'])
+                                ->setTo(\Yii::$app->params['salesEmail'])
+                                // ->setBcc(\Yii::$app->params['testEmail'])
+                                ->setSubject($subject)
+                                ->send();
                         }
                     } else {
                         $paymentStatus = NULL;
@@ -541,60 +559,71 @@ class PurchaseController extends IarcfbaseController {
         }
         unset($_SESSION['order']);
         return $this->render('paymentStatus', [
-                    'payStatus' => $paymentStatus,
-                    'arrOrderDtls' => $orderDet,
+            'payStatus' => $paymentStatus,
+            'arrOrderDtls' => $orderDet,
         ]);
     }
-	
-	public function actionApplyCoupon(){
-		//echo $_GET['coupon_code'];exit;
-		$Response = NULL;
-		if(!empty($_POST['coupon_code'])){
-			$couponCode = \Yii::$app->db->quoteValue($_POST['coupon_code']);
-			$sql= "SELECT * FROM zsp_coupons WHERE coupon_code = ".$couponCode." AND STATUS = 1";
-			$query = Yii::$app->db->createCommand($sql)->queryOne();
-			if(!empty($query)){
-				$validFrom = strtotime($query['validity_from']);
-				$validTill = strtotime($query['validity_till']);
-				$currentDT = date('Y-m-d H:i:s');
-				//$currentDT = strtotime("2018-02-06 11:09:35");
-				$currentDT = strtotime(date('Y-m-d H:i:s'));
-				/* current date and Time */
-				if ((($currentDT < $validFrom) && ($currentDT > $validTill)) || (($currentDT > $validFrom) && ($currentDT < $validTill)) ){
-					$discountDetail = $this->getDiscount($_POST['price'],$query['discount'],$query['type']);
-					$Response['success'] = $discountDetail;
-				}else{
-					$Response['error'] = 'Coupon Code is expired.';
-				}
-			}else{
-				$Response['error'] = 'Invalid Coupon Code.';
-			}
-		}
-		return json_encode($Response);
-	}
-	
-	public function getDiscount($price,$discount,$type){
-		//echo $price.' AND '.$discount;
-		$response = NULL;
-		if(!empty($price) && !empty($discount)){
-			if($type=="PERCENTAGE"){
-				$discountAmount = ($price*($discount/100));
-				$discountAmount = round($discountAmount,2);
-				$response = [
-					'actual_price'=>$price,
-					'discount_price'=>$discountAmount,
-					'sale_price'=>$price - $discountAmount,
-				];
-			}else{
-				$discountAmount = $discount;
-				$response = [
-					'actual_price'=>$price,
-					'discount_price'=>$discountAmount,
-					'sale_price'=>$price - $discountAmount,
-				];
-			}			
-		}
-		return $response;
-	}
 
+    public function actionApplyCoupon()
+    {
+        //echo $_GET['coupon_code'];exit;
+        $Response = NULL;
+        if (!empty($_POST['coupon_code'])) {
+            $couponCode = \Yii::$app->db->quoteValue($_POST['coupon_code']);
+            $sql = "SELECT * FROM zsp_coupons WHERE coupon_code = " . $couponCode . " AND STATUS = 1";
+            $query = Yii::$app->db->createCommand($sql)->queryOne();
+            if (!empty($query)) {
+                $validFrom = strtotime($query['validity_from']);
+                $validTill = strtotime($query['validity_till']);
+                $currentDT = date('Y-m-d H:i:s');
+                //$currentDT = strtotime("2018-02-06 11:09:35");
+                $currentDT = strtotime(date('Y-m-d H:i:s'));
+                /* current date and Time */
+                if ((($currentDT < $validFrom) && ($currentDT > $validTill)) || (($currentDT > $validFrom) && ($currentDT < $validTill))) {
+                    $discountDetail = $this->getDiscount($_POST['price'], $query['discount'], $query['type']);
+                    $Response['success'] = $discountDetail;
+                } else {
+                    $Response['error'] = 'Coupon Code is expired.';
+                }
+            } else {
+                $Response['error'] = 'Invalid Coupon Code.';
+            }
+        }
+        return json_encode($Response);
+    }
+
+    public function getDiscount($price, $discount, $type)
+    {
+        //echo $price.' AND '.$discount;
+        $response = NULL;
+        if (!empty($price) && !empty($discount)) {
+            if ($type == "PERCENTAGE") {
+                $discountAmount = ($price * ($discount / 100));
+                $discountAmount = round($discountAmount, 2);
+                $response = [
+                    'actual_price' => $price,
+                    'discount_price' => $discountAmount,
+                    'sale_price' => $price - $discountAmount,
+                ];
+            } else {
+                $discountAmount = $discount;
+                $response = [
+                    'actual_price' => $price,
+                    'discount_price' => $discountAmount,
+                    'sale_price' => $price - $discountAmount,
+                ];
+            }
+        }
+        return $response;
+    }
+
+    public function actionThankYou()
+    {
+        return $this->render('thankyou');
+    }
+
+    public function actionPaymentFailed()
+    {
+        return $this->render('paymentfailed');
+    }
 }

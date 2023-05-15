@@ -1,0 +1,127 @@
+
+.bannertext h5 {
+    font-size: 1.5em;
+}
+
+.bannertext h6 {
+    font-size: 1.25em;
+}
+
+.popular.mb-2 {
+    min-height: 43px;
+}
+
+.popular.advaced {
+    background: #62bdde;
+    color: #fff;
+}
+
+.popular.advaced {
+    background: #62bdde;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.popular h2 {
+    font-size: 1em;
+}
+
+.faq-sec h4 {
+    font-size: 1.2em;
+}
+
+.tital-bar {
+    background: #0E5CA3;
+    color: #fff;
+    min-height: 60px;
+
+}
+
+.faq-sec h1 {
+    font-size: 1.5em;
+    line-height: 1em;
+}
+
+.sub-title {
+    font-size: 0.7em;
+
+}
+
+.faq-sec a.btn-teal:hover {
+    background: #212529;
+    color: #fff;
+}
+
+.faq-sec a.buttion-cost {
+    background: #0E5CA3;
+    color: #fff;
+    font-size: 14px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+}
+
+.popular-sec {
+    min-height: 171px;
+    background: #f7f7f7;
+    margin-right: 2px;
+}
+
+.accordion-item {
+    margin-left: 4px;
+}
+
+.accordion-body p {
+
+    font-size: 14px;
+}
+
+.accordion-body i.fa-solid.fa-check {
+    font-size: 18px;
+}
+
+.accordion-body i.fa-solid.fa-xmark {
+    font-size: 18px;
+}
+
+button.accordion-button1 {
+    display: none;
+}
+
+.faq-sec1 {
+    padding: 0px !important;
+}
+
+.faq-sec a.buttion-cost1 {
+    background: #ffffff;
+    color: #000000;
+    font-size: 14px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+}
+
+button.accordion-button.collapsed1 {
+    background: #e7f1ff;
+    z-index: 3;
+    color: #0c63e4;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+}
+
+.co-radius {
+    border-top-left-radius: 10px;
+}
+
+.ex-radius {
+    border-top-right-radius: 10px;
+}
+
+.aco-btn {
+    border-bottom-left-radius: 10px;
+}
+
+button.accordion-button.collapsed1.aco-btn {
+    border-bottom-right-radius: 10px;
+}
+
+button.accordion-button.collapsed1.aco-btn {
+    border-bottom-left-radius: 10px;
+}

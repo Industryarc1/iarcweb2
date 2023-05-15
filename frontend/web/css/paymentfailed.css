@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'open_sansbold';
+    src: url('Fonts/opensans-bold-webfont.woff2') format('woff2'),
+        url('Fonts/opensans-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('Fonts/opensans-regular-webfont.woff2') format('woff2'),
+        url('Fonts/opensans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.purchseFailedMain {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 100px 0;
+}
+.purchseFailedMain i {
+font-size: 8rem;
+color: #124477;
+}
+.purchseFailedMain a {
+    width: 29%;
+    background: #62bdde;
+    color: #fff;
+    border-radius: 5px;
+    padding: 13px;
+    font-family: 'open_sansbold';
+    font-size: 17px;
+    }
+    .purchseFailedMain h2 {
+        font-size: 78px;
+        font-family: 'open_sansbold';
+        color: #124477;
+    }

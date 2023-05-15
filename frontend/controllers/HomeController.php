@@ -28,6 +28,16 @@ class HomeController extends IarcfbaseController {
         }
     }
 
+    public function actionNewPackage()
+    {
+        return $this->render('package');
+    }
+
+    public function actionNewCheckout()
+    {
+        return $this->render('newcheckout');
+    }
+
     public function actionPrivacy() {
         return $this->render('privacy');
     }
