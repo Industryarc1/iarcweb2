@@ -44,7 +44,7 @@ foreach($arrMatchKeys as $key){
 	<!--<li><marquee><h5><b style="color:white;">Limited time discount of $1,000 on all report purchases | Use code:</b> <b style="color:yellow;">FLAT1000</b></h5></marquee></li>-->
     <li ><a href="https://www.industryarc.com/contact-us.php">Contact Us</a></li>
     <li><span><i class="call"></i>IND: (+91) 40-485-49062</span></li>
-    <li><span><i class="call"></i>USA: (+1) 970-236-3677</span></li>
+    <li><span><i class="call"></i>USA: (+1) 518 282 4727</span></li>
   </ul>
   <?php include('headerMenu.php')?>
 
@@ -58,7 +58,7 @@ foreach($arrMatchKeys as $key){
 "description" : "IndustryARC™ is the Leading Provider of Market Research Reports, Custom Consulting Services, Data Analytics and Industry Analysis",
 "image" : "/images/Arc_logo.png",
 "alternateName" : "IARC",
-"telephone" : "+1 970-236-3677",
+"telephone" : "(+1) 518 282 4727",
 "email" : "sales@industryarc.com",
 "address" : {
 "@type" : "PostalAddress",
