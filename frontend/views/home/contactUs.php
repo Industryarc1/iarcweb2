@@ -120,8 +120,7 @@ $utmParam = !empty($utmsrc)?'&utm_source='.$utmsrc.'&utm_medium='.$utmmed.'&utm_
                                     Lets Talk
                                 </span>
                                 <span class="txt3">
-                                    Tel: (+91) 040-48549062 / 040-48549063<br>
-                                    US Contact: (+1) 970-236-3677
+                                    US Contact: (+1) 518 282 4727
                                 </span>
                             </div>
                         </div>
