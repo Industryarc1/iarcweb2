@@ -43,7 +43,7 @@ foreach($arrMatchKeys as $key){
   <ul class="nav-small rsp-hide">
 	<!--<li><marquee><h5><b style="color:white;">Limited time discount of $1,000 on all report purchases | Use code:</b> <b style="color:yellow;">FLAT1000</b></h5></marquee></li>-->
     <li ><a href="https://www.industryarc.com/contact-us.php">Contact Us</a></li>
-    <li><span><i class="call"></i>USA: (+1) 970-236-3677</span></li>
+    <li><span><i class="call"></i>USA: +1 518 282 4727</span></li>
   </ul>
   <?php include('headerMenu.php')?>
 
