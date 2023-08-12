@@ -89,7 +89,7 @@ function(e){ LiveAgent.createButton('26tepf98', e); });
       <h3>Contact Us</h3>
       <!--<p class="address">Plot No. 56, HUDA Techno Enclave LP Towers, Opp. Melange Tower, Madhapur, Hyderabad, Telangana 500081</p>-->
       <p class="mail">sales@industryarc.com</p>
-      <p class="phone"> +1970-236-3677</p>
+      <p class="phone"> (+1) 518 282 4727</p>
     </div>
   </div>
     <div class="row">
