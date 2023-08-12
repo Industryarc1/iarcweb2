@@ -57,7 +57,7 @@ foreach($arrMatchKeys as $key){
 "description" : "IndustryARC™ is the Leading Provider of Market Research Reports, Custom Consulting Services, Data Analytics and Industry Analysis",
 "image" : "/images/Arc_logo.png",
 "alternateName" : "IARC",
-"telephone" : "+1 970-236-3677",
+"telephone" : "+1 518 282 4727",
 "email" : "sales@industryarc.com",
 "address" : {
 "@type" : "PostalAddress",
